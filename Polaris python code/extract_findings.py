@@ -24,8 +24,6 @@ def fetch_projects(session, url, limit=100):
     return response.json()
 
 def main():
-
-
     if len(sys.argv) < 3:
         print("Usage: python extract_findings.py <polaris_url> <api_token> [project_index]")
         sys.exit(1)
@@ -43,19 +41,12 @@ def main():
     session = createSession(url, token)
     projects_data = fetch_projects(session, url)
     projects = projects_data.get('_items', [])
-    print(f"Found {len(projects)} projects:")
-    for idx, proj in enumerate(projects):
-        app = proj.get('application', {})
-        #print(f"[{idx}] Project: {proj.get('name')} (ID: {proj.get('id')}) | App: {app.get('name')} (ID: {app.get('id')})")
-
     if not projects:
         print("No projects found.")
         sys.exit(1)
-
     if project_index < 0 or project_index >= len(projects):
         print(f"Invalid project_index {project_index}. Must be between 0 and {len(projects)-1}.")
         sys.exit(1)
-
     selected_proj = projects[project_index]
     project_id = selected_proj.get('id')
     project_name = selected_proj.get('name')
@@ -75,60 +66,93 @@ def main():
         json.dump(issues, f, indent=2)
     print(f"Issues written to {json_path}")
 
-    # Lag SARIF fil
+    # Build SARIF file in the requested format
     sarif = {
         "version": "2.1.0",
         "runs": [{
             "tool": {
                 "driver": {
-                    "name": "Polaris Custom Import",
-                    "informationUri": "https://www.synopsys.com/",
+                    "name": "CodeScanner",
                     "rules": []
                 }
             },
+            "artifacts": [],
             "results": []
         }]
     }
 
+    rule_id_map = {}  # Map rule_id to ruleIndex
+    artifact_map = {}  # Map file_path to artifact index
+    rules = sarif["runs"][0]["tool"]["driver"]["rules"]
+    artifacts = sarif["runs"][0]["artifacts"]
+    results = sarif["runs"][0]["results"]
+
     for issue in issues:
         rule_id = str(issue.get("issueType", "PolarisIssue"))[:255]
-        rule_title = str(issue.get("title", rule_id))
-        description = str(issue.get("description", "No description provided."))
-        remediation = str(issue.get("remediation", ""))
-        file_path = issue.get("location", {}).get("filePath", "UNKNOWN")
-        line = issue.get("location", {}).get("line", 1)
-        severity = str(issue.get("severity", "warning")).lower()
+        message = str(issue.get("message", str(issue)))
+        location = issue.get("location", {})
+        file_path = location.get("filePath", "UNKNOWN")
+        line = location.get("line", 1)
+        logical_name = issue.get("function", None) or issue.get("logicalLocation", None)
+
+        # Add artifact if not already present
+        if file_path not in artifact_map:
+            artifact_index = len(artifacts)
+            artifact_map[file_path] = artifact_index
+            artifacts.append({
+                "location": {
+                    "uri": file_path,
+                    "uriBaseId": "SRCROOT"
+                },
+                "sourceLanguage": "python"
+            })
+        else:
+            artifact_index = artifact_map[file_path]
 
         # Add rule if not already present
-        rules = sarif["runs"][0]["tool"]["driver"]["rules"]
-        if not any(r["id"] == rule_id for r in rules):
+        if rule_id not in rule_id_map:
+            rule_index = len(rules)
+            rule_id_map[rule_id] = rule_index
             rules.append({
                 "id": rule_id,
-                "name": rule_title,
-                "shortDescription": {"text": rule_title},
-                "fullDescription": {"text": description},
-                "help": {
-                    "text": remediation or "See documentation for remediation steps.",
-                    "markdown": remediation or "See documentation for remediation steps."
+                "fullDescription": {
+                    "text": message
                 },
-                "helpUri": "https://owasp.org/www-community/Improper_Error_Handling"
+                "messageStrings": {
+                    "default": {
+                        "text": message
+                    }
+                }
             })
+        else:
+            rule_index = rule_id_map[rule_id]
 
-        sarif["runs"][0]["results"].append({
+        result = {
             "ruleId": rule_id,
-            "message": {"text": f"{rule_title} at {file_path}:{line}.\n{description}"},
+            "ruleIndex": rule_index,
+            "message": {
+                "id": "default",
+                "arguments": [message]
+            },
             "locations": [{
                 "physicalLocation": {
-                    "artifactLocation": {"uri": file_path},
-                    "region": {"startLine": line}
-                }
-            }],
-            "properties": {
-                "severityLevel": severity
-            }
-        })
+                    "artifactLocation": {
+                        "uri": file_path,
+                        "uriBaseId": "SRCROOT",
+                        "index": artifact_index
+                    },
+                    "region": {
+                        "startLine": line
+                    }
+                },
+                "logicalLocations": ([{
+                    "fullyQualifiedName": logical_name
+                }] if logical_name else [])
+            }]
+        }
+        results.append(result)
 
-    with open("polaris_issues.sarif", "w") as f:
+    with open(sarif_path, "w") as f:
         json.dump(sarif, f, indent=2)
     print("SARIF file written to polaris_issues.sarif")
 
