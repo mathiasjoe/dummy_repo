@@ -109,7 +109,7 @@ def main():
                 "fullDescription": {"text": description},
                 "help": {
                     "text": remediation or "See documentation for remediation steps.",
-                    "markdown": True
+                    "markdown": remediation or "See documentation for remediation steps."
                 },
                 "helpUri": "https://owasp.org/www-community/Improper_Error_Handling"
             })
