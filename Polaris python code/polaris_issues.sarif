@@ -4,7 +4,7 @@
     {
       "tool": {
         "driver": {
-          "name": "CodeScanner",
+          "name": "Polaris-Scanner",
           "rules": [
             {
               "id": "5a2ae4c1-4a3b-9291-6fc9-0f2c42bb6ce6",
@@ -110,7 +110,7 @@
       "artifacts": [
         {
           "location": {
-            "uri": "UNKNOWN",
+            "uri": "POLARIS",
             "uriBaseId": "SRCROOT"
           },
           "sourceLanguage": "python"
@@ -127,7 +127,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -148,7 +148,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -169,7 +169,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -190,7 +190,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -211,7 +211,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -232,7 +232,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -253,7 +253,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -274,7 +274,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -295,7 +295,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -316,7 +316,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -337,7 +337,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -358,7 +358,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -379,7 +379,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -400,7 +400,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -421,7 +421,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -442,7 +442,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -463,7 +463,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -484,7 +484,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -505,7 +505,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -526,7 +526,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -547,7 +547,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -568,7 +568,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -589,7 +589,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -610,7 +610,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -631,7 +631,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -652,7 +652,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -673,7 +673,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -694,7 +694,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -715,7 +715,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -736,7 +736,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -757,7 +757,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -778,7 +778,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -799,7 +799,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -820,7 +820,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -841,7 +841,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -862,7 +862,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -883,7 +883,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -904,7 +904,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -925,7 +925,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -946,7 +946,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -967,7 +967,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },
@@ -988,7 +988,7 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "UNKNOWN",
+                  "uri": "POLARIS",
                   "uriBaseId": "SRCROOT",
                   "index": 0
                 },

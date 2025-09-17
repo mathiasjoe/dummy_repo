@@ -93,20 +93,9 @@ def main():
         if isinstance(issue_type, dict):
             rule_id = str(issue_type.get("id", "PolarisIssue"))[:255]
             rule_name = str(issue_type.get("name", "Polaris Issue"))
-            # Try to get detailed description from _localized.otherDetail
-            description = None
-            localized = issue_type.get("_localized", {})
-            if isinstance(localized, dict):
-                other_details = localized.get("otherDetail", [])
-                if isinstance(other_details, list):
-                    for detail in other_details:
-                        if detail.get("key") == "description":
-                            description = detail.get("value")
-                            break
         else:
             rule_id = str(issue_type)[:255]
             rule_name = str(issue_type)
-            description = None
 
         # Use a human-readable message
         message = issue.get("message")
@@ -140,7 +129,7 @@ def main():
                 "id": rule_id,
                 "name": rule_name,
                 "fullDescription": {
-                    "text": description if description else rule_name
+                    "text": message
                 }
             })
         else:
