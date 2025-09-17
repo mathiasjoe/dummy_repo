@@ -3,6 +3,10 @@ name: Run Polaris Extract and Upload SARIF
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   extract-findings:
     runs-on: ubuntu-latest
