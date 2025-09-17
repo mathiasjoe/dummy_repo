@@ -92,29 +92,40 @@ def main():
 
     for issue in issues:
         rule_id = str(issue.get("issueType", "PolarisIssue"))[:255]
-        message = str(issue.get("message", str(issue)))
-        location = issue.get("location", {})
-        file_path = location.get("filePath", str(project_index))
-        line = location.get("line", 1)
+        rule_title = str(issue.get("title", rule_id))
+        description = str(issue.get("description", "No description provided."))
+        remediation = str(issue.get("remediation", ""))
+        file_path = issue.get("location", {}).get("filePath", "UNKNOWN")
+        line = issue.get("location", {}).get("line", 1)
+        severity = str(issue.get("severity", "warning")).lower()
 
         # Add rule if not already present
         rules = sarif["runs"][0]["tool"]["driver"]["rules"]
         if not any(r["id"] == rule_id for r in rules):
             rules.append({
                 "id": rule_id,
-                "name": rule_id,
-                "shortDescription": {"text": rule_id}
+                "name": rule_title,
+                "shortDescription": {"text": rule_title},
+                "fullDescription": {"text": description},
+                "help": {
+                    "text": remediation or "See documentation for remediation steps.",
+                    "markdown": True
+                },
+                "helpUri": "https://owasp.org/www-community/Improper_Error_Handling"
             })
 
         sarif["runs"][0]["results"].append({
             "ruleId": rule_id,
-            "message": {"text": message},
+            "message": {"text": f"{rule_title} at {file_path}:{line}.\n{description}"},
             "locations": [{
                 "physicalLocation": {
                     "artifactLocation": {"uri": file_path},
                     "region": {"startLine": line}
                 }
-            }]
+            }],
+            "properties": {
+                "severityLevel": severity
+            }
         })
 
     with open("polaris_issues.sarif", "w") as f:
