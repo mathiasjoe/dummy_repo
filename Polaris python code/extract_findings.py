@@ -132,7 +132,8 @@ def main():
             "ruleIndex": rule_index,
             "message": {
                 "id": "default",
-                "arguments": [message]
+                "arguments": [message],
+                "text": message
             },
             "locations": [{
                 "physicalLocation": {
