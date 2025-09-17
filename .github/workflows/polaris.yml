@@ -1,11 +1,12 @@
-name: Run Polaris Extract and Upload SARIF
 
-on:
-  workflow_dispatch:
+name: Run Polaris Extract and Upload SARIF
 
 permissions:
   contents: read
   security-events: write
+
+on:
+  workflow_dispatch:
 
 jobs:
   extract-findings:
