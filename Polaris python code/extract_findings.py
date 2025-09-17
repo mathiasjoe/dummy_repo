@@ -91,7 +91,7 @@ def main():
     }
 
     for issue in issues:
-        rule_id = str(issue.get("issueType", "PolarisIssue"))
+        rule_id = str(issue.get("issueType", "PolarisIssue"))[:255]
         message = str(issue.get("message", str(issue)))
         location = issue.get("location", {})
         file_path = location.get("filePath", "UNKNOWN")
