@@ -72,7 +72,7 @@ def main():
         "runs": [{
             "tool": {
                 "driver": {
-                    "name": "CodeScanner",
+                    "name": "Polaris-Scanner",
                     "rules": []
                 }
             },
@@ -103,7 +103,7 @@ def main():
             message = rule_name
 
         location = issue.get("location", {})
-        file_path = location.get("filePath", "UNKNOWN")
+        file_path = location.get("filePath", "POLARIS")
         line = location.get("line", 1)
         logical_name = issue.get("function", None) or issue.get("logicalLocation", None)
 
