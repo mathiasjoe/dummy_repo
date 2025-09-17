@@ -88,8 +88,20 @@ def main():
     results = sarif["runs"][0]["results"]
 
     for issue in issues:
-        rule_id = str(issue.get("issueType", "PolarisIssue"))[:255]
-        message = str(issue.get("message", str(issue)))
+        # Extract rule id and name as plain strings
+        issue_type = issue.get("issueType", {})
+        if isinstance(issue_type, dict):
+            rule_id = str(issue_type.get("id", "PolarisIssue"))[:255]
+            rule_name = str(issue_type.get("name", "Polaris Issue"))
+        else:
+            rule_id = str(issue_type)[:255]
+            rule_name = str(issue_type)
+
+        # Use a human-readable message
+        message = issue.get("message")
+        if not message:
+            message = rule_name
+
         location = issue.get("location", {})
         file_path = location.get("filePath", "UNKNOWN")
         line = location.get("line", 1)
@@ -115,13 +127,9 @@ def main():
             rule_id_map[rule_id] = rule_index
             rules.append({
                 "id": rule_id,
+                "name": rule_name,
                 "fullDescription": {
                     "text": message
-                },
-                "messageStrings": {
-                    "default": {
-                        "text": message
-                    }
                 }
             })
         else:
@@ -131,8 +139,6 @@ def main():
             "ruleId": rule_id,
             "ruleIndex": rule_index,
             "message": {
-                "id": "default",
-                "arguments": [message],
                 "text": message
             },
             "locations": [{
@@ -145,12 +151,11 @@ def main():
                     "region": {
                         "startLine": line
                     }
-                },
-                "logicalLocations": ([{
-                    "fullyQualifiedName": logical_name
-                }] if logical_name else [])
+                }
             }]
         }
+        if logical_name:
+            result["locations"][0]["logicalLocations"] = [{"fullyQualifiedName": logical_name}]
         results.append(result)
 
     with open(sarif_path, "w") as f:
