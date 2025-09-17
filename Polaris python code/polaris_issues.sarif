@@ -14,17 +14,24 @@
               }
             },
             {
-              "id": "422601d6-2eb3-5ce5-4943-54aa6d7ed0da",
+              "id": "e6492d64-9582-654c-bba8-1a5ba13ee97e",
+              "name": "Weak SSL Protocol",
+              "fullDescription": {
+                "text": "Weak SSL Protocol"
+              }
+            },
+            {
+              "id": "a19c2249-63ae-ab0f-a493-add2ba1b1dfa",
               "name": "Unsecured Session Cookie",
               "fullDescription": {
                 "text": "Unsecured Session Cookie"
               }
             },
             {
-              "id": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-              "name": "Stack Trace",
+              "id": "8547d027-57f0-26ea-738f-6af6b3a6e685",
+              "name": "Unsecured Session Cookie",
               "fullDescription": {
-                "text": "Stack Trace"
+                "text": "Unsecured Session Cookie"
               }
             },
             {
@@ -42,24 +49,10 @@
               }
             },
             {
-              "id": "424b7b1a-b600-590d-68c4-67cd51e8de78",
-              "name": "Frameable Resource",
+              "id": "fd9fd5d9-ed74-8801-7ba1-da5508acc204",
+              "name": "Cookie with Improper SameSite Attribute",
               "fullDescription": {
-                "text": "Frameable Resource"
-              }
-            },
-            {
-              "id": "b801af78-9bca-70dd-1b0d-cd338475cdae",
-              "name": "Autocomplete Attribute",
-              "fullDescription": {
-                "text": "Autocomplete Attribute"
-              }
-            },
-            {
-              "id": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
-              "name": "HTTP Strict Transport Security (HSTS)",
-              "fullDescription": {
-                "text": "HTTP Strict Transport Security (HSTS)"
+                "text": "Cookie with Improper SameSite Attribute"
               }
             },
             {
@@ -70,38 +63,45 @@
               }
             },
             {
-              "id": "dd7fb62c-86ca-b0bf-dca2-ecab7ee7c420",
-              "name": "Directory Search",
+              "id": "f39f61ca-6116-dfbd-e2c9-dee7bd4208f5",
+              "name": "Weak Ciphers",
               "fullDescription": {
-                "text": "Directory Search"
+                "text": "Weak Ciphers"
               }
             },
             {
-              "id": "b4cd135a-8459-b281-f746-b795e0ea7808",
+              "id": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+              "name": "Unsafe Methods Allowed",
+              "fullDescription": {
+                "text": "Unsafe Methods Allowed"
+              }
+            },
+            {
+              "id": "b4b0ee5c-2288-a837-2ce4-afe3c2390ee0",
               "name": "Non-HttpOnly Session Cookie",
               "fullDescription": {
                 "text": "Non-HttpOnly Session Cookie"
               }
             },
             {
-              "id": "4cd3d941-5bb5-bcf1-aaa1-06bb387604fe",
-              "name": "Arbitrary Method Allowed",
+              "id": "d5dafa57-b51e-22a8-5889-9726cbc7534f",
+              "name": "Non-HttpOnly Session Cookie",
               "fullDescription": {
-                "text": "Arbitrary Method Allowed"
+                "text": "Non-HttpOnly Session Cookie"
               }
             },
             {
-              "id": "49bc2fb4-e6a7-4b77-6ced-4ae724809dd0",
+              "id": "d9bc3738-251e-462e-b397-1d9e4094bfb9",
+              "name": "Fingerprinting",
+              "fullDescription": {
+                "text": "Fingerprinting"
+              }
+            },
+            {
+              "id": "02667267-3320-ea2c-ee3e-13b6f7767b39",
               "name": "Crawl Report",
               "fullDescription": {
                 "text": "Crawl Report"
-              }
-            },
-            {
-              "id": "508ad569-8b84-e27b-0ae3-4bf116f2f1a6",
-              "name": "Password Disclosure",
-              "fullDescription": {
-                "text": "Password Disclosure"
               }
             }
           ]
@@ -412,10 +412,10 @@
           ]
         },
         {
-          "ruleId": "5a2ae4c1-4a3b-9291-6fc9-0f2c42bb6ce6",
-          "ruleIndex": 0,
+          "ruleId": "e6492d64-9582-654c-bba8-1a5ba13ee97e",
+          "ruleIndex": 1,
           "message": {
-            "text": "Server Error"
+            "text": "Weak SSL Protocol"
           },
           "locations": [
             {
@@ -433,8 +433,8 @@
           ]
         },
         {
-          "ruleId": "422601d6-2eb3-5ce5-4943-54aa6d7ed0da",
-          "ruleIndex": 1,
+          "ruleId": "a19c2249-63ae-ab0f-a493-add2ba1b1dfa",
+          "ruleIndex": 2,
           "message": {
             "text": "Unsecured Session Cookie"
           },
@@ -454,304 +454,10 @@
           ]
         },
         {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
+          "ruleId": "8547d027-57f0-26ea-738f-6af6b3a6e685",
+          "ruleIndex": 3,
           "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
+            "text": "Unsecured Session Cookie"
           },
           "locations": [
             {
@@ -770,7 +476,7 @@
         },
         {
           "ruleId": "1db4e0f5-8070-0258-79c5-189ee7261a83",
-          "ruleIndex": 3,
+          "ruleIndex": 4,
           "message": {
             "text": "Missing X-Content-Type-Options Header"
           },
@@ -791,7 +497,7 @@
         },
         {
           "ruleId": "8c2fb339-1364-7ae6-2abd-36c638b6f681",
-          "ruleIndex": 4,
+          "ruleIndex": 5,
           "message": {
             "text": "Missing CSP"
           },
@@ -811,52 +517,10 @@
           ]
         },
         {
-          "ruleId": "424b7b1a-b600-590d-68c4-67cd51e8de78",
-          "ruleIndex": 5,
-          "message": {
-            "text": "Frameable Resource"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "b801af78-9bca-70dd-1b0d-cd338475cdae",
+          "ruleId": "fd9fd5d9-ed74-8801-7ba1-da5508acc204",
           "ruleIndex": 6,
           "message": {
-            "text": "Autocomplete Attribute"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
-          "ruleIndex": 7,
-          "message": {
-            "text": "HTTP Strict Transport Security (HSTS)"
+            "text": "Cookie with Improper SameSite Attribute"
           },
           "locations": [
             {
@@ -875,7 +539,7 @@
         },
         {
           "ruleId": "dd598b11-bb5b-3beb-cee6-7d8b73e62f32",
-          "ruleIndex": 8,
+          "ruleIndex": 7,
           "message": {
             "text": "Missing Cache Control Header"
           },
@@ -895,10 +559,10 @@
           ]
         },
         {
-          "ruleId": "dd7fb62c-86ca-b0bf-dca2-ecab7ee7c420",
-          "ruleIndex": 9,
+          "ruleId": "f39f61ca-6116-dfbd-e2c9-dee7bd4208f5",
+          "ruleIndex": 8,
           "message": {
-            "text": "Directory Search"
+            "text": "Weak Ciphers"
           },
           "locations": [
             {
@@ -916,7 +580,259 @@
           ]
         },
         {
-          "ruleId": "b4cd135a-8459-b281-f746-b795e0ea7808",
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "b4b0ee5c-2288-a837-2ce4-afe3c2390ee0",
           "ruleIndex": 10,
           "message": {
             "text": "Non-HttpOnly Session Cookie"
@@ -937,10 +853,10 @@
           ]
         },
         {
-          "ruleId": "4cd3d941-5bb5-bcf1-aaa1-06bb387604fe",
+          "ruleId": "d5dafa57-b51e-22a8-5889-9726cbc7534f",
           "ruleIndex": 11,
           "message": {
-            "text": "Arbitrary Method Allowed"
+            "text": "Non-HttpOnly Session Cookie"
           },
           "locations": [
             {
@@ -958,10 +874,10 @@
           ]
         },
         {
-          "ruleId": "49bc2fb4-e6a7-4b77-6ced-4ae724809dd0",
+          "ruleId": "d9bc3738-251e-462e-b397-1d9e4094bfb9",
           "ruleIndex": 12,
           "message": {
-            "text": "Crawl Report"
+            "text": "Fingerprinting"
           },
           "locations": [
             {
@@ -979,10 +895,10 @@
           ]
         },
         {
-          "ruleId": "508ad569-8b84-e27b-0ae3-4bf116f2f1a6",
+          "ruleId": "02667267-3320-ea2c-ee3e-13b6f7767b39",
           "ruleIndex": 13,
           "message": {
-            "text": "Password Disclosure"
+            "text": "Crawl Report"
           },
           "locations": [
             {
