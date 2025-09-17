@@ -29,7 +29,7 @@ jobs:
           POLARIS_TOKEN: ${{ secrets.POLARIS_TOKEN }}
         run: |
           cd "Polaris python code"
-          python extract_findings.py "$POLARIS_URL" "$POLARIS_TOKEN" 2
+          python extract_findings.py "$POLARIS_URL" "$POLARIS_TOKEN" 35
 
       - name: Upload SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3

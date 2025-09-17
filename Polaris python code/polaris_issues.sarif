@@ -10,98 +10,98 @@
               "id": "5a2ae4c1-4a3b-9291-6fc9-0f2c42bb6ce6",
               "name": "Server Error",
               "fullDescription": {
-                "text": "Server Error"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
               }
             },
             {
-              "id": "e6492d64-9582-654c-bba8-1a5ba13ee97e",
-              "name": "Weak SSL Protocol",
-              "fullDescription": {
-                "text": "Weak SSL Protocol"
-              }
-            },
-            {
-              "id": "a19c2249-63ae-ab0f-a493-add2ba1b1dfa",
+              "id": "422601d6-2eb3-5ce5-4943-54aa6d7ed0da",
               "name": "Unsecured Session Cookie",
               "fullDescription": {
-                "text": "Unsecured Session Cookie"
+                "text": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
               }
             },
             {
-              "id": "8547d027-57f0-26ea-738f-6af6b3a6e685",
-              "name": "Unsecured Session Cookie",
+              "id": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+              "name": "Stack Trace",
               "fullDescription": {
-                "text": "Unsecured Session Cookie"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an application reaches an erroneous state and are used by developers as well as administrators to debug issues. As such, stack traces contain information about all of the open stack frames relating to and leading to the error. They typically include, but are not limited to, function names, parameters, the memory addresses of relevant data, line numbers in code, and class names.\r\n\r\nError messages that contain stack traces reveal application implementation and error condition details to end users. This may include (but is not limited to) information about application architecture and implementation, error conditions, and any third-party libraries in use. In addition, certain languages, such as Java and C#, allow the developer to customize the error messages printed with stack traces. These custom errors may leak additional information since custom errors can include a wide variety of additional information, such as personally identifiable information (PII), connection strings, and request parameters. All this information is useful to an attacker seeking to develop more efficient, targeted attacks against the application.\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
               }
             },
             {
               "id": "1db4e0f5-8070-0258-79c5-189ee7261a83",
               "name": "Missing X-Content-Type-Options Header",
               "fullDescription": {
-                "text": "Missing X-Content-Type-Options Header"
+                "text": "The application server does not set the \"X-Content-Type-Options\" header in HTTP responses. The X-Content-Type-Options header mechanism prevents a web browser from overriding the MIME type indicated in the application's Content-Type response header.\n\nMost modern browsers can inspect application responses through \"MIME sniffing\" and determine if the correct Content-Type is specified by the application server. When the X-Content-Type-Options header is specified by an application, browsers will not perform MIME sniffing and will trust the Content-Type specified by the application.\n\nApplications that do not set the X-Content-Type-Options header \"nosniff\" directive explicitly in the application response are more susceptible to MIME Confusion attacks. A MIME confusion attack occurs when an application resource does not provide sufficient metadata to the web browser about the response's content type. In a normal scenario where MIME sniffing is allowed, the web browser sniffs the content of a response to determine which MIME type should be used. Once the web browser has completed its analysis of the response, it compares what is found against the server provided content type header (if present). If the browser detects a mismatched content type, the browser uses the MIME type that it determined on its own.\n\nFor example, consider an application that allows users to upload JPG image files to the server. In this scenario, an attacker may be able to upload a malicious image file where the content of the file is valid HTML or JavaScript. When the uploaded file is returned in the application response, the browser may sniff the content of the malicious file and determine its MIME type to be HTML or JavaScript. When the malicious image file is rendered by the browser, instead of displaying an image, the attacker's malicious HTML or JavaScript is executed.\r\n\r\nEnabled content sniffing makes MIME Confusion attacks possible which, in their turn, lead to cross-site scripting (XSS). Using an XSS, an attacker can arbitrarily alter page content displayed to the victim and can execute application functions using the victim's application identity if the victim is authenticated to the application."
               }
             },
             {
               "id": "8c2fb339-1364-7ae6-2abd-36c638b6f681",
               "name": "Missing CSP",
               "fullDescription": {
-                "text": "Missing CSP"
+                "text": "The application server does not set the Content-Security-Policy (CSP) header in HTTP responses, and therefore does not benefit from the additional protection against potential cross-site scripting issues and other browser-based vulnerabilities that a properly configured CSP may provide. \n\nThe CSP instructs the browser to only load and render trusted resources  specified in the header. A compliant browser will deny loading any resources (such as scripts, images, or objects) not listed in the policy.\n\nCSP has evolved over time and has introduced new security controls. Each introduced control provides improved protection capabilities, here are the fundamental details:\n\n* Level 1 - Initial version, mainly based around allow-list, but proven to be difficult to use securely in practice\n* Level 2 - Introduced  the ability to designate trusted third-party and inline-scripts with a nonce value, rejecting other scripts without the valid nonce\n* Level 3 - Introduced 'strict-dynamic' which enabled easier deployments by dynamically propagating trust from specific root scripts (designated with a nonce or a hash) to any additional scripts loaded by these trusted scripts\n\nCSP allows browsers to differentiate between trusted and untrusted content requested by the page. By default, it also prohibits inline script execution, as well as dynamic script evaluation. A CSP adds an additional line of defense and reduces the overall security risk.\r\n\r\nA missing Content-Security-Policy means that the application will not benefit from the extra protection that it could provide, thereby making the application more vulnerable to exploitation of any existing security issues.\n\n**References:**\n\n\n* [Content Security Policy](https://owasp.org/www-community/controls/Content_Security_Policy)\n* [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/)\n* [Content Security Policy \\(CSP\\)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)"
               }
             },
             {
-              "id": "fd9fd5d9-ed74-8801-7ba1-da5508acc204",
-              "name": "Cookie with Improper SameSite Attribute",
+              "id": "424b7b1a-b600-590d-68c4-67cd51e8de78",
+              "name": "Frameable Resource",
               "fullDescription": {
-                "text": "Cookie with Improper SameSite Attribute"
+                "text": "A Frameable Resource is related to a number of vulnerabilities which result from a browser allowing pages to be rendered in a frame. An attacker who can frame a resource within another resource they control may be able to trick the user into acting out of context of the target application. This can be accomplished by hiding the desired UI elements by making them transparent and then using various techniques to induce the desired action from the victim user.\n\nYou should review any resources that are frameable for anything sensitive as they may potentially be vulnerable to a vast array of attacks, including Clickjacking and Cross Site Scripting. Moreover, an attacker can leverage frames to unfold timing and side channel attacks in order to obtain private user data.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)\n* [X-Frame-Options: All about Clickjacking?](https://frederik-braun.com/xfo-clickjacking.pdf)"
+              }
+            },
+            {
+              "id": "b801af78-9bca-70dd-1b0d-cd338475cdae",
+              "name": "Autocomplete Attribute",
+              "fullDescription": {
+                "text": "The HTML \"autocomplete\" attribute is not set as disabled for sensitive fields. When autocomplete is enabled for a given HTML form field, the browser attempts to fill in a previously stored value as the user enters information. Unique values entered into these fields are cached by the browser for later use.\r\n\r\nAn attacker can retrieve data cached through the browser's autocomplete mechanism via local access to the browser or remote scripting attack. Any sensitive information stored in the browser's autocomplete cache would be exposed. The consequence of exposure differs depending on the type of data cached. An attacker can use exposed passwords to impersonate victims in the application or use a victim's PII (such as social security number, account information, etc.) to steal the victim's identity or gain unauthorized access to their accounts.\n\n**References:**\n\n\n* [Mozilla: The HTML autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)\n* [OWASP Cheat Sheet Series: Credential and Personally Identifiable Information \\(PII\\) Input hints](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#credential-and-personally-identifiable-information-pii-input-hints)"
+              }
+            },
+            {
+              "id": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
+              "name": "HTTP Strict Transport Security (HSTS)",
+              "fullDescription": {
+                "text": "The server does not implement the \"HTTP Strict Transport Security\" (HSTS) web security policy mechanism.\n\nWhen HSTS is enabled, the webserver sends the special HTTP response header called \"Strict-Transport-Security\" to the client. This header includes the max-age attribute, which specifies a duration of time in seconds. Optionally, the directive 'includeSubdomains' can be included to indicate that this policy should apply to all sub-domains as well. After a browser receives this header over a secure HTTPS connection (without any certificate errors), the browser makes new requests to the application over secure HTTPS connections for the duration of time specified in the header. Any links to the server over insecure HTTP connections are automatically rewritten to HTTPS before the request is made. HSTS prevents a user from ignoring certificate errors, as it prevents the user from connecting to a website with an invalid certificate.\r\n\r\nApplications that do not utilize the \"HTTP Strict-Transport-Security\" policy are more susceptible to man-in-the-middle (MITM) attacks via \"SSL stripping\", which occurs when an attacker transparently downgrades a victim's communication with the server from HTTPS to HTTP. Once this is accomplished, the attacker gains the ability to view and potentially modify the victim's traffic, exposing sensitive information, and gaining access to unauthorized functionality.\n\n**References:**\n\n\n* [HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)"
               }
             },
             {
               "id": "dd598b11-bb5b-3beb-cee6-7d8b73e62f32",
               "name": "Missing Cache Control Header",
               "fullDescription": {
-                "text": "Missing Cache Control Header"
+                "text": "The application is not utilizing Cache-Control header, which can lead to sensitive data being cached by the browser.\r\n\r\n"
               }
             },
             {
-              "id": "f39f61ca-6116-dfbd-e2c9-dee7bd4208f5",
-              "name": "Weak Ciphers",
+              "id": "dd7fb62c-86ca-b0bf-dca2-ecab7ee7c420",
+              "name": "Directory Search",
               "fullDescription": {
-                "text": "Weak Ciphers"
+                "text": "An attacker can use Brute Force techniques to search for directories and files, and old backup and configuration files. These resources may store sensitive information about web applications and operational systems, such as source code, credentials, internal network addressing, and so on, thus\nbeing considered a valuable resource for intruders.\r\n\r\n"
               }
             },
             {
-              "id": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-              "name": "Unsafe Methods Allowed",
-              "fullDescription": {
-                "text": "Unsafe Methods Allowed"
-              }
-            },
-            {
-              "id": "b4b0ee5c-2288-a837-2ce4-afe3c2390ee0",
+              "id": "b4cd135a-8459-b281-f746-b795e0ea7808",
               "name": "Non-HttpOnly Session Cookie",
               "fullDescription": {
-                "text": "Non-HttpOnly Session Cookie"
+                "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
               }
             },
             {
-              "id": "d5dafa57-b51e-22a8-5889-9726cbc7534f",
-              "name": "Non-HttpOnly Session Cookie",
+              "id": "4cd3d941-5bb5-bcf1-aaa1-06bb387604fe",
+              "name": "Arbitrary Method Allowed",
               "fullDescription": {
-                "text": "Non-HttpOnly Session Cookie"
+                "text": "HTTP offers a number of methods that can be used to perform actions on the web server (the HTTP 1.1 standard refers to them as methods but they are also commonly described as verbs). \n    While GET and POST are by far the most common methods that are used to access information provided by a web server, HTTP allows several other (and somewhat less known) methods. \n    Some of these can be used for nefarious purposes if the web server is misconfigured.\n    Here is a list of unsafe methods:\n    - PUT: This method allows a client to upload new files on the web server. An attacker can exploit it by uploading malicious files (e.g.: an asp file that executes commands by invoking cmd.exe), or by simply using the victim\u2019s server as a file repository.\n    - DELETE: This method allows a client to delete a file on the web server. An attacker can exploit it as a very simple and direct way to deface a web site or to mount a denial-of-service (DoS) attack.\n    - CONNECT: This method could allow a client to use the web server as a proxy.\n    - TRACE: This method simply echoes back to the client whatever string has been sent to the server, and is used mainly for debugging purposes. This method, originally assumed harmless, can be used to mount an attack known as Cross Site Tracing.\n    - HEAD: This method behaves like a GET request, but only returns the response headers. An attacker can exploit this to bypass access control mechanisms. \n    Many frameworks and languages treat \"HEAD\" as a \"GET\" request, albeit one without any body in the response. If a security constraint was set on \"GET\" requests such that only \"authenticatedUsers\" could access GET requests for a particular servlet or resource, it would be bypassed for the \"HEAD\" version. This allowed unauthorized blind submission of any privileged GET request.\n    Some frameworks allowed arbitrary HTTP methods such as \"JEFF\" or \"CATS\" to be used without limitation. These were treated as if a \"GET\" method was issued, and were found not to be subject to method role based access control checks on a number of languages and frameworks, again allowing unauthorized blind submission of privileged GET requests.\r\n\r\n\n\n**References:**\n\n\n* [OWASP WSTG: Test HTTP Methods](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods)\n* [Bypassing Web Authentication and Authorization with HTTP Verb Tampering](https://dl.packetstormsecurity.net/papers/web/Bypassing_VBAAC_with_HTTP_Verb_Tampering.pdf)"
               }
             },
             {
-              "id": "d9bc3738-251e-462e-b397-1d9e4094bfb9",
-              "name": "Fingerprinting",
-              "fullDescription": {
-                "text": "Fingerprinting"
-              }
-            },
-            {
-              "id": "02667267-3320-ea2c-ee3e-13b6f7767b39",
+              "id": "49bc2fb4-e6a7-4b77-6ced-4ae724809dd0",
               "name": "Crawl Report",
               "fullDescription": {
-                "text": "Crawl Report"
+                "text": "Found URLs: <br>`https://altinn.studio/`<br>`https://altinn.studio/#infoItem1`<br>`https://altinn.studio/#infoItem2`<br>`https://altinn.studio/designer/api/contact/belongs-to-org`<br>`https://altinn.studio/designer/api/user/current`<br>`https://altinn.studio/designer/manifest.json`<br>`https://altinn.studio/info/`<br>`https://altinn.studio/info/contact`<br>`https://altinn.studio/login`<br>`https://altinn.studio/preview/`<br>`https://altinn.studio/preview/designer/`<br>`https://altinn.studio/preview/designer/manifest.json`<br>`https://altinn.studio/preview/digdir/`<br>`https://altinn.studio/preview/digdir/sitemap.xml`<br>`https://altinn.studio/repos/`<br>`https://altinn.studio/repos/#/activitypub`<br>`https://altinn.studio/repos/#/admin`<br>`https://altinn.studio/repos/?lang=nb-NO`<br>`https://altinn.studio/repos/api/`<br>`https://altinn.studio/repos/api/#/activitypub`<br>`https://altinn.studio/repos/api/#/issue`<br>`https://altinn.studio/repos/api/swagger`<br>`https://altinn.studio/repos/api/swagger#/activitypub`<br>`https://altinn.studio/repos/api/swagger#/admin`<br>`https://altinn.studio/repos/api/swagger#/issue`<br>`https://altinn.studio/repos/api/swagger#/miscellaneous`<br>`https://altinn.studio/repos/api/swagger#/notification`<br>`https://altinn.studio/repos/api/swagger#/organization`<br>`https://altinn.studio/repos/api/swagger#/package`<br>`https://altinn.studio/repos/api/swagger#/repository`<br>`https://altinn.studio/repos/assets/`<br>`https://altinn.studio/repos/assets/licenses.txt`<br>`https://altinn.studio/repos/explore/organizations`<br>`https://altinn.studio/repos/explore/repos`<br>`https://altinn.studio/repos/login/`<br>`https://altinn.studio/repos/login/oauth/`<br>`https://altinn.studio/repos/login/oauth/authorize?client_id=36b4cac5-72c9-46c0-8d05-5f734a037683&redirect_uri=https%3A%2F%2Faltinn.studio%2Fsignin-oidc&response_type=code&scope=openid%20profile%20write%3Aactivitypub%20write%3Aadmin%20write%3Aissue%20write%3Amisc%20write%3Anotification%20write%3Aorganization%20write%3Apackage%20write%3Arepository%20write%3Auser&code_challenge=4AtN23lHLwwJ-7dS2SXAwdORaZppBDJEU90EFGmmBBE&code_challenge_method=S256&response_mode=form_post&nonce=638936920255390525.MmE0ZTE0ZTQtZmU2Ny00OWZiLTg4ZGMtYTRjMTk2ZDBlMDM0ZTNkM2VkY2UtYzJiNi00YTA2LTkyYzMtNTczYjJkOWVmM2Fj&state=CfDJ8NH5OiOA6SdOq46DqzsahbCz9SxlCUVgdYU9YgXf-Oyj7azJqW0mRzpfbXuC0tFqGa2yU9dBXyVynkNXyfMXgu6XLzRp7XkjzWdyW95vhOSC9HmB9YBItQ78R3_EK2RpR79PQroLPaqh0iOQgLDzytxCNvo2ugztwcg-5_k1EWSLNy66Yz7x64CCCokn5YceA-A7acBZ1X8avMyUAqIrwHdgPZvLQj-ocWJd22sROtpM-0qKw0NrYbHBIxIy27yMxu0zPnp4yBGmkJ-pQhsVxDYUUxIUaue4kf2i1Dq9Kgn0FuSrJzX6ZcaOvov6xFZvEkhNxgu3NY_AH6XoBn48VrOfDHu3cmm8mqODBPABTp4avqZWrwA3kL_Js07X3mT5YjdgRNS5wFZOtt6t9_LXug0&x-client-SKU=ID_NET9_0&x-client-ver=8.12.1.0`<br>`https://altinn.studio/repos/login/oauth/authorize?client_id=36b4cac5-72c9-46c0-8d05-5f734a037683&redirect_uri=https%3A%2F%2Faltinn.studio%2Fsignin-oidc&response_type=code&scope=openid%20profile%20write%3Aactivitypub%20write%3Aadmin%20write%3Aissue%20write%3Amisc%20write%3Anotification%20write%3Aorganization%20write%3Apackage%20write%3Arepository%20write%3Auser&code_challenge=AUpaAPlWwChAbN4YBLNYAv6XmAxePRZR8VVuIR7V9mk&code_challenge_method=S256&response_mode=form_post&nonce=638936919897783446.ZWE1NTg0NjgtMWFiMC00NzBiLThiZTAtOTdjM2QzODc4MmYwOWZjMWM4MDEtZTU0MS00NjY2LWE0MGUtNDU5YWM3M2I0Mjhm&state=CfDJ8NH5OiOA6SdOq46DqzsahbBMzEDcZdCk9D99iE76vLJwCqMyYV0qUrfVHaL5zslBd70FyCkPJJ34ltbWt_LLqcjSnpWTnoldrRhB4ngEuK2Qs2SNE8uM-GWGqRyMQzG7NVAcT9uso2Sz_cmzzVbI89khT5z_HcR7K0uQ3v-RB3BxIhc7jXweWAJmWlqEOy0GIp2UWQQMAqmrWJINNbFiW1Aod0yYw8kBD2Aw1aunE81htx-8hPcXe0qxZbsr7AvTHPlNNfxGBN8CYn4a2CmxaDmWKK8teD78jRWl7dQGAdHmNRBfaPATZX-ucswm1gO05debUYV9ZUPZRXbQ7A3ZR6C-qHFRrKieao9N7qMm2zpdjWiMt2NkktDAk0p8-4-W-OcSTye-Jtdl0chdox5a-Mg&x-client-SKU=ID_NET9_0&x-client-ver=8.12.1.0`<br>`https://altinn.studio/repos/swagger.v1.json`<br>`https://altinn.studio/repos/user/forgot_password`<br>`https://altinn.studio/repos/user/login`<br>`https://altinn.studio/repos/user/login?redirect_to=%2frepos%2f`<br>`https://altinn.studio/repos/user/login?redirect_to=%2frepos%2fuser%2fsign_up`<br>`https://altinn.studio/repos/user/oauth2/`<br>`https://altinn.studio/repos/user/oauth2/ansattporten`<br>`https://altinn.studio/repos/user/oauth2/github`<br>`https://altinn.studio/repos/user/sign_up`<br>`https://altinn.studio/repos/user/webauthn/`<br>`https://altinn.studio/repos/user/webauthn/passkey/assertion`<br>"
+              }
+            },
+            {
+              "id": "508ad569-8b84-e27b-0ae3-4bf116f2f1a6",
+              "name": "Password Disclosure",
+              "fullDescription": {
+                "text": "The application sends the user's password in an HTTP response. Including the password in application responses increases the likelihood of password compromise.\r\n\r\nAn attacker performing a man-in-the-middle attack may be able to capture the password during a non-login request, increasing the likelihood that they capture the password. HTTP responses may be cached locally by the user, allowing an attacker with access (remote or physical) to the machine to recover the password. Once the attacker has the password, they would be able to masquerade as the user in the application.\n\n**References:**\n\n\n* [OWASP WSTG: Review Webpage Content for Information Leakage](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage)"
               }
             }
           ]
@@ -412,10 +412,31 @@
           ]
         },
         {
-          "ruleId": "e6492d64-9582-654c-bba8-1a5ba13ee97e",
+          "ruleId": "5a2ae4c1-4a3b-9291-6fc9-0f2c42bb6ce6",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Server Error"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "422601d6-2eb3-5ce5-4943-54aa6d7ed0da",
           "ruleIndex": 1,
           "message": {
-            "text": "Weak SSL Protocol"
+            "text": "Unsecured Session Cookie"
           },
           "locations": [
             {
@@ -433,10 +454,10 @@
           ]
         },
         {
-          "ruleId": "a19c2249-63ae-ab0f-a493-add2ba1b1dfa",
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
           "ruleIndex": 2,
           "message": {
-            "text": "Unsecured Session Cookie"
+            "text": "Stack Trace"
           },
           "locations": [
             {
@@ -454,10 +475,283 @@
           ]
         },
         {
-          "ruleId": "8547d027-57f0-26ea-738f-6af6b3a6e685",
-          "ruleIndex": 3,
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
           "message": {
-            "text": "Unsecured Session Cookie"
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Stack Trace"
           },
           "locations": [
             {
@@ -476,7 +770,7 @@
         },
         {
           "ruleId": "1db4e0f5-8070-0258-79c5-189ee7261a83",
-          "ruleIndex": 4,
+          "ruleIndex": 3,
           "message": {
             "text": "Missing X-Content-Type-Options Header"
           },
@@ -497,7 +791,7 @@
         },
         {
           "ruleId": "8c2fb339-1364-7ae6-2abd-36c638b6f681",
-          "ruleIndex": 5,
+          "ruleIndex": 4,
           "message": {
             "text": "Missing CSP"
           },
@@ -517,10 +811,52 @@
           ]
         },
         {
-          "ruleId": "fd9fd5d9-ed74-8801-7ba1-da5508acc204",
+          "ruleId": "424b7b1a-b600-590d-68c4-67cd51e8de78",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Frameable Resource"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "b801af78-9bca-70dd-1b0d-cd338475cdae",
           "ruleIndex": 6,
           "message": {
-            "text": "Cookie with Improper SameSite Attribute"
+            "text": "Autocomplete Attribute"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
+          "ruleIndex": 7,
+          "message": {
+            "text": "HTTP Strict Transport Security (HSTS)"
           },
           "locations": [
             {
@@ -539,7 +875,7 @@
         },
         {
           "ruleId": "dd598b11-bb5b-3beb-cee6-7d8b73e62f32",
-          "ruleIndex": 7,
+          "ruleIndex": 8,
           "message": {
             "text": "Missing Cache Control Header"
           },
@@ -559,31 +895,10 @@
           ]
         },
         {
-          "ruleId": "f39f61ca-6116-dfbd-e2c9-dee7bd4208f5",
-          "ruleIndex": 8,
-          "message": {
-            "text": "Weak Ciphers"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleId": "dd7fb62c-86ca-b0bf-dca2-ecab7ee7c420",
           "ruleIndex": 9,
           "message": {
-            "text": "Unsafe Methods Allowed"
+            "text": "Directory Search"
           },
           "locations": [
             {
@@ -601,238 +916,7 @@
           ]
         },
         {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Unsafe Methods Allowed"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "b4b0ee5c-2288-a837-2ce4-afe3c2390ee0",
+          "ruleId": "b4cd135a-8459-b281-f746-b795e0ea7808",
           "ruleIndex": 10,
           "message": {
             "text": "Non-HttpOnly Session Cookie"
@@ -853,10 +937,10 @@
           ]
         },
         {
-          "ruleId": "d5dafa57-b51e-22a8-5889-9726cbc7534f",
+          "ruleId": "4cd3d941-5bb5-bcf1-aaa1-06bb387604fe",
           "ruleIndex": 11,
           "message": {
-            "text": "Non-HttpOnly Session Cookie"
+            "text": "Arbitrary Method Allowed"
           },
           "locations": [
             {
@@ -874,10 +958,10 @@
           ]
         },
         {
-          "ruleId": "d9bc3738-251e-462e-b397-1d9e4094bfb9",
+          "ruleId": "49bc2fb4-e6a7-4b77-6ced-4ae724809dd0",
           "ruleIndex": 12,
           "message": {
-            "text": "Fingerprinting"
+            "text": "Crawl Report"
           },
           "locations": [
             {
@@ -895,10 +979,10 @@
           ]
         },
         {
-          "ruleId": "02667267-3320-ea2c-ee3e-13b6f7767b39",
+          "ruleId": "508ad569-8b84-e27b-0ae3-4bf116f2f1a6",
           "ruleIndex": 13,
           "message": {
-            "text": "Crawl Report"
+            "text": "Password Disclosure"
           },
           "locations": [
             {
