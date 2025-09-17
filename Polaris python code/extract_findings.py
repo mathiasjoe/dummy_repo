@@ -94,7 +94,7 @@ def main():
         rule_id = str(issue.get("issueType", "PolarisIssue"))[:255]
         message = str(issue.get("message", str(issue)))
         location = issue.get("location", {})
-        file_path = location.get("filePath", project_index)
+        file_path = location.get("filePath", str(project_index))
         line = location.get("line", 1)
 
         # Add rule if not already present
