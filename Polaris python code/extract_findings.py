@@ -46,7 +46,7 @@ def main():
     print(f"Found {len(projects)} projects:")
     for idx, proj in enumerate(projects):
         app = proj.get('application', {})
-        print(f"[{idx}] Project: {proj.get('name')} (ID: {proj.get('id')}) | App: {app.get('name')} (ID: {app.get('id')})")
+        #print(f"[{idx}] Project: {proj.get('name')} (ID: {proj.get('id')}) | App: {app.get('name')} (ID: {app.get('id')})")
 
     if not projects:
         print("No projects found.")
