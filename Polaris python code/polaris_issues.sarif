@@ -14,17 +14,17 @@
               }
             },
             {
-              "id": "422601d6-2eb3-5ce5-4943-54aa6d7ed0da",
-              "name": "Unsecured Session Cookie",
+              "id": "e6492d64-9582-654c-bba8-1a5ba13ee97e",
+              "name": "Weak SSL Protocol",
               "fullDescription": {
-                "text": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+                "text": "Your web application currently supports TLS protocols older than TLS 1.3 which are no longer considered cryptographically secure.  Due to the possibility of an attacker downgrading the protocol version used in the SSL/TLS session, it is important to discontinue the usage of cryptographically weak SSL/TLS versions. This is highly important even if your application supports TLS 1.3 and newer. Downgrade attacks can lead to the alteration of the TLS handshake messages in a manner that results in the usage of an older SSL/TLS protocol version. If successful, the downgrade attack will ensure that a cryptographically broken protocol is used, while the connecting client and server believe their connection is secure.\n\nIn addition, legacy SSL/TLS clients may by default attempt to connect using weaker protocol versions completely eliminating the need for an attacker to downgrade a connection.  Supporting broken protocols risks the confidentiality, integrity, and non-repudiation elements that are expected by TLS connections.\r\n\r\nWeaknesses in TLS connections may allow an attacker to decrypt traffic passed between a victim's client and the server. Any sensitive information passed over this connection may be exposed, such as credentials, account data, personally identifiable information (PII), financial records, etc. Exposure of session identifiers may allow an attacker to hijack a victim's session and impersonate the victim in the application. An attacker who decrypts traffic in transit between a victim's client and the server may also modify data in transit, allowing them to modify requests the victim has initiated, and any data being returned to the client.\n\nNote: Most modern browsers will display a warning instead of showing the page when attempting to connect to a server over TLS versions older than 1.3.\n\n**References:**\n\n\n* [Mozilla: Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)\n* [Mozilla: SSL Configuration Generator](https://ssl-config.mozilla.org/)\n* [Sweet32: Birthday attacks on 64-bit block ciphers in TLS and OpenVPN](https://sweet32.info/)"
               }
             },
             {
-              "id": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-              "name": "Stack Trace",
+              "id": "8547d027-57f0-26ea-738f-6af6b3a6e685",
+              "name": "Unsecured Session Cookie",
               "fullDescription": {
-                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an application reaches an erroneous state and are used by developers as well as administrators to debug issues. As such, stack traces contain information about all of the open stack frames relating to and leading to the error. They typically include, but are not limited to, function names, parameters, the memory addresses of relevant data, line numbers in code, and class names.\r\n\r\nError messages that contain stack traces reveal application implementation and error condition details to end users. This may include (but is not limited to) information about application architecture and implementation, error conditions, and any third-party libraries in use. In addition, certain languages, such as Java and C#, allow the developer to customize the error messages printed with stack traces. These custom errors may leak additional information since custom errors can include a wide variety of additional information, such as personally identifiable information (PII), connection strings, and request parameters. All this information is useful to an attacker seeking to develop more efficient, targeted attacks against the application.\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
+                "text": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
               }
             },
             {
@@ -42,24 +42,17 @@
               }
             },
             {
-              "id": "424b7b1a-b600-590d-68c4-67cd51e8de78",
-              "name": "Frameable Resource",
+              "id": "835a7f9e-6c76-bb6f-70fa-84a5dfef2845",
+              "name": "Cookie with Improper SameSite Attribute",
               "fullDescription": {
-                "text": "A Frameable Resource is related to a number of vulnerabilities which result from a browser allowing pages to be rendered in a frame. An attacker who can frame a resource within another resource they control may be able to trick the user into acting out of context of the target application. This can be accomplished by hiding the desired UI elements by making them transparent and then using various techniques to induce the desired action from the victim user.\n\nYou should review any resources that are frameable for anything sensitive as they may potentially be vulnerable to a vast array of attacks, including Clickjacking and Cross Site Scripting. Moreover, an attacker can leverage frames to unfold timing and side channel attacks in order to obtain private user data.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)\n* [X-Frame-Options: All about Clickjacking?](https://frederik-braun.com/xfo-clickjacking.pdf)"
+                "text": "The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
               }
             },
             {
-              "id": "b801af78-9bca-70dd-1b0d-cd338475cdae",
-              "name": "Autocomplete Attribute",
+              "id": "fd9fd5d9-ed74-8801-7ba1-da5508acc204",
+              "name": "Cookie with Improper SameSite Attribute",
               "fullDescription": {
-                "text": "The HTML \"autocomplete\" attribute is not set as disabled for sensitive fields. When autocomplete is enabled for a given HTML form field, the browser attempts to fill in a previously stored value as the user enters information. Unique values entered into these fields are cached by the browser for later use.\r\n\r\nAn attacker can retrieve data cached through the browser's autocomplete mechanism via local access to the browser or remote scripting attack. Any sensitive information stored in the browser's autocomplete cache would be exposed. The consequence of exposure differs depending on the type of data cached. An attacker can use exposed passwords to impersonate victims in the application or use a victim's PII (such as social security number, account information, etc.) to steal the victim's identity or gain unauthorized access to their accounts.\n\n**References:**\n\n\n* [Mozilla: The HTML autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)\n* [OWASP Cheat Sheet Series: Credential and Personally Identifiable Information \\(PII\\) Input hints](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#credential-and-personally-identifiable-information-pii-input-hints)"
-              }
-            },
-            {
-              "id": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
-              "name": "HTTP Strict Transport Security (HSTS)",
-              "fullDescription": {
-                "text": "The server does not implement the \"HTTP Strict Transport Security\" (HSTS) web security policy mechanism.\n\nWhen HSTS is enabled, the webserver sends the special HTTP response header called \"Strict-Transport-Security\" to the client. This header includes the max-age attribute, which specifies a duration of time in seconds. Optionally, the directive 'includeSubdomains' can be included to indicate that this policy should apply to all sub-domains as well. After a browser receives this header over a secure HTTPS connection (without any certificate errors), the browser makes new requests to the application over secure HTTPS connections for the duration of time specified in the header. Any links to the server over insecure HTTP connections are automatically rewritten to HTTPS before the request is made. HSTS prevents a user from ignoring certificate errors, as it prevents the user from connecting to a website with an invalid certificate.\r\n\r\nApplications that do not utilize the \"HTTP Strict-Transport-Security\" policy are more susceptible to man-in-the-middle (MITM) attacks via \"SSL stripping\", which occurs when an attacker transparently downgrades a victim's communication with the server from HTTPS to HTTP. Once this is accomplished, the attacker gains the ability to view and potentially modify the victim's traffic, exposing sensitive information, and gaining access to unauthorized functionality.\n\n**References:**\n\n\n* [HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)"
+                "text": "The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
               }
             },
             {
@@ -70,38 +63,45 @@
               }
             },
             {
-              "id": "dd7fb62c-86ca-b0bf-dca2-ecab7ee7c420",
-              "name": "Directory Search",
+              "id": "f39f61ca-6116-dfbd-e2c9-dee7bd4208f5",
+              "name": "Weak Ciphers",
               "fullDescription": {
-                "text": "An attacker can use Brute Force techniques to search for directories and files, and old backup and configuration files. These resources may store sensitive information about web applications and operational systems, such as source code, credentials, internal network addressing, and so on, thus\nbeing considered a valuable resource for intruders.\r\n\r\n"
+                "text": "The server-side SSL/TLS endpoint is configured to allow weak SSL/TLS cipher suites. These cipher suites have proven cryptographic flaws that can allow an attacker to decrypt or modify traffic.\n\nWeak cipher suites include examples such as the following:\n\n* Cipher suites that use RC4 for encryption; RC4 contains several known weaknesses. In particular, an attacker that can gather a large number of ciphertexts that contain the same plaintext encrypted using different keys may be able to recover the plaintext (the typical target of this attack would be a cookie that is sent in multiple SSL/TLS sessions).\n* Cipher suites that use block ciphers (e.g. AES, 3DES) in CBC mode; these have been shown to be vulnerable to various forms of the POODLE attack that targets the padding and/or MAC calculation, as well as the LUCKY13 timing attack. They are also vulnerable to the BEAST attack if SSL 3.0 or TLS 1.0 are supported. BEAST allows an attacker on the same network as an end-user, who can inject code into any site open in the user's browser, to decrypt cookies (or other sensitive data that is part of each request) for the vulnerable site.\n* Cipher suites that use the DES block cipher; these cipher suites use 56-bit keys for encryption, which are brute-forcible.\n* EXPORT-strength cipher suites use encryption key lengths that are vulnerable to brute force attacks (40 bits or 56 bits for symmetric key algorithms and 512 bits for the RSA asymmetric key algorithm). Note that even if stronger algorithms are preferred by the server, having EXPORT-strength cipher suites enabled is dangerous due to attacks like FREAK and Logjam.\n* Cipher suites with NULL for encryption do not offer any encryption for the connection.\n* Anonymous Diffie-Hellman cipher suites do not authenticate the endpoints and are vulnerable to man-in-the-middle attackers that can perform active attacks to read/modify traffic.\n* Cipher suites that support the use of older block ciphers, such as 3DES, use a block size of 64-bits. These short block sizes provide for the basis of the Sweet32 vulnerability. This vulnerability allows attackers monitoring long-lived SSL/TLS connections, for collision in encrypted blocks, to retrieve enough data to identify encrypted information.\n* Cipher suites that support only the RSA Key Exchange using the RSA PKCS#1 v1.5 encryption standard are vulnerable to the ROBOT(Return Of Bleichenbacher's Oracle Threat). The issue can ultimately allow an attacker to disclose a secured website's private key in a relatively short amount of time; the disclosure is possible by repeatedly issuing specially crafted packets to vulnerable servers. Attackers who obtain private keys can impersonate valid web sites and endpoints. Additionally, the decryption of sensitive information is possible.\r\n\r\nA server-side SSL/TLS endpoint that supports weak ciphers could allow an attacker to read or modify traffic sent in SSL/TLS connections with that endpoint.\n\n**References:**\n\n\n* [Mozilla: Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)\n* [Mozilla: SSL Configuration Generator](https://ssl-config.mozilla.org/)\n* [OWASP Cheat Sheet Series: Transport Layer Protection Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html#Rule_-_Only_Support_Strong_Cryptographic_Ciphers)"
               }
             },
             {
-              "id": "b4cd135a-8459-b281-f746-b795e0ea7808",
+              "id": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+              "name": "Unsafe Methods Allowed",
+              "fullDescription": {
+                "text": "Insecure HTTP methods are enabled on the web server. This may allow an attacker to abuse these methods to perform various attacks, such as uploading or deleting files from the server.\n\nThe most common HTTP methods were specified in HTTP 1.0 (GET, POST, and HEAD), while the HTTP 1.1 specification defined 5 more (OPTIONS, PUT, DELETE, TRACE and CONNECT).\n\nThe following HTTP methods may constitute security issues:\n\n* PUT may allow a remote user to upload a file to the web server. If the uploaded file already exists, then it will be overwritten. \n* DELETE may allow a remote user to remove files from the web server.\n* CONNECT can allow a remote user to use the web server as an HTTP proxy.\n* TRACE can be used to echo an HTTP request and associated headers back to the client making the request. This is often used to perform diagnostics on a web server.\n\n**Note**: The OPTIONS method enumerates the HTTP methods that are supported by the HTTP server and in some cases may be required for an application to function properly.  Enabling this HTTP method is generally not considered to be a security risk.\r\n\r\nInsecure HTTP methods enabled on the server may allow an attacker to perform a variety of attacks by modifying server resources and using the server to extract sensitive information. Depending on the actual configuration, the insecure HTTP methods could potentially be abused as follows: \n\n* PUT may allow an attacker to upload new files to or modify existing files on the server in an attempt to serve malware to victims or render pages in a victim's browser that are under the attacker's control.\n* DELETE may allow an attacker to deny users access to legitimate resources by removing resources from the server.\n* An attacker can use CONNECT to proxy their traffic through the web server, to perform reconnaissance on, or attack, another site, as if the attack originated from your web server, obfuscating the attacker's true origin.\n* An attacker may be able to use TRACE to view sensitive headers added by reverse proxies in front of the web server.\n\n**References:**\n\n\n* [OWASP WSTG: Test HTTP Methods](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods)"
+              }
+            },
+            {
+              "id": "d5dafa57-b51e-22a8-5889-9726cbc7534f",
               "name": "Non-HttpOnly Session Cookie",
               "fullDescription": {
                 "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
               }
             },
             {
-              "id": "4cd3d941-5bb5-bcf1-aaa1-06bb387604fe",
-              "name": "Arbitrary Method Allowed",
+              "id": "b4b0ee5c-2288-a837-2ce4-afe3c2390ee0",
+              "name": "Non-HttpOnly Session Cookie",
               "fullDescription": {
-                "text": "HTTP offers a number of methods that can be used to perform actions on the web server (the HTTP 1.1 standard refers to them as methods but they are also commonly described as verbs). \n    While GET and POST are by far the most common methods that are used to access information provided by a web server, HTTP allows several other (and somewhat less known) methods. \n    Some of these can be used for nefarious purposes if the web server is misconfigured.\n    Here is a list of unsafe methods:\n    - PUT: This method allows a client to upload new files on the web server. An attacker can exploit it by uploading malicious files (e.g.: an asp file that executes commands by invoking cmd.exe), or by simply using the victim\u2019s server as a file repository.\n    - DELETE: This method allows a client to delete a file on the web server. An attacker can exploit it as a very simple and direct way to deface a web site or to mount a denial-of-service (DoS) attack.\n    - CONNECT: This method could allow a client to use the web server as a proxy.\n    - TRACE: This method simply echoes back to the client whatever string has been sent to the server, and is used mainly for debugging purposes. This method, originally assumed harmless, can be used to mount an attack known as Cross Site Tracing.\n    - HEAD: This method behaves like a GET request, but only returns the response headers. An attacker can exploit this to bypass access control mechanisms. \n    Many frameworks and languages treat \"HEAD\" as a \"GET\" request, albeit one without any body in the response. If a security constraint was set on \"GET\" requests such that only \"authenticatedUsers\" could access GET requests for a particular servlet or resource, it would be bypassed for the \"HEAD\" version. This allowed unauthorized blind submission of any privileged GET request.\n    Some frameworks allowed arbitrary HTTP methods such as \"JEFF\" or \"CATS\" to be used without limitation. These were treated as if a \"GET\" method was issued, and were found not to be subject to method role based access control checks on a number of languages and frameworks, again allowing unauthorized blind submission of privileged GET requests.\r\n\r\n\n\n**References:**\n\n\n* [OWASP WSTG: Test HTTP Methods](https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/06-Test_HTTP_Methods)\n* [Bypassing Web Authentication and Authorization with HTTP Verb Tampering](https://dl.packetstormsecurity.net/papers/web/Bypassing_VBAAC_with_HTTP_Verb_Tampering.pdf)"
+                "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
               }
             },
             {
-              "id": "49bc2fb4-e6a7-4b77-6ced-4ae724809dd0",
+              "id": "d9bc3738-251e-462e-b397-1d9e4094bfb9",
+              "name": "Fingerprinting",
+              "fullDescription": {
+                "text": "The most common methodology for attackers is to begin by getting the target's web presence \"footprint\" and enumerating as much information as possible -- e.g. the target's platform, web application software technology, backend database version, configurations and possibly even their network architecture/topology. With this information, the attacker may develop an accurate attack scenario, which will effectively exploit a vulnerability in the software type/version being utilized by the target host.\n\nThe goal of Fingerprinting is to determine what technologies are being utilized or exposed via the application, and specifically what version of software is available to the attacker. Once the technology and version are determined the attacker can review known vulnerabilities based on that data. Therefore, it is critical to limit the exposure of information as to what software version is being utilized and, when possible, what software/technology. Be aware that some configuration changes would require a restart of the server for the implementation to take effect.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: WSTG - Information Gathering](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)\n* [WASC](http://projects.webappsec.org/w/page/13246925/Fingerprinting)\n* [CAPEC-170: Web Application Fingerprinting](https://capec.mitre.org/data/definitions/170.html)"
+              }
+            },
+            {
+              "id": "e7dd172b-32c0-8d0c-e2c5-a03b6eced211",
               "name": "Crawl Report",
               "fullDescription": {
-                "text": "Found URLs: <br>`https://altinn.studio/`<br>`https://altinn.studio/#infoItem1`<br>`https://altinn.studio/#infoItem2`<br>`https://altinn.studio/designer/api/contact/belongs-to-org`<br>`https://altinn.studio/designer/api/user/current`<br>`https://altinn.studio/designer/manifest.json`<br>`https://altinn.studio/info/`<br>`https://altinn.studio/info/contact`<br>`https://altinn.studio/login`<br>`https://altinn.studio/preview/`<br>`https://altinn.studio/preview/designer/`<br>`https://altinn.studio/preview/designer/manifest.json`<br>`https://altinn.studio/preview/digdir/`<br>`https://altinn.studio/preview/digdir/sitemap.xml`<br>`https://altinn.studio/repos/`<br>`https://altinn.studio/repos/#/activitypub`<br>`https://altinn.studio/repos/#/admin`<br>`https://altinn.studio/repos/?lang=nb-NO`<br>`https://altinn.studio/repos/api/`<br>`https://altinn.studio/repos/api/#/activitypub`<br>`https://altinn.studio/repos/api/#/issue`<br>`https://altinn.studio/repos/api/swagger`<br>`https://altinn.studio/repos/api/swagger#/activitypub`<br>`https://altinn.studio/repos/api/swagger#/admin`<br>`https://altinn.studio/repos/api/swagger#/issue`<br>`https://altinn.studio/repos/api/swagger#/miscellaneous`<br>`https://altinn.studio/repos/api/swagger#/notification`<br>`https://altinn.studio/repos/api/swagger#/organization`<br>`https://altinn.studio/repos/api/swagger#/package`<br>`https://altinn.studio/repos/api/swagger#/repository`<br>`https://altinn.studio/repos/assets/`<br>`https://altinn.studio/repos/assets/licenses.txt`<br>`https://altinn.studio/repos/explore/organizations`<br>`https://altinn.studio/repos/explore/repos`<br>`https://altinn.studio/repos/login/`<br>`https://altinn.studio/repos/login/oauth/`<br>`https://altinn.studio/repos/login/oauth/authorize?client_id=36b4cac5-72c9-46c0-8d05-5f734a037683&redirect_uri=https%3A%2F%2Faltinn.studio%2Fsignin-oidc&response_type=code&scope=openid%20profile%20write%3Aactivitypub%20write%3Aadmin%20write%3Aissue%20write%3Amisc%20write%3Anotification%20write%3Aorganization%20write%3Apackage%20write%3Arepository%20write%3Auser&code_challenge=4AtN23lHLwwJ-7dS2SXAwdORaZppBDJEU90EFGmmBBE&code_challenge_method=S256&response_mode=form_post&nonce=638936920255390525.MmE0ZTE0ZTQtZmU2Ny00OWZiLTg4ZGMtYTRjMTk2ZDBlMDM0ZTNkM2VkY2UtYzJiNi00YTA2LTkyYzMtNTczYjJkOWVmM2Fj&state=CfDJ8NH5OiOA6SdOq46DqzsahbCz9SxlCUVgdYU9YgXf-Oyj7azJqW0mRzpfbXuC0tFqGa2yU9dBXyVynkNXyfMXgu6XLzRp7XkjzWdyW95vhOSC9HmB9YBItQ78R3_EK2RpR79PQroLPaqh0iOQgLDzytxCNvo2ugztwcg-5_k1EWSLNy66Yz7x64CCCokn5YceA-A7acBZ1X8avMyUAqIrwHdgPZvLQj-ocWJd22sROtpM-0qKw0NrYbHBIxIy27yMxu0zPnp4yBGmkJ-pQhsVxDYUUxIUaue4kf2i1Dq9Kgn0FuSrJzX6ZcaOvov6xFZvEkhNxgu3NY_AH6XoBn48VrOfDHu3cmm8mqODBPABTp4avqZWrwA3kL_Js07X3mT5YjdgRNS5wFZOtt6t9_LXug0&x-client-SKU=ID_NET9_0&x-client-ver=8.12.1.0`<br>`https://altinn.studio/repos/login/oauth/authorize?client_id=36b4cac5-72c9-46c0-8d05-5f734a037683&redirect_uri=https%3A%2F%2Faltinn.studio%2Fsignin-oidc&response_type=code&scope=openid%20profile%20write%3Aactivitypub%20write%3Aadmin%20write%3Aissue%20write%3Amisc%20write%3Anotification%20write%3Aorganization%20write%3Apackage%20write%3Arepository%20write%3Auser&code_challenge=AUpaAPlWwChAbN4YBLNYAv6XmAxePRZR8VVuIR7V9mk&code_challenge_method=S256&response_mode=form_post&nonce=638936919897783446.ZWE1NTg0NjgtMWFiMC00NzBiLThiZTAtOTdjM2QzODc4MmYwOWZjMWM4MDEtZTU0MS00NjY2LWE0MGUtNDU5YWM3M2I0Mjhm&state=CfDJ8NH5OiOA6SdOq46DqzsahbBMzEDcZdCk9D99iE76vLJwCqMyYV0qUrfVHaL5zslBd70FyCkPJJ34ltbWt_LLqcjSnpWTnoldrRhB4ngEuK2Qs2SNE8uM-GWGqRyMQzG7NVAcT9uso2Sz_cmzzVbI89khT5z_HcR7K0uQ3v-RB3BxIhc7jXweWAJmWlqEOy0GIp2UWQQMAqmrWJINNbFiW1Aod0yYw8kBD2Aw1aunE81htx-8hPcXe0qxZbsr7AvTHPlNNfxGBN8CYn4a2CmxaDmWKK8teD78jRWl7dQGAdHmNRBfaPATZX-ucswm1gO05debUYV9ZUPZRXbQ7A3ZR6C-qHFRrKieao9N7qMm2zpdjWiMt2NkktDAk0p8-4-W-OcSTye-Jtdl0chdox5a-Mg&x-client-SKU=ID_NET9_0&x-client-ver=8.12.1.0`<br>`https://altinn.studio/repos/swagger.v1.json`<br>`https://altinn.studio/repos/user/forgot_password`<br>`https://altinn.studio/repos/user/login`<br>`https://altinn.studio/repos/user/login?redirect_to=%2frepos%2f`<br>`https://altinn.studio/repos/user/login?redirect_to=%2frepos%2fuser%2fsign_up`<br>`https://altinn.studio/repos/user/oauth2/`<br>`https://altinn.studio/repos/user/oauth2/ansattporten`<br>`https://altinn.studio/repos/user/oauth2/github`<br>`https://altinn.studio/repos/user/sign_up`<br>`https://altinn.studio/repos/user/webauthn/`<br>`https://altinn.studio/repos/user/webauthn/passkey/assertion`<br>"
-              }
-            },
-            {
-              "id": "508ad569-8b84-e27b-0ae3-4bf116f2f1a6",
-              "name": "Password Disclosure",
-              "fullDescription": {
-                "text": "The application sends the user's password in an HTTP response. Including the password in application responses increases the likelihood of password compromise.\r\n\r\nAn attacker performing a man-in-the-middle attack may be able to capture the password during a non-login request, increasing the likelihood that they capture the password. HTTP responses may be cached locally by the user, allowing an attacker with access (remote or physical) to the machine to recover the password. Once the attacker has the password, they would be able to masquerade as the user in the application.\n\n**References:**\n\n\n* [OWASP WSTG: Review Webpage Content for Information Leakage](https://owasp.org/www-project-web-security-testing-guide/stable/4-Web_Application_Security_Testing/01-Information_Gathering/05-Review_Webpage_Content_for_Information_Leakage)"
+                "text": "Found URLs: <br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift#/instance/51802893/509188de-e424-4a43-a7cb-c5a4b52bf15c`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift#/instance/51802893/d1885d8d-0d6c-46c7-97db-93e89d79ba0f`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/#/instance-selection`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/authentication/keepAlive`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/authorization/parties/current?returnPartyObject=true`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/jsonschema/model`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/layouts/form`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/layoutsets`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/layoutsettings/form`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/apotekkonsesjon-Egenerklaering-attester?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/driftskonsesjon_nyttEllerFlyttet_bevegelseshemmede?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/driftskonsesjon_nyttEllerFlyttet_diskresjon?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/driftskonsesjon_nyttEllerFlyttet_tegningApotekanlegg?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/farmasoeytautorisasjon?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/filialstatus-begrunnelse?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/filialstatus-soeknadenGjelder?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/ja-nei?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/kommuner?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/ombyggingAvApotek-tegningApotekanlegg?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/soeknadstype-melding?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/soeknadstype-soeknad?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/options/testmiljoe?language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/ruleconfiguration/form`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/rulehandler/form`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/applicationlanguages`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/applicationmetadata`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/applicationsettings`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/footer`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/parties?allowedtoinstantiatefilter=true`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/profile/user`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/v1/texts/nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/api/validationconfig/model`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/42e94800-9913-4bf1-b4b3-0140ac1d098d`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/4a557fd3-0ac8-4a9c-8d6e-2bbb8010100d`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/4a557fd3-0ac8-4a9c-8d6e-2bbb8010100d/`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/4a557fd3-0ac8-4a9c-8d6e-2bbb8010100d/process`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/509188de-e424-4a43-a7cb-c5a4b52bf15c`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/509188de-e424-4a43-a7cb-c5a4b52bf15c/`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/509188de-e424-4a43-a7cb-c5a4b52bf15c/data/0c2e65b0-0e66-43ba-b03d-c826d547feb1?includeRowId=true&language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/509188de-e424-4a43-a7cb-c5a4b52bf15c/process`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/509188de-e424-4a43-a7cb-c5a4b52bf15c/validate?language=nb&onlyIncrementalValidators=true`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/active`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/d1885d8d-0d6c-46c7-97db-93e89d79ba0f`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/d1885d8d-0d6c-46c7-97db-93e89d79ba0f/`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/d1885d8d-0d6c-46c7-97db-93e89d79ba0f/data/91383d04-f221-4225-befa-7fd318df1b0d?includeRowId=true&language=nb`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/d1885d8d-0d6c-46c7-97db-93e89d79ba0f/process`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances/51802893/d1885d8d-0d6c-46c7-97db-93e89d79ba0f/validate?language=nb&onlyIncrementalValidators=true`<br>`https://slv.apps.tt02.altinn.no/slv/apotekdrift/instances?instanceOwnerPartyId=51802893&language=nb`<br>"
               }
             }
           ]
@@ -412,346 +412,31 @@
           ]
         },
         {
-          "ruleId": "5a2ae4c1-4a3b-9291-6fc9-0f2c42bb6ce6",
-          "ruleIndex": 0,
-          "message": {
-            "text": "Server Error"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "422601d6-2eb3-5ce5-4943-54aa6d7ed0da",
+          "ruleId": "e6492d64-9582-654c-bba8-1a5ba13ee97e",
           "ruleIndex": 1,
           "message": {
+            "text": "Weak SSL Protocol"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "8547d027-57f0-26ea-738f-6af6b3a6e685",
+          "ruleIndex": 2,
+          "message": {
             "text": "Unsecured Session Cookie"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "093f1ba3-aa91-e597-67ee-6f37938ec06b",
-          "ruleIndex": 2,
-          "message": {
-            "text": "Stack Trace"
           },
           "locations": [
             {
@@ -811,10 +496,10 @@
           ]
         },
         {
-          "ruleId": "424b7b1a-b600-590d-68c4-67cd51e8de78",
+          "ruleId": "835a7f9e-6c76-bb6f-70fa-84a5dfef2845",
           "ruleIndex": 5,
           "message": {
-            "text": "Frameable Resource"
+            "text": "Cookie with Improper SameSite Attribute"
           },
           "locations": [
             {
@@ -832,31 +517,10 @@
           ]
         },
         {
-          "ruleId": "b801af78-9bca-70dd-1b0d-cd338475cdae",
+          "ruleId": "fd9fd5d9-ed74-8801-7ba1-da5508acc204",
           "ruleIndex": 6,
           "message": {
-            "text": "Autocomplete Attribute"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
-          "ruleIndex": 7,
-          "message": {
-            "text": "HTTP Strict Transport Security (HSTS)"
+            "text": "Cookie with Improper SameSite Attribute"
           },
           "locations": [
             {
@@ -875,7 +539,7 @@
         },
         {
           "ruleId": "dd598b11-bb5b-3beb-cee6-7d8b73e62f32",
-          "ruleIndex": 8,
+          "ruleIndex": 7,
           "message": {
             "text": "Missing Cache Control Header"
           },
@@ -895,10 +559,10 @@
           ]
         },
         {
-          "ruleId": "dd7fb62c-86ca-b0bf-dca2-ecab7ee7c420",
-          "ruleIndex": 9,
+          "ruleId": "f39f61ca-6116-dfbd-e2c9-dee7bd4208f5",
+          "ruleIndex": 8,
           "message": {
-            "text": "Directory Search"
+            "text": "Weak Ciphers"
           },
           "locations": [
             {
@@ -916,7 +580,133 @@
           ]
         },
         {
-          "ruleId": "b4cd135a-8459-b281-f746-b795e0ea7808",
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "fa060593-4f5e-cf22-930e-4d8fb0cca6f0",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Unsafe Methods Allowed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "d5dafa57-b51e-22a8-5889-9726cbc7534f",
           "ruleIndex": 10,
           "message": {
             "text": "Non-HttpOnly Session Cookie"
@@ -937,10 +727,10 @@
           ]
         },
         {
-          "ruleId": "4cd3d941-5bb5-bcf1-aaa1-06bb387604fe",
+          "ruleId": "b4b0ee5c-2288-a837-2ce4-afe3c2390ee0",
           "ruleIndex": 11,
           "message": {
-            "text": "Arbitrary Method Allowed"
+            "text": "Non-HttpOnly Session Cookie"
           },
           "locations": [
             {
@@ -958,10 +748,10 @@
           ]
         },
         {
-          "ruleId": "49bc2fb4-e6a7-4b77-6ced-4ae724809dd0",
+          "ruleId": "d9bc3738-251e-462e-b397-1d9e4094bfb9",
           "ruleIndex": 12,
           "message": {
-            "text": "Crawl Report"
+            "text": "Fingerprinting"
           },
           "locations": [
             {
@@ -979,10 +769,10 @@
           ]
         },
         {
-          "ruleId": "508ad569-8b84-e27b-0ae3-4bf116f2f1a6",
+          "ruleId": "e7dd172b-32c0-8d0c-e2c5-a03b6eced211",
           "ruleIndex": 13,
           "message": {
-            "text": "Password Disclosure"
+            "text": "Crawl Report"
           },
           "locations": [
             {

@@ -50,6 +50,11 @@ def main():
     selected_proj = projects[project_index]
     project_id = selected_proj.get('id')
     project_name = selected_proj.get('name')
+    
+     # Print all available projects with their index, name, and ID
+    print("Available projects:")
+    for idx, proj in enumerate(projects):
+        print(f"{idx}: {proj.get('name')} (ID: {proj.get('id')})")
 
     # Remove old output files if they exist
     import os
