@@ -843,19 +843,30 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "not-dismissed"
+        "value": "dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "unset"
+        "value": "false-positive"
       },
       {
         "key": "is-dismissed",
-        "value": false
+        "value": true
       },
       {
         "key": "fix-by",
         "value": "2025-10-01T12:14:09.194378Z"
+      },
+      {
+        "key": "owner",
+        "value": "794afb3f-e893-474c-a5a2-d9b6127c3806",
+        "_links": [
+          {
+            "href": "https://eu.polaris.blackduck.com/api/auth/resources/applications/805a71c9-ba9a-4bfb-90da-520038daa72c/users/794afb3f-e893-474c-a5a2-d9b6127c3806",
+            "rel": "owner",
+            "method": "GET"
+          }
+        ]
       }
     ],
     "_cursor": "AAAABQ==",
@@ -1011,19 +1022,30 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "not-dismissed"
+        "value": "dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "unset"
+        "value": "false-positive"
       },
       {
         "key": "is-dismissed",
-        "value": false
+        "value": true
       },
       {
         "key": "fix-by",
         "value": "2025-10-01T12:14:09.194378Z"
+      },
+      {
+        "key": "owner",
+        "value": "794afb3f-e893-474c-a5a2-d9b6127c3806",
+        "_links": [
+          {
+            "href": "https://eu.polaris.blackduck.com/api/auth/resources/applications/805a71c9-ba9a-4bfb-90da-520038daa72c/users/794afb3f-e893-474c-a5a2-d9b6127c3806",
+            "rel": "owner",
+            "method": "GET"
+          }
+        ]
       }
     ],
     "_cursor": "AAAABg==",
@@ -1179,19 +1201,30 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "not-dismissed"
+        "value": "dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "unset"
+        "value": "false-positive"
       },
       {
         "key": "is-dismissed",
-        "value": false
+        "value": true
       },
       {
         "key": "fix-by",
         "value": "2025-10-01T12:14:09.194378Z"
+      },
+      {
+        "key": "owner",
+        "value": "794afb3f-e893-474c-a5a2-d9b6127c3806",
+        "_links": [
+          {
+            "href": "https://eu.polaris.blackduck.com/api/auth/resources/applications/805a71c9-ba9a-4bfb-90da-520038daa72c/users/794afb3f-e893-474c-a5a2-d9b6127c3806",
+            "rel": "owner",
+            "method": "GET"
+          }
+        ]
       }
     ],
     "_cursor": "AAAABw==",
@@ -1347,19 +1380,30 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "not-dismissed"
+        "value": "dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "unset"
+        "value": "false-positive"
       },
       {
         "key": "is-dismissed",
-        "value": false
+        "value": true
       },
       {
         "key": "fix-by",
         "value": "2025-10-01T12:14:09.194378Z"
+      },
+      {
+        "key": "owner",
+        "value": "794afb3f-e893-474c-a5a2-d9b6127c3806",
+        "_links": [
+          {
+            "href": "https://eu.polaris.blackduck.com/api/auth/resources/applications/805a71c9-ba9a-4bfb-90da-520038daa72c/users/794afb3f-e893-474c-a5a2-d9b6127c3806",
+            "rel": "owner",
+            "method": "GET"
+          }
+        ]
       }
     ],
     "_cursor": "AAAACA==",

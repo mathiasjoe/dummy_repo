@@ -23,6 +23,15 @@ def fetch_projects(session, url, limit=100):
         sys.exit(1)
     return response.json()
 
+def map_severity(severity):
+    severity_map = {
+        "critical": "10",
+        "high": "7.5",
+        "medium": "4.5",
+        "low": "2"
+    }
+    return severity_map.get(severity.lower(), "0")
+
 def main():
     if len(sys.argv) < 3:
         print("Usage: python extract_findings.py <polaris_url> <api_token> [project_id]")
@@ -136,6 +145,14 @@ def main():
         line = location.get("line", 1)
         logical_name = issue.get("function", None) or issue.get("logicalLocation", None)
 
+        # Extract severity from occurrenceProperties
+        severity = None
+        occurrence_props = issue.get("occurrenceProperties", [])
+        for prop in occurrence_props:
+            if prop.get("key") == "severity":
+                severity = str(prop.get("value", "")).lower()
+                break
+
         # Add artifact if not already present
         if file_path not in artifact_map:
             artifact_index = len(artifacts)
@@ -154,13 +171,18 @@ def main():
         if rule_id not in rule_id_map:
             rule_index = len(rules)
             rule_id_map[rule_id] = rule_index
-            rules.append({
+            rule_entry = {
                 "id": rule_id,
                 "name": rule_name,
                 "fullDescription": {
                     "text": description if description else rule_name
                 }
-            })
+            }
+            if severity:
+                rule_entry["properties"] = {
+                    "securitySeverityLevel": map_severity(severity)
+                }
+            rules.append(rule_entry)
         else:
             rule_index = rule_id_map[rule_id]
 
