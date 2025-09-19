@@ -125,9 +125,12 @@ def main():
         # Skip informational severity
         occurrence_props = issue.get("occurrenceProperties", [])
         is_informational = False
+        severity = None
         for prop in occurrence_props:
-            if prop.get("key") == "severity" and str(prop.get("value", "")).lower() == "informational":
-                is_informational = True
+            if prop.get("key") == "severity":
+                severity = str(prop.get("value", ""))
+                if severity.lower() == "informational":
+                    is_informational = True
                 break
         if is_informational:
             continue
@@ -156,14 +159,6 @@ def main():
         line = location.get("line", 1)
         logical_name = issue.get("function", None) or issue.get("logicalLocation", None)
 
-        # Extract severity from occurrenceProperties
-        severity = None
-        occurrence_props = issue.get("occurrenceProperties", [])
-        for prop in occurrence_props:
-            if prop.get("key") == "severity":
-                severity = str(prop.get("value", "")).lower()
-                break
-
         # Add artifact if not already present
         if file_path not in artifact_map:
             artifact_index = len(artifacts)
@@ -189,18 +184,17 @@ def main():
                     "text": description if description else rule_name
                 }
             }
-            if severity:
-                rule_entry["properties"] = {
-                    "securitySeverityLevel": map_severity(severity)
-                }
             rules.append(rule_entry)
         else:
             rule_index = rule_id_map[rule_id]
 
+        # Set SARIF result level to the severity string (lowercase), or 'none' if not present
+        result_level = severity.lower() if severity else "none"
+
         result = {
             "ruleId": rule_id,
             "ruleIndex": rule_index,
-            "level": map_level(severity) if severity else "none",
+            "level": result_level,
             "message": {
                 "text": message
             },

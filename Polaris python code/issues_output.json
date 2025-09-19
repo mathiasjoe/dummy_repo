@@ -127,15 +127,15 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "dismissed"
+        "value": "not-dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "false-positive"
+        "value": "unset"
       },
       {
         "key": "is-dismissed",
-        "value": true
+        "value": false
       },
       {
         "key": "fix-by",
@@ -306,15 +306,15 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "dismissed"
+        "value": "not-dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "false-positive"
+        "value": "unset"
       },
       {
         "key": "is-dismissed",
-        "value": true
+        "value": false
       },
       {
         "key": "fix-by",
@@ -485,15 +485,15 @@
     "triageProperties": [
       {
         "key": "status",
-        "value": "dismissed"
+        "value": "not-dismissed"
       },
       {
         "key": "dismissal-reason",
-        "value": "false-positive"
+        "value": "unset"
       },
       {
         "key": "is-dismissed",
-        "value": true
+        "value": false
       },
       {
         "key": "fix-by",
