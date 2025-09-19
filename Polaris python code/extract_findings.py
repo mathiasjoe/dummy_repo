@@ -144,7 +144,7 @@ def main():
         rule_id = str(issue.get("id", "PolarisIssueID"))[:255]
         issue_type = issue.get("type", {})
         base_rule_name = issue_type.get("altName", "Polaris Issue")
-        rule_name = f"{base_rule_name} (CWE: {cwe})" if cwe else base_rule_name
+        rule_name = f"{base_rule_name} ({cwe})" if cwe else base_rule_name
         description = None
         localized = issue_type.get("_localized", {})
         if isinstance(localized, dict):
