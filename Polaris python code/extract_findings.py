@@ -184,12 +184,36 @@ def main():
                     "text": description if description else rule_name
                 }
             }
+            # Set securitySeverityLevel for GitHub UI
+            if severity:
+                sev_map = {
+                    "critical": "10",
+                    "high": "7.5",
+                    "medium": "4.5",
+                    "low": "2"
+                }
+                sev_val = sev_map.get(severity.lower())
+                if sev_val:
+                    rule_entry["properties"] = {"securitySeverityLevel": sev_val}
             rules.append(rule_entry)
         else:
             rule_index = rule_id_map[rule_id]
 
-        # Set SARIF result level to the severity string (lowercase), or 'none' if not present
-        result_level = severity.lower() if severity else "none"
+        # Set SARIF result level to SARIF enum
+        def sarif_level(severity):
+            if not severity:
+                return "none"
+            sev = severity.lower()
+            if sev in ["critical", "high"]:
+                return "error"
+            elif sev == "medium":
+                return "warning"
+            elif sev == "low":
+                return "note"
+            else:
+                return "none"
+
+        result_level = sarif_level(severity)
 
         result = {
             "ruleId": rule_id,
