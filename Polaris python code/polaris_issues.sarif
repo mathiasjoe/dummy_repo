@@ -382,6 +382,7 @@
         {
           "ruleId": "9B4667154117A4573863212C74C6E017",
           "ruleIndex": 0,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -403,6 +404,7 @@
         {
           "ruleId": "08C8C89662A850BA0E5EA82EDE6B216E",
           "ruleIndex": 1,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -424,6 +426,7 @@
         {
           "ruleId": "826C9DC0DC2BD8B5173B7932296AD2A6",
           "ruleIndex": 2,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -445,6 +448,7 @@
         {
           "ruleId": "2FC5500043A886DBF8B1B080CCC44840",
           "ruleIndex": 3,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -466,6 +470,7 @@
         {
           "ruleId": "CCF5F89C41264FC7E6B90B93478BC8F0",
           "ruleIndex": 4,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -487,6 +492,7 @@
         {
           "ruleId": "BC00609D0BE528FC84DDD93E823A0FC8",
           "ruleIndex": 5,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -508,6 +514,7 @@
         {
           "ruleId": "737CCF4C6EB5A0AA41041ED8A67594BE",
           "ruleIndex": 6,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -529,6 +536,7 @@
         {
           "ruleId": "49502AD3CBA2EBFE782B08B5DFCD523B",
           "ruleIndex": 7,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -550,6 +558,7 @@
         {
           "ruleId": "461F27419D71D8D4054D4647D01C82B1",
           "ruleIndex": 8,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -571,6 +580,7 @@
         {
           "ruleId": "A241AF41BB63C7D95A0CA2C6334EA4E7",
           "ruleIndex": 9,
+          "level": "error",
           "message": {
             "text": "Server Error"
           },
@@ -592,6 +602,7 @@
         {
           "ruleId": "94F6BE4EC7EBBF0BDF36FEB351AA1E80",
           "ruleIndex": 10,
+          "level": "warning",
           "message": {
             "text": "Unsecured Session Cookie"
           },
@@ -613,6 +624,7 @@
         {
           "ruleId": "133F8F76E8634046ABA74703C85D3FFD",
           "ruleIndex": 11,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -634,6 +646,7 @@
         {
           "ruleId": "334C00D2DF14756377256A0990249A24",
           "ruleIndex": 12,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -655,6 +668,7 @@
         {
           "ruleId": "F3585F038F1CD7E175C560C461A89584",
           "ruleIndex": 13,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -676,6 +690,7 @@
         {
           "ruleId": "2547662566BA8B63EE673062D14971CC",
           "ruleIndex": 14,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -697,6 +712,7 @@
         {
           "ruleId": "7B0E93A5E9883BE9BC15BA87AEB25B1B",
           "ruleIndex": 15,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -718,6 +734,7 @@
         {
           "ruleId": "9231792F8ECE81D8B78F7A09DFA96F3D",
           "ruleIndex": 16,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -739,6 +756,7 @@
         {
           "ruleId": "7BA471E8EF7FC63AFF751C76CCFC53FA",
           "ruleIndex": 17,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -760,6 +778,7 @@
         {
           "ruleId": "944A936F1301AD0362E35CFC80912D37",
           "ruleIndex": 18,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -781,6 +800,7 @@
         {
           "ruleId": "E2FFF487F311D91C720DB1BD8D127606",
           "ruleIndex": 19,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -802,6 +822,7 @@
         {
           "ruleId": "9995B9A075EB74E42F5D3D7CACA57B66",
           "ruleIndex": 20,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -823,6 +844,7 @@
         {
           "ruleId": "17FAAABBDCA4CF51EB3672F162980566",
           "ruleIndex": 21,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -844,6 +866,7 @@
         {
           "ruleId": "A1E0F9376C64CAC59AAB93CD07F1DF27",
           "ruleIndex": 22,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -865,6 +888,7 @@
         {
           "ruleId": "C99F0D28B4106F089F0537F4A7C6B484",
           "ruleIndex": 23,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -886,6 +910,7 @@
         {
           "ruleId": "6588194600B87D06EB1F710D1DB42C61",
           "ruleIndex": 24,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -907,6 +932,7 @@
         {
           "ruleId": "97E4D40C5D6479434C04BA2A19C08B3C",
           "ruleIndex": 25,
+          "level": "note",
           "message": {
             "text": "Stack Trace"
           },
@@ -928,6 +954,7 @@
         {
           "ruleId": "4AAD3F7AB475946011C75F5ADCE31733",
           "ruleIndex": 26,
+          "level": "note",
           "message": {
             "text": "Missing X-Content-Type-Options Header"
           },
@@ -949,6 +976,7 @@
         {
           "ruleId": "85E5F2767445999576FDBD8C3E3A7EB7",
           "ruleIndex": 27,
+          "level": "note",
           "message": {
             "text": "Missing CSP"
           },
@@ -970,6 +998,7 @@
         {
           "ruleId": "903816F04E47821D7A8E2834BEB09882",
           "ruleIndex": 28,
+          "level": "warning",
           "message": {
             "text": "Frameable Resource"
           },
@@ -991,6 +1020,7 @@
         {
           "ruleId": "70F6B68AA2694A62C87777B81946AD3A",
           "ruleIndex": 29,
+          "level": "note",
           "message": {
             "text": "Autocomplete Attribute"
           },
@@ -1012,6 +1042,7 @@
         {
           "ruleId": "739EC5D13E5C59B3FBBA17AC83B8F600",
           "ruleIndex": 30,
+          "level": "note",
           "message": {
             "text": "HTTP Strict Transport Security (HSTS)"
           },
@@ -1033,6 +1064,7 @@
         {
           "ruleId": "0E3704165FCC8648225217F64D4B9A5A",
           "ruleIndex": 31,
+          "level": "note",
           "message": {
             "text": "Missing Cache Control Header"
           },
@@ -1054,6 +1086,7 @@
         {
           "ruleId": "511AAD2FF0458661324C85F0F450D6CB",
           "ruleIndex": 32,
+          "level": "warning",
           "message": {
             "text": "Directory Search"
           },
@@ -1075,6 +1108,7 @@
         {
           "ruleId": "9D2E183637FABEF0B1ECE9CB55F32CD4",
           "ruleIndex": 33,
+          "level": "note",
           "message": {
             "text": "Non-HttpOnly Session Cookie"
           },
@@ -1096,6 +1130,7 @@
         {
           "ruleId": "F8EEE1909AA630DF92D26506FC6EFA82",
           "ruleIndex": 34,
+          "level": "warning",
           "message": {
             "text": "Arbitrary Method Allowed"
           },
@@ -1117,6 +1152,7 @@
         {
           "ruleId": "FC5979F6711BD1F140195855827067AD",
           "ruleIndex": 35,
+          "level": "note",
           "message": {
             "text": "Password Disclosure"
           },

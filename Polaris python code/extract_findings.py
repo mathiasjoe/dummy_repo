@@ -174,6 +174,7 @@ def main():
             artifact_index = artifact_map[file_path]
 
         # Add rule if not already present
+        # Add rule if not already present
         if rule_id not in rule_id_map:
             rule_index = len(rules)
             rule_id_map[rule_id] = rule_index
@@ -218,6 +219,7 @@ def main():
         result = {
             "ruleId": rule_id,
             "ruleIndex": rule_index,
+            "level": result_level,
             "message": {
                 "text": message
             },
@@ -237,7 +239,6 @@ def main():
         if logical_name:
             result["locations"][0]["logicalLocations"] = [{"fullyQualifiedName": logical_name}]
         results.append(result)
-
     with open(sarif_path, "w") as f:
         json.dump(sarif, f, indent=2)
     print("SARIF file written to polaris_issues.sarif")
