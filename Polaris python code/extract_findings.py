@@ -181,8 +181,7 @@ def main():
                 "id": rule_id,
                 "name": rule_name,
                 "fullDescription": {
-                    "href": "https://eu.polaris.blackduck.com/",
-                    "text": description if description else rule_name
+                    "text": "See the [documentation](https://eu.polaris.blackduck.com ) for more details." + "\n" + (description if description else rule_name)
                 }
             }
             if severity:
