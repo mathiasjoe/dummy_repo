@@ -32,6 +32,17 @@ def map_severity(severity):
     }
     return severity_map.get(severity.lower(), "0")
 
+def map_level(severity):
+    severity = severity.lower()
+    if severity in ["critical", "high"]:
+        return "error"
+    elif severity == "medium":
+        return "warning"
+    elif severity == "low":
+        return "note"
+    else:
+        return "none"
+
 def main():
     if len(sys.argv) < 3:
         print("Usage: python extract_findings.py <polaris_url> <api_token> [project_id]")
@@ -189,6 +200,7 @@ def main():
         result = {
             "ruleId": rule_id,
             "ruleIndex": rule_index,
+            "level": map_level(severity) if severity else "none",
             "message": {
                 "text": message
             },
