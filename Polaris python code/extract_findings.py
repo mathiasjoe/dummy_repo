@@ -174,7 +174,6 @@ def main():
             artifact_index = artifact_map[file_path]
 
         # Add rule if not already present
-        # Add rule if not already present
         if rule_id not in rule_id_map:
             rule_index = len(rules)
             rule_id_map[rule_id] = rule_index
@@ -185,7 +184,6 @@ def main():
                     "text": description if description else rule_name
                 }
             }
-            # Set securitySeverityLevel for GitHub UI
             if severity:
                 sev_map = {
                     "critical": "10",
@@ -195,31 +193,16 @@ def main():
                 }
                 sev_val = sev_map.get(severity.lower())
                 if sev_val:
-                    rule_entry["properties"] = {"securitySeverityLevel": sev_val}
+                    rule_entry["properties"] = {"security-severity": sev_val}
             rules.append(rule_entry)
         else:
             rule_index = rule_id_map[rule_id]
 
-        # Set SARIF result level to SARIF enum
-        def sarif_level(severity):
-            if not severity:
-                return "none"
-            sev = severity.lower()
-            if sev in ["critical", "high"]:
-                return "error"
-            elif sev == "medium":
-                return "warning"
-            elif sev == "low":
-                return "note"
-            else:
-                return "none"
-
-        result_level = sarif_level(severity)
+       
 
         result = {
             "ruleId": rule_id,
             "ruleIndex": rule_index,
-            "level": result_level,
             "message": {
                 "text": message
             },
