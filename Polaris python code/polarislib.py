@@ -238,23 +238,41 @@ def getBranchId(session, url, pid, name, nonfatal=False):
 #  - Parameters (Optional)
 # Returns:
 #  - raw issue data from API response
-def getIssues(session, url, pid, bid, params=None):
-    if params == None:
+def getIssues(session, url, pid, params=None):
+    if params is None:
         params = {}
-    params['portfolioSubItemId'] = pid
-    params['branchId'] = bid
+    params['projectId'] = pid
     params['_includeIssueProperties'] = 'true'
-    params['_includeIssueType'] = 'true'
+    params['_includeType'] = 'true'
     params['_includeTriageProperties'] = 'true'
+    params['_includeOccurrenceProperties'] = 'true'
+    params['_includeContext'] = 'true' 
     resp = apigetitems(session, url,
-      "/api/specialization-layer-service/issue-families/_actions/list",
+      "/api/findings/issues",
       params)
     try:
         return(resp)
     except:
-        # Not sure this is possible
         print(f"ERROR: No issues found")
         sys.exit(1)
+
+# def getIssues(session, url, pid, bid, params=None):
+#     if params == None:
+#         params = {}
+#     params['projectId'] = pid
+#     params['branchId'] = bid
+#     params['_includeIssueProperties'] = 'true'
+#     params['_includeIssueType'] = 'true'
+#     params['_includeTriageProperties'] = 'true'
+#     resp = apigetitems(session, url,
+#       "/api/findings/issues/_actions/",
+#       params)
+#     try:
+#         return(resp)
+#     except:
+#         # Not sure this is possible
+#         print(f"ERROR: No issues found")
+#         sys.exit(1)
 
 # Lookup the global role IDs
 # Arguments:

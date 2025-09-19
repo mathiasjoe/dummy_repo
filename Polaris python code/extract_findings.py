@@ -25,18 +25,11 @@ def fetch_projects(session, url, limit=100):
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python extract_findings.py <polaris_url> <api_token> [project_index]")
+        print("Usage: python extract_findings.py <polaris_url> <api_token> [project_id]")
         sys.exit(1)
 
     url = sys.argv[1]
     token = sys.argv[2]
-    project_index = 0
-    if len(sys.argv) > 3:
-        try:
-            project_index = int(sys.argv[3])
-        except ValueError:
-            print("Invalid project_index. It must be an integer.")
-            sys.exit(1)
 
     session = createSession(url, token)
     projects_data = fetch_projects(session, url)
@@ -44,14 +37,20 @@ def main():
     if not projects:
         print("No projects found.")
         sys.exit(1)
-    if project_index < 0 or project_index >= len(projects):
-        print(f"Invalid project_index {project_index}. Must be between 0 and {len(projects)-1}.")
+
+    if len(sys.argv) > 3:
+        project_id = sys.argv[3]
+    else:
+        project_id = projects[0].get('id')
+
+    project_ids = [proj.get('id') for proj in projects]
+    if project_id not in project_ids:
+        print(f"Invalid project_id {project_id}. Not found in available projects.")
         sys.exit(1)
-    selected_proj = projects[project_index]
-    project_id = selected_proj.get('id')
+    selected_proj = next(proj for proj in projects if proj.get('id') == project_id)
     project_name = selected_proj.get('name')
 
-     # Print all available projects with their index, name, and ID
+    # Print all available projects with their index, name, and ID
     #print("Available projects:")
     #for idx, proj in enumerate(projects):
         #print(f"{idx}: {proj.get('name')} (ID: {proj.get('id')})")
@@ -77,7 +76,7 @@ def main():
         "runs": [{
             "tool": {
                 "driver": {
-                    "name": "Polaris-Scanner",
+                    "name": "DAST-Scanner",
                     "rules": []
                 }
             },
@@ -93,25 +92,39 @@ def main():
     results = sarif["runs"][0]["results"]
 
     for issue in issues:
-        # Extract rule id and name as plain strings
-        issue_type = issue.get("issueType", {})
-        if isinstance(issue_type, dict):
-            rule_id = str(issue_type.get("id", "PolarisIssue"))[:255]
-            rule_name = str(issue_type.get("name", "Polaris Issue"))
-            # Try to get detailed description from _localized.otherDetail
-            description = None
-            localized = issue_type.get("_localized", {})
-            if isinstance(localized, dict):
-                other_details = localized.get("otherDetail", [])
-                if isinstance(other_details, list):
-                    for detail in other_details:
-                        if detail.get("key") == "description":
-                            description = detail.get("value")
-                            break
-        else:
-            rule_id = str(issue_type)[:255]
-            rule_name = str(issue_type)
-            description = None
+        # Skip dismissed issues
+        triage_props = issue.get("triageProperties", [])
+        is_dismissed = False
+        for prop in triage_props:
+            if prop.get("key") == "is-dismissed" and prop.get("value") is True:
+                is_dismissed = True
+                break
+        if is_dismissed:
+            continue
+
+        # Skip informational severity
+        occurrence_props = issue.get("occurrenceProperties", [])
+        is_informational = False
+        for prop in occurrence_props:
+            if prop.get("key") == "severity" and str(prop.get("value", "")).lower() == "informational":
+                is_informational = True
+                break
+        if is_informational:
+            continue
+
+        # Extract rule id, name, and description
+        issue_type = issue.get("type", {})
+        rule_id = str(issue.get("id", "PolarisIssueID"))[:255]
+        rule_name = issue_type.get("altName", "Polaris Issue")
+        description = None
+        localized = issue_type.get("_localized", {})
+        if isinstance(localized, dict):
+            other_details = localized.get("otherDetails", [])
+            if isinstance(other_details, list):
+                for detail in other_details:
+                    if detail.get("key") == "description":
+                        description = detail.get("value")
+                        break
 
         # Use a human-readable message
         message = issue.get("message")
@@ -180,5 +193,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-        
+
