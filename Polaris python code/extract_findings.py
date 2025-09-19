@@ -218,7 +218,6 @@ def main():
         result = {
             "ruleId": rule_id,
             "ruleIndex": rule_index,
-            "level": result_level,
             "message": {
                 "text": message
             },
