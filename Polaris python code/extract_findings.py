@@ -23,25 +23,6 @@ def fetch_projects(session, url, limit=100):
         sys.exit(1)
     return response.json()
 
-def map_severity(severity):
-    severity_map = {
-        "critical": "10",
-        "high": "7.5",
-        "medium": "4.5",
-        "low": "2"
-    }
-    return severity_map.get(severity.lower(), "0")
-
-def map_level(severity):
-    severity = severity.lower()
-    if severity in ["critical", "high"]:
-        return "error"
-    elif severity == "medium":
-        return "warning"
-    elif severity == "low":
-        return "note"
-    else:
-        return "none"
 
 def main():
     if len(sys.argv) < 3:
