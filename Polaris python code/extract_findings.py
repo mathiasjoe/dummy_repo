@@ -122,23 +122,29 @@ def main():
         if is_dismissed:
             continue
 
-        # Skip informational severity
+        # Skip informational severity and extract needed properties
         occurrence_props = issue.get("occurrenceProperties", [])
         is_informational = False
         severity = None
+        cwe = None
+        overall_score = None
         for prop in occurrence_props:
             if prop.get("key") == "severity":
                 severity = str(prop.get("value", ""))
                 if severity.lower() == "informational":
                     is_informational = True
-                break
+            elif prop.get("key") == "cwe":
+                cwe = prop.get("value")
+            elif prop.get("key") == "overall-score":
+                overall_score = prop.get("value")
         if is_informational:
             continue
 
-        # Extract rule id, name, and description
-        issue_type = issue.get("type", {})
+        # Use issue ID as rule id, but include CWE in rule name if present
         rule_id = str(issue.get("id", "PolarisIssueID"))[:255]
-        rule_name = issue_type.get("altName", "Polaris Issue")
+        issue_type = issue.get("type", {})
+        base_rule_name = issue_type.get("altName", "Polaris Issue")
+        rule_name = f"{base_rule_name} (CWE: {cwe})" if cwe else base_rule_name
         description = None
         localized = issue_type.get("_localized", {})
         if isinstance(localized, dict):
@@ -184,16 +190,8 @@ def main():
                     "text": "Please visit https://eu.polaris.blackduck.com to handle the Issue.   " + (description if description else rule_name)
                 }
             }
-            if severity:
-                sev_map = {
-                    "critical": "10",
-                    "high": "7.5",
-                    "medium": "4.5",
-                    "low": "2"
-                }
-                sev_val = sev_map.get(severity.lower())
-                if sev_val:
-                    rule_entry["properties"] = {"security-severity": sev_val}
+            if overall_score is not None:
+                rule_entry["properties"] = {"security-severity": str(overall_score)}
             rules.append(rule_entry)
         else:
             rule_index = rule_id_map[rule_id]
