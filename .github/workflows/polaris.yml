@@ -27,9 +27,10 @@ jobs:
         env:
           POLARIS_URL: ${{ secrets.POLARIS_URL }}
           POLARIS_TOKEN: ${{ secrets.POLARIS_TOKEN }}
+          POLARIS_PROJECT_ID: ${{ secrets.POLARIS_PROJECT_ID }}
         run: |
           cd "Polaris python code"
-          python extract_findings.py "$POLARIS_URL" "$POLARIS_TOKEN" adbd0aed-b695-4b5d-ad05-0c603e12fe1d
+          python extract_findings.py "$POLARIS_URL" "$POLARIS_TOKEN" "$POLARIS_PROJECT_ID"
 
       - name: Upload SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
