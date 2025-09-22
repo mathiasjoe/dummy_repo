@@ -168,7 +168,7 @@ def main():
                 "id": rule_id,
                 "name": rule_name,
                 "fullDescription": {
-                    "text": "Please visit https://eu.polaris.blackduck.com to handle the Issue.   " + (description if description else rule_name)
+                    "text": description if description else rule_name
                 },
                 "helpUri": "https://eu.polaris.blackduck.com"
             }
