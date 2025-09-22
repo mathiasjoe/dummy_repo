@@ -4,7 +4,6 @@ import json
 import re
 
 #Added functions from polarislib.py to avoid import issues (now we dont need polarislib.py)
-#The functions are a
 def getresp(session, api, params=None, headers=None):
     if params == None:
         params = {}
@@ -80,8 +79,8 @@ def createSession(url, token):
     s.headers.update(headers)
     return s
 
-def fetch_projects(session, url, limit=100):
-    endpoint = f"/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/projects?_limit={limit}"
+def fetch_projects(session, url, portfolio_id, limit=100):
+    endpoint = f"/api/portfolios/{portfolio_id}/projects?_limit={limit}"
     headers = {
         "accept": "application/vnd.polaris.portfolios.projects-1+json"
     }
@@ -94,22 +93,23 @@ def fetch_projects(session, url, limit=100):
 
 
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: python extract_findings.py <polaris_url> <api_token> [project_id]")
+    if len(sys.argv) < 4:
+        print("Usage: python extract_findings.py <polaris_url> <api_token> <portfolio_id> [project_id]")
         sys.exit(1)
 
     url = sys.argv[1]
     token = sys.argv[2]
+    portfolio_id = sys.argv[3]
 
     session = createSession(url, token)
-    projects_data = fetch_projects(session, url)
+    projects_data = fetch_projects(session, url, portfolio_id)
     projects = projects_data.get('_items', [])
     if not projects:
         print("No projects found.")
         sys.exit(1)
 
-    if len(sys.argv) > 3:
-        project_id = sys.argv[3]
+    if len(sys.argv) > 4:
+        project_id = sys.argv[4]
     else:
         project_id = projects[0].get('id')
 
@@ -120,8 +120,7 @@ def main():
     selected_proj = next(proj for proj in projects if proj.get('id') == project_id)
     project_name = selected_proj.get('name')
     
-    # Extract portfolio and application IDs for building issue links
-    portfolio_id = "074b4f38-ece1-4091-aa9e-637925491dbc"  # The portfolio ID
+    # Extract application ID for building issue links
     application_id = selected_proj.get('application', {}).get('id')
     if not application_id:
         print(f"Error: No application ID found for project '{project_name}'. Please check the project Id input")
