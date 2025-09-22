@@ -7,7 +7,7 @@ permissions:
 
 on:
   # schedule:
-  #   - cron: '0 5 * * 1'  # Runs every Monday at 05:00
+  #   - cron: '0 5 * * 1'  # Runs every Monday at 05:00 (example schedule, adjust as needed)
   workflow_dispatch:
 
 jobs:
@@ -31,6 +31,8 @@ jobs:
           POLARIS_TOKEN: ${{ secrets.POLARIS_TOKEN }}
           POLARIS_PORTFOLIO_ID: ${{ secrets.POLARIS_PORTFOLIO_ID }}
           POLARIS_PROJECT_ID: ${{ secrets.POLARIS_PROJECT_ID }}
+
+        #Update the run command to match your appplication
         run: |
           cd "Polaris python code"
           python extract_findings.py "$POLARIS_URL" "$POLARIS_TOKEN" "$POLARIS_PORTFOLIO_ID" "$POLARIS_PROJECT_ID"
