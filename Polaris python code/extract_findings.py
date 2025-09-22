@@ -52,8 +52,11 @@ def main():
     project_name = selected_proj.get('name')
     
     # Extract portfolio and application IDs for building issue links
-    portfolio_id = "074b4f38-ece1-4091-aa9e-637925491dbc"  # From your portfolio endpoint
-    application_id = selected_proj.get('application', {}).get('id', '805a71c9-ba9a-4bfb-90da-520038daa72c')
+    portfolio_id = "074b4f38-ece1-4091-aa9e-637925491dbc"  # From the portfolio endpoint
+    application_id = selected_proj.get('application', {}).get('id')
+    if not application_id:
+        print(f"Error: No application ID found for project '{project_name}'. Please check the project configuration.")
+        sys.exit(1) 
 
     # Print all available projects with their index, name, and ID
     #print("Available projects:")
