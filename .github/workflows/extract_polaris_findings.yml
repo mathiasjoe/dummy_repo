@@ -1,13 +1,13 @@
 
-name: Run Polaris Extract and Upload SARIF
+name: Run Polaris Extract and Upload findings
 
 permissions:
   contents: read
   security-events: write
 
 on:
-  schedule:
-    - cron: '0 5 * * 1'  # Runs every Monday at 05:00
+  # schedule:
+  #   - cron: '0 5 * * 1'  # Runs every Monday at 05:00
   workflow_dispatch:
 
 jobs:

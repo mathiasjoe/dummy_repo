@@ -7,78 +7,6 @@
           "name": "DAST-Scanner",
           "rules": [
             {
-              "id": "9B4667154117A4573863212C74C6E017",
-              "name": "Server Error (CWE-755)",
-              "shortDescription": {
-                "text": "Server Error (CWE-755)"
-              },
-              "fullDescription": {
-                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/9B4667154117A4573863212C74C6E017",
-              "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/9B4667154117A4573863212C74C6E017) \n Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "properties": {
-                "security-severity": "8.1"
-              }
-            },
-            {
-              "id": "08C8C89662A850BA0E5EA82EDE6B216E",
-              "name": "Server Error (CWE-755)",
-              "shortDescription": {
-                "text": "Server Error (CWE-755)"
-              },
-              "fullDescription": {
-                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/08C8C89662A850BA0E5EA82EDE6B216E",
-              "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/08C8C89662A850BA0E5EA82EDE6B216E) \n Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "properties": {
-                "security-severity": "8.1"
-              }
-            },
-            {
-              "id": "826C9DC0DC2BD8B5173B7932296AD2A6",
-              "name": "Server Error (CWE-755)",
-              "shortDescription": {
-                "text": "Server Error (CWE-755)"
-              },
-              "fullDescription": {
-                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/826C9DC0DC2BD8B5173B7932296AD2A6",
-              "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/826C9DC0DC2BD8B5173B7932296AD2A6) \n Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "properties": {
-                "security-severity": "8.1"
-              }
-            },
-            {
-              "id": "2FC5500043A886DBF8B1B080CCC44840",
-              "name": "Server Error (CWE-755)",
-              "shortDescription": {
-                "text": "Server Error (CWE-755)"
-              },
-              "fullDescription": {
-                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/2FC5500043A886DBF8B1B080CCC44840",
-              "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/805a71c9-ba9a-4bfb-90da-520038daa72c/projects/adbd0aed-b695-4b5d-ad05-0c603e12fe1d/issues/2FC5500043A886DBF8B1B080CCC44840) \n Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data may be used by an attacker to exploit the target web application, its hosting network, or its users. \n    Therefore, leakage of sensitive data should be limited or prevented whenever possible. Information Leakage, in its most common form, \n    is the result of one or more of the following conditions: \n    - A failure to scrub out HTML/Script comments containing sensitive information\n    - Improper application or server configurations\n    - Differences in page responses for valid versus invalid data.\n\n    A 5XX response code was detected.\n\n    Improper handling of errors can introduce a variety of security problems for a web site. The most common problem is when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user (hacker). \n    These messages reveal implementation details that should never be revealed. Such details can provide hackers important clues on potential flaws in the site and such messages are also disturbing to normal users.\n\n    Web applications frequently generate error conditions during normal operation. Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout,and hundreds of other common conditions can cause errors to be generated.\n    These errors must be handled according to a well thought out scheme that will provide a meaningful error message to the user, diagnostic information to the site maintainers, and no useful information to an attacker.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)\n* [OWASP WSTG: Testing for Improper Error Handling](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling)"
-              },
-              "properties": {
-                "security-severity": "8.1"
-              }
-            },
-            {
               "id": "CCF5F89C41264FC7E6B90B93478BC8F0",
               "name": "Server Error (CWE-755)",
               "shortDescription": {
@@ -668,7 +596,7 @@
       ],
       "results": [
         {
-          "ruleId": "9B4667154117A4573863212C74C6E017",
+          "ruleId": "CCF5F89C41264FC7E6B90B93478BC8F0",
           "ruleIndex": 0,
           "message": {
             "text": "Server Error (CWE-755)"
@@ -689,7 +617,7 @@
           ]
         },
         {
-          "ruleId": "08C8C89662A850BA0E5EA82EDE6B216E",
+          "ruleId": "BC00609D0BE528FC84DDD93E823A0FC8",
           "ruleIndex": 1,
           "message": {
             "text": "Server Error (CWE-755)"
@@ -710,7 +638,7 @@
           ]
         },
         {
-          "ruleId": "826C9DC0DC2BD8B5173B7932296AD2A6",
+          "ruleId": "737CCF4C6EB5A0AA41041ED8A67594BE",
           "ruleIndex": 2,
           "message": {
             "text": "Server Error (CWE-755)"
@@ -731,7 +659,7 @@
           ]
         },
         {
-          "ruleId": "2FC5500043A886DBF8B1B080CCC44840",
+          "ruleId": "49502AD3CBA2EBFE782B08B5DFCD523B",
           "ruleIndex": 3,
           "message": {
             "text": "Server Error (CWE-755)"
@@ -752,7 +680,7 @@
           ]
         },
         {
-          "ruleId": "CCF5F89C41264FC7E6B90B93478BC8F0",
+          "ruleId": "461F27419D71D8D4054D4647D01C82B1",
           "ruleIndex": 4,
           "message": {
             "text": "Server Error (CWE-755)"
@@ -773,7 +701,7 @@
           ]
         },
         {
-          "ruleId": "BC00609D0BE528FC84DDD93E823A0FC8",
+          "ruleId": "A241AF41BB63C7D95A0CA2C6334EA4E7",
           "ruleIndex": 5,
           "message": {
             "text": "Server Error (CWE-755)"
@@ -794,92 +722,8 @@
           ]
         },
         {
-          "ruleId": "737CCF4C6EB5A0AA41041ED8A67594BE",
-          "ruleIndex": 6,
-          "message": {
-            "text": "Server Error (CWE-755)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "49502AD3CBA2EBFE782B08B5DFCD523B",
-          "ruleIndex": 7,
-          "message": {
-            "text": "Server Error (CWE-755)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "461F27419D71D8D4054D4647D01C82B1",
-          "ruleIndex": 8,
-          "message": {
-            "text": "Server Error (CWE-755)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "A241AF41BB63C7D95A0CA2C6334EA4E7",
-          "ruleIndex": 9,
-          "message": {
-            "text": "Server Error (CWE-755)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "POLARIS",
-                  "uriBaseId": "SRCROOT",
-                  "index": 0
-                },
-                "region": {
-                  "startLine": 1
-                }
-              }
-            }
-          ]
-        },
-        {
           "ruleId": "94F6BE4EC7EBBF0BDF36FEB351AA1E80",
-          "ruleIndex": 10,
+          "ruleIndex": 6,
           "message": {
             "text": "Unsecured Session Cookie (CWE-614)"
           },
@@ -900,7 +744,7 @@
         },
         {
           "ruleId": "133F8F76E8634046ABA74703C85D3FFD",
-          "ruleIndex": 11,
+          "ruleIndex": 7,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -921,7 +765,7 @@
         },
         {
           "ruleId": "334C00D2DF14756377256A0990249A24",
-          "ruleIndex": 12,
+          "ruleIndex": 8,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -942,7 +786,7 @@
         },
         {
           "ruleId": "F3585F038F1CD7E175C560C461A89584",
-          "ruleIndex": 13,
+          "ruleIndex": 9,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -963,7 +807,7 @@
         },
         {
           "ruleId": "2547662566BA8B63EE673062D14971CC",
-          "ruleIndex": 14,
+          "ruleIndex": 10,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -984,7 +828,7 @@
         },
         {
           "ruleId": "7B0E93A5E9883BE9BC15BA87AEB25B1B",
-          "ruleIndex": 15,
+          "ruleIndex": 11,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1005,7 +849,7 @@
         },
         {
           "ruleId": "9231792F8ECE81D8B78F7A09DFA96F3D",
-          "ruleIndex": 16,
+          "ruleIndex": 12,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1026,7 +870,7 @@
         },
         {
           "ruleId": "7BA471E8EF7FC63AFF751C76CCFC53FA",
-          "ruleIndex": 17,
+          "ruleIndex": 13,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1047,7 +891,7 @@
         },
         {
           "ruleId": "944A936F1301AD0362E35CFC80912D37",
-          "ruleIndex": 18,
+          "ruleIndex": 14,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1068,7 +912,7 @@
         },
         {
           "ruleId": "E2FFF487F311D91C720DB1BD8D127606",
-          "ruleIndex": 19,
+          "ruleIndex": 15,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1089,7 +933,7 @@
         },
         {
           "ruleId": "9995B9A075EB74E42F5D3D7CACA57B66",
-          "ruleIndex": 20,
+          "ruleIndex": 16,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1110,7 +954,7 @@
         },
         {
           "ruleId": "17FAAABBDCA4CF51EB3672F162980566",
-          "ruleIndex": 21,
+          "ruleIndex": 17,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1131,7 +975,7 @@
         },
         {
           "ruleId": "A1E0F9376C64CAC59AAB93CD07F1DF27",
-          "ruleIndex": 22,
+          "ruleIndex": 18,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1152,7 +996,7 @@
         },
         {
           "ruleId": "C99F0D28B4106F089F0537F4A7C6B484",
-          "ruleIndex": 23,
+          "ruleIndex": 19,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1173,7 +1017,7 @@
         },
         {
           "ruleId": "6588194600B87D06EB1F710D1DB42C61",
-          "ruleIndex": 24,
+          "ruleIndex": 20,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1194,7 +1038,7 @@
         },
         {
           "ruleId": "97E4D40C5D6479434C04BA2A19C08B3C",
-          "ruleIndex": 25,
+          "ruleIndex": 21,
           "message": {
             "text": "Stack Trace (CWE-755)"
           },
@@ -1215,7 +1059,7 @@
         },
         {
           "ruleId": "4AAD3F7AB475946011C75F5ADCE31733",
-          "ruleIndex": 26,
+          "ruleIndex": 22,
           "message": {
             "text": "Missing X-Content-Type-Options Header (CWE-693)"
           },
@@ -1236,7 +1080,7 @@
         },
         {
           "ruleId": "85E5F2767445999576FDBD8C3E3A7EB7",
-          "ruleIndex": 27,
+          "ruleIndex": 23,
           "message": {
             "text": "Missing CSP (CWE-693)"
           },
@@ -1257,7 +1101,7 @@
         },
         {
           "ruleId": "903816F04E47821D7A8E2834BEB09882",
-          "ruleIndex": 28,
+          "ruleIndex": 24,
           "message": {
             "text": "Frameable Resource (CWE-1021)"
           },
@@ -1278,7 +1122,7 @@
         },
         {
           "ruleId": "70F6B68AA2694A62C87777B81946AD3A",
-          "ruleIndex": 29,
+          "ruleIndex": 25,
           "message": {
             "text": "Autocomplete Attribute (CWE-525)"
           },
@@ -1299,7 +1143,7 @@
         },
         {
           "ruleId": "739EC5D13E5C59B3FBBA17AC83B8F600",
-          "ruleIndex": 30,
+          "ruleIndex": 26,
           "message": {
             "text": "HTTP Strict Transport Security (HSTS) (CWE-311)"
           },
@@ -1320,7 +1164,7 @@
         },
         {
           "ruleId": "0E3704165FCC8648225217F64D4B9A5A",
-          "ruleIndex": 31,
+          "ruleIndex": 27,
           "message": {
             "text": "Missing Cache Control Header (CWE-525)"
           },
@@ -1341,7 +1185,7 @@
         },
         {
           "ruleId": "511AAD2FF0458661324C85F0F450D6CB",
-          "ruleIndex": 32,
+          "ruleIndex": 28,
           "message": {
             "text": "Directory Search (CWE-22)"
           },
@@ -1362,7 +1206,7 @@
         },
         {
           "ruleId": "9D2E183637FABEF0B1ECE9CB55F32CD4",
-          "ruleIndex": 33,
+          "ruleIndex": 29,
           "message": {
             "text": "Non-HttpOnly Session Cookie (CWE-1004)"
           },
@@ -1383,7 +1227,7 @@
         },
         {
           "ruleId": "F8EEE1909AA630DF92D26506FC6EFA82",
-          "ruleIndex": 34,
+          "ruleIndex": 30,
           "message": {
             "text": "Arbitrary Method Allowed (CWE-650)"
           },
@@ -1404,7 +1248,7 @@
         },
         {
           "ruleId": "FC5979F6711BD1F140195855827067AD",
-          "ruleIndex": 35,
+          "ruleIndex": 31,
           "message": {
             "text": "Password Disclosure (CWE-359)"
           },
