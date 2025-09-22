@@ -50,6 +50,10 @@ def main():
         sys.exit(1)
     selected_proj = next(proj for proj in projects if proj.get('id') == project_id)
     project_name = selected_proj.get('name')
+    
+    # Extract portfolio and application IDs for building issue links
+    portfolio_id = "074b4f38-ece1-4091-aa9e-637925491dbc"  # From your portfolio endpoint
+    application_id = selected_proj.get('application', {}).get('id', '805a71c9-ba9a-4bfb-90da-520038daa72c')
 
     # Print all available projects with their index, name, and ID
     #print("Available projects:")
@@ -164,16 +168,23 @@ def main():
         if rule_id not in rule_id_map:
             rule_index = len(rules)
             rule_id_map[rule_id] = rule_index
+            
+            # Build direct link to the specific issue in Polaris
+            issue_url = f"https://eu.polaris.blackduck.com/portfolio/portfolios/{portfolio_id}/portfolio-items/{application_id}/projects/{project_id}/issues/{rule_id}"
+            
             rule_entry = {
                 "id": rule_id,
                 "name": rule_name,
                 "shortDescription": {
                     "text": rule_name
                 },
-                "helpUri": "https://eu.polaris.blackduck.com",
+                "fullDescription": {
+                    "text": (description if description else rule_name)
+                },
+                "helpUri": issue_url,
                 "help": {
                     "text": "Detailed explanation of the issue.",
-                    "markdown": f"[For more information, login to Polaris](https://eu.polaris.blackduck.com) \n {(description if description else rule_name)}"
+                    "markdown": f"[View issue details in Polaris]({issue_url}) \n {(description if description else rule_name)}"
                 }
             }
             if overall_score is not None:

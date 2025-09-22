@@ -1,5 +1,6 @@
 import requests
 import sys
+import json
 
 def createSession(url, token):
     headers = {'API-TOKEN': token}
@@ -30,5 +31,7 @@ if __name__ == "__main__":
         sys.exit(1)
     print("Available projects:")
     for idx, proj in enumerate(projects):
-        print(f"{idx}: {proj.get('name')} (ID: {proj.get('id')})")
+        print(f"\n--- Project {idx} ---")
+        print(json.dumps(proj, indent=2))
+        print("-" * 50)
 
