@@ -1,9 +1,78 @@
 import requests
 import sys
-
 import json
+import re
 
-import polarislib
+#Added functions from polarislib.py to avoid import issues (now we dont need polarislib.py)
+#The functions are a
+def getresp(session, api, params=None, headers=None):
+    if params == None:
+        params = {}
+    if headers == None:
+        headers = {}
+    response = session.get(api, params=params, headers=headers)
+    if (response.status_code >= 300):
+        print("ERROR: GET failed: ", api)
+        print("Response: ", response)
+        try: 
+            print(response.json())
+        except: 
+            print("No json data returned")
+        sys.exit(1)
+    return(response.json())
+
+def getNextAndFirst(links):
+    nextlink = None
+    firstlink = None
+    for l in links:
+        if l['rel'] == 'next':
+            nextlink = l['href']
+        if l['rel'] == 'first':
+            firstlink = l['href']
+    return nextlink, firstlink
+
+def fixAuthUrl(url, nextUrl):
+    regex = re.escape(url) + r'/users(.*)'
+    match = re.match(regex, nextUrl)
+    if match is None: 
+        return(nextUrl)
+    fixedUrl =  url + "/api/auth/users" + match.group(1)
+    return fixedUrl
+
+def apigetitems(session, url, endpoint, params=None, headers=None):
+    if params == None:
+        params = {}
+    api = url+endpoint
+    json = getresp(session, api, params, headers)
+    
+    data = json['_items']
+    nextpage, firstpage = getNextAndFirst(json['_links'])
+    while nextpage:
+        if nextpage == firstpage:
+            
+            return(data)
+        nextpage = fixAuthUrl(url, nextpage)
+        json = getresp(session, nextpage)
+       
+        data.extend(json['_items'])
+        nextpage, firstpage = getNextAndFirst(json['_links'])
+    return(data)
+
+def getIssues(session, url, pid, params=None):
+    if params is None:
+        params = {}
+    params['projectId'] = pid
+    params['_includeIssueProperties'] = 'true'
+    params['_includeType'] = 'true'
+    params['_includeTriageProperties'] = 'true'
+    params['_includeOccurrenceProperties'] = 'true'
+    params['_includeContext'] = 'true' 
+    resp = apigetitems(session, url, "/api/findings/issues", params)
+    try:
+        return(resp)
+    except:
+        print(f"ERROR: No issues found")
+        sys.exit(1)
 
 def createSession(url, token):
     headers = {'API-TOKEN': token}
@@ -52,16 +121,11 @@ def main():
     project_name = selected_proj.get('name')
     
     # Extract portfolio and application IDs for building issue links
-    portfolio_id = "074b4f38-ece1-4091-aa9e-637925491dbc"  # From the portfolio endpoint
+    portfolio_id = "074b4f38-ece1-4091-aa9e-637925491dbc"  # The portfolio ID
     application_id = selected_proj.get('application', {}).get('id')
     if not application_id:
-        print(f"Error: No application ID found for project '{project_name}'. Please check the project configuration.")
+        print(f"Error: No application ID found for project '{project_name}'. Please check the project Id input")
         sys.exit(1) 
-
-    # Print all available projects with their index, name, and ID
-    #print("Available projects:")
-    #for idx, proj in enumerate(projects):
-        #print(f"{idx}: {proj.get('name')} (ID: {proj.get('id')})")
 
     # Remove old output files if they exist
     import os
@@ -72,7 +136,7 @@ def main():
             os.remove(path)
 
     # Fetch issues from the selected project
-    issues = polarislib.getIssues(session, url, project_id, None)
+    issues = getIssues(session, url, project_id, None)
     print(f"\nFound {len(issues)} issues for project '{project_name}':")
     with open(json_path, "w") as f:
         json.dump(issues, f, indent=2)
