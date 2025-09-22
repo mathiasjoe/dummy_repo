@@ -176,7 +176,7 @@ def main():
                 "helpUri": "https://eu.polaris.blackduck.com",
                 "help": {
                     "text": "Detailed explanation of the issue.",
-                    "markdown": f"[Visit Polaris for more information](https://eu.polaris.blackduck.com) \n\n {(description if description else rule_name)}"
+                    "markdown": f"[Visit Polaris for more information](https://eu.polaris.blackduck.com) \n {(description if description else rule_name)}"
                 }
             }
             if overall_score is not None:
