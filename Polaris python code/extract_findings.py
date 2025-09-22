@@ -169,7 +169,8 @@ def main():
                 "name": rule_name,
                 "fullDescription": {
                     "text": "Please visit https://eu.polaris.blackduck.com to handle the Issue.   " + (description if description else rule_name)
-                }
+                },
+                "helpUri": "https://eu.polaris.blackduck.com"
             }
             if overall_score is not None:
                 rule_entry["properties"] = {"security-severity": str(overall_score)}
