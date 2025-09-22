@@ -170,7 +170,7 @@ def main():
                 "shortDescription": {
                     "text": rule_name
                 },"fullDescription": {
-                    "text": (description if description else rule_name)[:200]
+                    "text": (description if description else rule_name)[:400]
                     
                 }, 
                 "helpUri": "https://eu.polaris.blackduck.com",
