@@ -167,9 +167,7 @@ def main():
             rule_entry = {
                 "id": rule_id,
                 "name": rule_name,
-                "shortDescription": {
-                    "text": description if description else rule_name
-                },
+    
                 "fullDescription": {
                     "text": description if description else rule_name
                 },
