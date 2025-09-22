@@ -173,7 +173,7 @@ def main():
                 "helpUri": "https://eu.polaris.blackduck.com",
                 "help": {
                     "text": "Detailed explanation of the issue.",
-                    "markdown": "[Learn more](https://eu.polaris.blackduck.com)"
+                    "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
                 }
             }
             if overall_score is not None:
@@ -201,7 +201,10 @@ def main():
                         "startLine": line
                     }
                 }
-            }]
+            }],
+            "shortDescription": {
+                "text": description if description else rule_name
+            },
         }
         if logical_name:
             result["locations"][0]["logicalLocations"] = [{"fullyQualifiedName": logical_name}]
