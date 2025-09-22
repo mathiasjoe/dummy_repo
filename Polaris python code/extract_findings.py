@@ -190,6 +190,9 @@ def main():
             "message": {
                 "text": message
             },
+            "shortDescription": {
+                "text": description if description else rule_name
+            },
             "locations": [{
                 "physicalLocation": {
                     "artifactLocation": {
@@ -202,9 +205,7 @@ def main():
                     }
                 }
             }],
-            "shortDescription": {
-                "text": description if description else rule_name
-            },
+        
         }
         if logical_name:
             result["locations"][0]["logicalLocations"] = [{"fullyQualifiedName": logical_name}]
