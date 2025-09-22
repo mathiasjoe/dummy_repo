@@ -170,13 +170,13 @@ def main():
                 "shortDescription": {
                     "text": rule_name
                 },"fullDescription": {
-                    "text": (description if description else rule_name)[:400]
+                    "text": (description if description else rule_name)
                     
                 }, 
                 "helpUri": "https://eu.polaris.blackduck.com",
                 "help": {
                     "text": "Detailed explanation of the issue.",
-                    "markdown": f"{(description if description else rule_name)[:200]} [Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                    "markdown": f"{(description if description else rule_name)} [Visit Polaris for more information](https://eu.polaris.blackduck.com)"
                 }
             }
             if overall_score is not None:
