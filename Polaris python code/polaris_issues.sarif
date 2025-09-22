@@ -13,12 +13,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -31,12 +31,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -49,12 +49,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -67,12 +67,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -85,12 +85,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -103,12 +103,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -121,12 +121,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -139,12 +139,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -157,12 +157,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -175,12 +175,12 @@
                 "text": "Server Error (CWE-755)"
               },
               "fullDescription": {
-                "text": "Informatio"
+                "text": "Information Leakage is an application weakness where an application reveals sensitive data, such as technical details of the web application, environment, \n    or user-specific data. Sensitive data ma",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "8.1"
@@ -193,12 +193,12 @@
                 "text": "Unsecured Session Cookie (CWE-614)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser s",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "4.8"
@@ -211,12 +211,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -229,12 +229,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -247,12 +247,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -265,12 +265,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -283,12 +283,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -301,12 +301,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -319,12 +319,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -337,12 +337,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -355,12 +355,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -373,12 +373,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -391,12 +391,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -409,12 +409,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -427,12 +427,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -445,12 +445,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -463,12 +463,12 @@
                 "text": "Stack Trace (CWE-755)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application generates error messages that include stack traces, which can reveal details about the application's implementation. Stack traces are typically provided by the environment when an appl",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -481,12 +481,12 @@
                 "text": "Missing X-Content-Type-Options Header (CWE-693)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application server does not set the \"X-Content-Type-Options\" header in HTTP responses. The X-Content-Type-Options header mechanism prevents a web browser from overriding the MIME type indicated in",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.1"
@@ -499,12 +499,12 @@
                 "text": "Missing CSP (CWE-693)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application server does not set the Content-Security-Policy (CSP) header in HTTP responses, and therefore does not benefit from the additional protection against potential cross-site scripting iss",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -517,12 +517,12 @@
                 "text": "Frameable Resource (CWE-1021)"
               },
               "fullDescription": {
-                "text": "A Frameabl"
+                "text": "A Frameable Resource is related to a number of vulnerabilities which result from a browser allowing pages to be rendered in a frame. An attacker who can frame a resource within another resource they c",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "4.3"
@@ -535,12 +535,12 @@
                 "text": "Autocomplete Attribute (CWE-525)"
               },
               "fullDescription": {
-                "text": "The HTML \""
+                "text": "The HTML \"autocomplete\" attribute is not set as disabled for sensitive fields. When autocomplete is enabled for a given HTML form field, the browser attempts to fill in a previously stored value as th",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.3"
@@ -553,12 +553,12 @@
                 "text": "HTTP Strict Transport Security (HSTS) (CWE-311)"
               },
               "fullDescription": {
-                "text": "The server"
+                "text": "The server does not implement the \"HTTP Strict Transport Security\" (HSTS) web security policy mechanism.\n\nWhen HSTS is enabled, the webserver sends the special HTTP response header called \"Strict-Tran",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.7"
@@ -571,12 +571,12 @@
                 "text": "Missing Cache Control Header (CWE-525)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application is not utilizing Cache-Control header, which can lead to sensitive data being cached by the browser.\r\n\r\n",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "0"
@@ -589,12 +589,12 @@
                 "text": "Directory Search (CWE-22)"
               },
               "fullDescription": {
-                "text": "An attacke"
+                "text": "An attacker can use Brute Force techniques to search for directories and files, and old backup and configuration files. These resources may store sensitive information about web applications and opera",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "5.3"
@@ -607,12 +607,12 @@
                 "text": "Non-HttpOnly Session Cookie (CWE-1004)"
               },
               "fullDescription": {
-                "text": "The \"HttpO"
+                "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.4"
@@ -625,12 +625,12 @@
                 "text": "Arbitrary Method Allowed (CWE-650)"
               },
               "fullDescription": {
-                "text": "HTTP offer"
+                "text": "HTTP offers a number of methods that can be used to perform actions on the web server (the HTTP 1.1 standard refers to them as methods but they are also commonly described as verbs). \n    While GET an",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "6.5"
@@ -643,12 +643,12 @@
                 "text": "Password Disclosure (CWE-359)"
               },
               "fullDescription": {
-                "text": "The applic"
+                "text": "The application sends the user's password in an HTTP response. Including the password in application responses increases the likelihood of password compromise.\r\n\r\nAn attacker performing a man-in-the-m",
+                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
               },
               "helpUri": "https://eu.polaris.blackduck.com",
               "help": {
-                "text": "Detailed explanation of the issue.",
-                "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
+                "text": "Detailed explanation of the issue."
               },
               "properties": {
                 "security-severity": "3.1"
