@@ -167,6 +167,9 @@ def main():
             rule_entry = {
                 "id": rule_id,
                 "name": rule_name,
+                "shortDescription": {
+                    "text": description if description else rule_name
+                },
                 "fullDescription": {
                     "text": description if description else rule_name
                 },
@@ -189,9 +192,6 @@ def main():
             "ruleIndex": rule_index,
             "message": {
                 "text": message
-            },
-            "shortDescription": {
-                "text": description if description else rule_name
             },
             "locations": [{
                 "physicalLocation": {
