@@ -169,8 +169,8 @@ def main():
                 "name": rule_name,
     
                 "fullDescription": {
-                    "text": description if description else rule_name
-                },
+                    "text": description if description else rule_name[:200]
+                }
                 # "helpUri": "https://eu.polaris.blackduck.com",
                 # "help": {
                 #     "text": "Detailed explanation of the issue.",
