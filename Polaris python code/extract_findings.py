@@ -167,15 +167,17 @@ def main():
             rule_entry = {
                 "id": rule_id,
                 "name": rule_name,
-    
+                "shortDescription": {
+                    "text": rule_name[:1024]  # Limit to 1024 characters
+                },
                 "fullDescription": {
-                    "text": description if description else rule_name[:200]
+                    "text": (description if description else rule_name)[:200]  # Limit to 4096 characters
+                },
+                "helpUri": "https://eu.polaris.blackduck.com",
+                "help": {
+                    "text": "Detailed explanation of the issue.",
+                    "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
                 }
-                # "helpUri": "https://eu.polaris.blackduck.com",
-                # "help": {
-                #     "text": "Detailed explanation of the issue.",
-                #     "markdown": "[Visit Polaris for more information](https://eu.polaris.blackduck.com)"
-                # }
             }
             if overall_score is not None:
                 rule_entry["properties"] = {"security-severity": str(overall_score)}
