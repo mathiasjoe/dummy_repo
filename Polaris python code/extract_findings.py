@@ -236,7 +236,7 @@ def main():
             rule_id_map[rule_id] = rule_index
             
             # Build direct link to the specific issue in Polaris
-            issue_url = f"https://eu.polaris.blackduck.com/portfolio/portfolios/{portfolio_id}/portfolio-items/{application_id}/projects/{project_id}/issues/{rule_id}"
+            issue_url = f"https://eu.polaris.blackduck.com/portfolio/portfolios/{portfolio_id}/portfolio-items/{application_id}/projects/{project_id}/issues/{rule_id}?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed"
             
             rule_entry = {
                 "id": rule_id,
