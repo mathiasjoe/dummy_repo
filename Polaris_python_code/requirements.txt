@@ -1,0 +1,2 @@
+# Requirements for the scripts in this directory (used by extract_findings.py)
+requests==2.32.5

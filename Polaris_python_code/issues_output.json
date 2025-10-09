@@ -1,0 +1,2731 @@
+[
+  {
+    "id": "FE898C4108F072ADD7440139DFCD9780",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-2",
+    "type": {
+      "id": "cfa9b1ec-5702-c8f9-928f-d5fab9176e32",
+      "altName": "Unsecured Session Cookie",
+      "_localized": {
+        "name": "Secure Cookie Attribute Not Set",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+          },
+          {
+            "key": "remediation",
+            "value": "Set the 'Secure' attribute should on all cookies that contain sensitive data, especially those containing session IDs. The mitigation details depend on the application server, with some requiring programmatic configuration, where others can be configured through an administration interface. \n\nIf not already done, consider deploying HTTP Strict Transport Security (HSTS) headers to minimize the risk of plain-text HTTP requests to the application server.\n\n**References:**\n\n\n* [Secure cookies](https://www.tunetheweb.com/security/http-security-headers/secure-cookies/)\n* [httpCookies Element \\(ASP.NET Settings Schema\\)](https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-2.0/ms228262\\(v=vs.80\\))\n* [How to Implement HTTPOnly and Secure Cookie in Nginx](https://geekflare.com/httponly-secure-cookie-nginx/)"
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie arbeidsflate is not Secure"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "arbeidsflate"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6915-803f-93ce078109fb/artifacts/324083db-fd91-463a-8b3b-4356a474f043?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6915-803f-93ce078109fb/artifacts/dd890ad3-6151-45d8-b389-c6f4f0b26368?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "medium"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 50
+      },
+      {
+        "key": "family-hash",
+        "value": -1638344944
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-614"
+      },
+      {
+        "key": "overall-score",
+        "value": 4.8
+      },
+      {
+        "key": "attack-target",
+        "value": "arbeidsflate"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"4.80\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/?loggedIn=true"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-01-26T13:19:04.721697Z"
+      }
+    ],
+    "_cursor": "AAAAAQ==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/FE898C4108F072ADD7440139DFCD9780?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/FE898C4108F072ADD7440139DFCD9780/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/FE898C4108F072ADD7440139DFCD9780/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6915-803f-93ce078109fb?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "88E45A3A80C8CFA849DE5F97DAE12554",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-2",
+    "type": {
+      "id": "734e56f5-eb52-dbce-2078-bbcdeddad1e3",
+      "altName": "Unsecured Session Cookie",
+      "_localized": {
+        "name": "Secure Cookie Attribute Not Set",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+          },
+          {
+            "key": "remediation",
+            "value": "Set the 'Secure' attribute should on all cookies that contain sensitive data, especially those containing session IDs. The mitigation details depend on the application server, with some requiring programmatic configuration, where others can be configured through an administration interface. \n\nIf not already done, consider deploying HTTP Strict Transport Security (HSTS) headers to minimize the risk of plain-text HTTP requests to the application server.\n\n**References:**\n\n\n* [Secure cookies](https://www.tunetheweb.com/security/http-security-headers/secure-cookies/)\n* [httpCookies Element \\(ASP.NET Settings Schema\\)](https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-2.0/ms228262\\(v=vs.80\\))\n* [How to Implement HTTPOnly and Secure Cookie in Nginx](https://geekflare.com/httponly-secure-cookie-nginx/)"
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie dtCookie is not Secure"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "dtCookie"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6912-803f-6599bde7fe9a/artifacts/aedd1e9e-615a-479b-b0f4-59a0bf744f5b?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6912-803f-6599bde7fe9a/artifacts/ffcc284a-3096-4523-ae38-d852865c48c1?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "medium"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 50
+      },
+      {
+        "key": "family-hash",
+        "value": -1638344944
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-614"
+      },
+      {
+        "key": "overall-score",
+        "value": 4.8
+      },
+      {
+        "key": "attack-target",
+        "value": "dtCookie"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"4.80\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/api/login"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-02-04T12:45:52.505504Z"
+      }
+    ],
+    "_cursor": "AAAAAg==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/88E45A3A80C8CFA849DE5F97DAE12554?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/88E45A3A80C8CFA849DE5F97DAE12554/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/88E45A3A80C8CFA849DE5F97DAE12554/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6912-803f-6599bde7fe9a?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "DC79D901A99C3A990F67AD4C0520D1BB",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-257",
+    "type": {
+      "id": "1db4e0f5-8070-0258-79c5-189ee7261a83",
+      "altName": "Missing X-Content-Type-Options Header",
+      "_localized": {
+        "name": "Missing X-Content-Type-Options Header",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The application server does not set the \"X-Content-Type-Options\" header in HTTP responses. The X-Content-Type-Options header mechanism prevents a web browser from overriding the MIME type indicated in the application's Content-Type response header.\n\nMost modern browsers can inspect application responses through \"MIME sniffing\" and determine if the correct Content-Type is specified by the application server. When the X-Content-Type-Options header is specified by an application, browsers will not perform MIME sniffing and will trust the Content-Type specified by the application.\n\nApplications that do not set the X-Content-Type-Options header \"nosniff\" directive explicitly in the application response are more susceptible to MIME Confusion attacks. A MIME confusion attack occurs when an application resource does not provide sufficient metadata to the web browser about the response's content type. In a normal scenario where MIME sniffing is allowed, the web browser sniffs the content of a response to determine which MIME type should be used. Once the web browser has completed its analysis of the response, it compares what is found against the server provided content type header (if present). If the browser detects a mismatched content type, the browser uses the MIME type that it determined on its own.\n\nFor example, consider an application that allows users to upload JPG image files to the server. In this scenario, an attacker may be able to upload a malicious image file where the content of the file is valid HTML or JavaScript. When the uploaded file is returned in the application response, the browser may sniff the content of the malicious file and determine its MIME type to be HTML or JavaScript. When the malicious image file is rendered by the browser, instead of displaying an image, the attacker's malicious HTML or JavaScript is executed.\r\n\r\nEnabled content sniffing makes MIME Confusion attacks possible which, in their turn, lead to cross-site scripting (XSS). Using an XSS, an attacker can arbitrarily alter page content displayed to the victim and can execute application functions using the victim's application identity if the victim is authenticated to the application."
+          },
+          {
+            "key": "remediation",
+            "value": "The application server should set the \"X-Content-Type-Options\" header to \"nosniff\" in the response. The \"nosniff\" directive prevents the browser from using content sniffing algorithms to override the MIME type set by the application server and prevent MIME confusion attacks.\n\n```xml\nX-Content-Type-Options: nosniff\n```"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Header"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Header"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690c-803f-41ff477c97b5/artifacts/3f5e2c40-aa0a-4ee4-bb2b-68f4a7917b14?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690c-803f-41ff477c97b5/artifacts/6bb22db5-c01c-4a87-8908-e32042df0158?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": -1898265716
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-693"
+      },
+      {
+        "key": "overall-score",
+        "value": 3.1
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.10\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/authorize/selector"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-06-21T15:40:23.159345Z"
+      }
+    ],
+    "_cursor": "AAAAAw==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/DC79D901A99C3A990F67AD4C0520D1BB?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/DC79D901A99C3A990F67AD4C0520D1BB/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/DC79D901A99C3A990F67AD4C0520D1BB/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690c-803f-41ff477c97b5?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "1D643B30F94A3DBEADEAAFF91C746990",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-258",
+    "type": {
+      "id": "8c2fb339-1364-7ae6-2abd-36c638b6f681",
+      "altName": "Missing CSP",
+      "_localized": {
+        "name": "Missing Content-Security-Policy Header",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The application server does not set the Content-Security-Policy (CSP) header in HTTP responses, and therefore does not benefit from the additional protection against potential cross-site scripting issues and other browser-based vulnerabilities that a properly configured CSP may provide. \n\nThe CSP instructs the browser to only load and render trusted resources  specified in the header. A compliant browser will deny loading any resources (such as scripts, images, or objects) not listed in the policy.\n\nCSP has evolved over time and has introduced new security controls. Each introduced control provides improved protection capabilities, here are the fundamental details:\n\n* Level 1 - Initial version, mainly based around allow-list, but proven to be difficult to use securely in practice\n* Level 2 - Introduced  the ability to designate trusted third-party and inline-scripts with a nonce value, rejecting other scripts without the valid nonce\n* Level 3 - Introduced 'strict-dynamic' which enabled easier deployments by dynamically propagating trust from specific root scripts (designated with a nonce or a hash) to any additional scripts loaded by these trusted scripts\n\nCSP allows browsers to differentiate between trusted and untrusted content requested by the page. By default, it also prohibits inline script execution, as well as dynamic script evaluation. A CSP adds an additional line of defense and reduces the overall security risk.\r\n\r\nA missing Content-Security-Policy means that the application will not benefit from the extra protection that it could provide, thereby making the application more vulnerable to exploitation of any existing security issues.\n\n**References:**\n\n\n* [Content Security Policy](https://owasp.org/www-community/controls/Content_Security_Policy)\n* [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/)\n* [Content Security Policy \\(CSP\\)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)"
+          },
+          {
+            "key": "remediation",
+            "value": "Configure a secure Content-Security-Policy with the appropriate directives defined to provide the browser with granular control over the resources loaded by the application. When implemented correctly, the CSP reduces an attacker's ability to inject malicious content and helps protect a web page from attacks like cross-site scripting (XSS), dynamic code execution, clickjacking, and others.\n\nHere is an example of a secure CSP targeting CSP Level 3:\n\n```\nContent-Security-Policy: script-src 'strict-dynamic' 'nonce-rand0m' ; object-src 'none'; base-uri 'none'; require-trusted-types-for 'script'; report-uri https://csp.example/report;\n```\n\nHere is an example of a secure CSP targeting CSP Level 3 with backwards compatibility (i.e., doesn't break application functionality for browsers not supporting Level 3, at the expense of reduced protection in those browsers):\n\n```\nContent-Security-Policy: script-src 'strict-dynamic' 'nonce-rand0m' 'unsafe-inline' http: https:; object-src 'none'; base-uri 'none'; require-trusted-types-for 'script'; report-uri https://csp.example/report;\n```\n\nTo configure a secure CSP consider following these modern approaches and best practices:\n\n* Consider using a CSP nonce-only based policy. The nonce should be unique for every individual page load or per user session, and used across all scripts and resources.\n* Consider including 'strict-dynamic' with a nonce when dynamically loading third-party libraries.\n* Consider setting default-src to 'none' to allow for a restrictive policy creation.\n* Consider setting object-src and base-uri to 'none' if they are not used.\n* Avoid setting default-src and script-src to 'unsafe-eval'. The 'unsafe-eval' keyword allows the use of eval() and similar methods that can be abused for code injection.\n* Avoid using \\*, http:, https:,  data:, and 'unsafe-inline' keywords, only use them for backwards compatibility with a CSP nonce and strict-dynamic.\n* Avoid setting script-src or default-src to 'self' for hosts containing Angular applications, JSONP endpoints, or files uploaded from users, as attackers can manipulate such applications to execute attacker's code uploaded to the application's host.\n* Avoid setting the frame-ancestors and form-action directives to \\*, http:, or https:, as it may allow clickjacking and form data hijacking attacks.\n* For applications that cannot create dynamic CSP nonces, such as static sites, consider using hashes instead to mark scripts as trusted, e.g., script-src  'sha256-B2yPHKaXnvFWtRChIbabYmUBFZdVfKKXHbWtWidDVF8='\n* Where possible, avoid using an allow-list of URL sources for content source directives (such as default-src, object-src, and script-src). \n* To reduce the attack surface of DOM-XSS, consider using the directives trusted-types and require-trusted-types-for to prevent strings from being passed directly to dangerous APIs such as \"innerHTML\". \n\nIf an allow-list of URL sources for content source directives is still used, follow these guidelines:\n\n* Use absolute URLs where possible, such as https://content.example/frontend/v1/code.js\n* Avoid including CDNs as they can include vulnerable libraries or libraries which can be used to execute JavaScript. Try to include full library paths if loading resources from CDNs.\n* Only use third-party URIs that start with \"https://\", as content loaded over HTTP can be modified by an attacker. \n\nFor additional information visit:\n\n* https://csp.withgoogle.com/docs/index.html\n* http://csp-evaluator.withgoogle.com/\n* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy\n\n**References:**\n\n\n* [Content Security Policy](https://csp.withgoogle.com/docs/index.html)\n* [CSP Evaluator](http://csp-evaluator.withgoogle.com/)\n* [Mozilla Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Header"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Header"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690b-803f-3f297cacdb3c/artifacts/5e368d95-abf9-4e50-b9ca-e95beb988d58?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690b-803f-3f297cacdb3c/artifacts/0105dee6-d51b-420d-a886-9d52cf2502c5?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": 1729215425
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-693"
+      },
+      {
+        "key": "overall-score",
+        "value": 3.7
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"impact\":\"1.4\",\"likelihood\":\"2.2\",\"score\":\"3.70\",\"severity\":\"Informational\",\"vector\":\"map[A:false AC:H AV:false C:false I:L PR:false S:U UI:false]\",\"version\":\"3.0\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/authorize/selector"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-01-25T12:17:42.190602Z"
+      },
+      {
+        "key": "owner",
+        "value": "d1bc02c0-7566-4470-bd26-522fc336926a",
+        "_links": [
+          {
+            "href": "https://eu.polaris.blackduck.com/api/auth/resources/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/users/d1bc02c0-7566-4470-bd26-522fc336926a",
+            "rel": "owner",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "key": "comment",
+        "value": "Issues konkret knyttet til Arbeidsflate"
+      }
+    ],
+    "_cursor": "AAAABA==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/1D643B30F94A3DBEADEAAFF91C746990?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/1D643B30F94A3DBEADEAAFF91C746990/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/1D643B30F94A3DBEADEAAFF91C746990/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690b-803f-3f297cacdb3c?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "0091E86C5EE1E7B7441EFE89D4C7FE4B",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-419",
+    "type": {
+      "id": "323b1387-8a86-1804-f5eb-2308e7959013",
+      "altName": "Cookie with Improper SameSite Attribute",
+      "_localized": {
+        "name": "Sensitive Cookie with Improper SameSite Attribute",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
+          },
+          {
+            "key": "remediation",
+            "value": "The server should explicitly set the SameSite attribute for all cookies containing sensitive data, such as session tokens. This can be accomplished either programmatically when setting Set-Cookie headers in responses or via deployment descriptors provided by various frameworks.\n\nThe setting \"SameSite=Strict\" provides the strongest protection against CSRF but the user experience works best when an application uses two different cookies, one for write-access that is locked down with \"SameSite=Strict\" and another for read-access that can have a more permissive setting, e.g., \"SameSite=Lax\". If the application only relies on one cookie for both read & write access, then the setting \"SameSite=Lax\" provides some protection against CSRF without too much negative impact on user experience. \n\nIt's worth noting that the definition of same-site is less restrictive than the definition of cross-origin, e.g., requests from other sub-domains are considered same-site although they are from a different origin. This means that even in browsers that fully support the \"SameSite\" cookie attribute, an attacker may still circumvent this protection if they can take over a subdomain or inject HTML or JavaScript into any subdomain of the same site. Therefore, relying on the \"SameSite\" attribute is not recommended as the sole defense against cross-site request forgery, it should instead be seen as a defense in depth mechanism that reduces the likelihood of CSRF."
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie ai_user has SameSite=None without Secure flag"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "ai_user"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6917-803f-49076555b849/artifacts/5018295e-cde6-4fd5-811e-4b3408e6aab3?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6917-803f-49076555b849/artifacts/ad139b5b-f716-4c85-b84d-75163d1eee4b?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": -1463748131
+      },
+      {
+        "key": "overall-score",
+        "value": 3.1
+      },
+      {
+        "key": "attack-target",
+        "value": "ai_user"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.10\",\"vector\":\"map[A:false AC:H AV:false C:false I:L PR:false S:U UI:R]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/?loggedIn=true"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-07-29T12:51:44.023532Z"
+      }
+    ],
+    "_cursor": "AAAABQ==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/0091E86C5EE1E7B7441EFE89D4C7FE4B?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/0091E86C5EE1E7B7441EFE89D4C7FE4B/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/0091E86C5EE1E7B7441EFE89D4C7FE4B/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6917-803f-49076555b849?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "6022613DFA196D356425944414EA7185",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-419",
+    "type": {
+      "id": "7e9f39da-d4c4-d52c-96d8-4a62c33e481f",
+      "altName": "Cookie with Improper SameSite Attribute",
+      "_localized": {
+        "name": "Sensitive Cookie with Improper SameSite Attribute",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
+          },
+          {
+            "key": "remediation",
+            "value": "The server should explicitly set the SameSite attribute for all cookies containing sensitive data, such as session tokens. This can be accomplished either programmatically when setting Set-Cookie headers in responses or via deployment descriptors provided by various frameworks.\n\nThe setting \"SameSite=Strict\" provides the strongest protection against CSRF but the user experience works best when an application uses two different cookies, one for write-access that is locked down with \"SameSite=Strict\" and another for read-access that can have a more permissive setting, e.g., \"SameSite=Lax\". If the application only relies on one cookie for both read & write access, then the setting \"SameSite=Lax\" provides some protection against CSRF without too much negative impact on user experience. \n\nIt's worth noting that the definition of same-site is less restrictive than the definition of cross-origin, e.g., requests from other sub-domains are considered same-site although they are from a different origin. This means that even in browsers that fully support the \"SameSite\" cookie attribute, an attacker may still circumvent this protection if they can take over a subdomain or inject HTML or JavaScript into any subdomain of the same site. Therefore, relying on the \"SameSite\" attribute is not recommended as the sole defense against cross-site request forgery, it should instead be seen as a defense in depth mechanism that reduces the likelihood of CSRF."
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie b01773c48f061e5a6fa15915170117e2 has SameSite=None without Secure flag"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "b01773c48f061e5a6fa15915170117e2"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6910-803f-bb6c01bce342/artifacts/3306698a-3062-4ec8-b834-a042aeff262c?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6910-803f-bb6c01bce342/artifacts/b7e016f8-3830-4835-85b4-b98a978339c8?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": -1282653507
+      },
+      {
+        "key": "overall-score",
+        "value": 3.1
+      },
+      {
+        "key": "attack-target",
+        "value": "b01773c48f061e5a6fa15915170117e2"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.10\",\"vector\":\"map[A:false AC:H AV:false C:false I:L PR:false S:U UI:R]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/api/login"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-07-01T08:54:33.078417Z"
+      }
+    ],
+    "_cursor": "AAAABg==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/6022613DFA196D356425944414EA7185?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/6022613DFA196D356425944414EA7185/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/6022613DFA196D356425944414EA7185/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6910-803f-bb6c01bce342?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "166E7B8D3B8EBD2F841FC8F80B129E30",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-0",
+    "type": {
+      "id": "424b7b1a-b600-590d-68c4-67cd51e8de78",
+      "altName": "Frameable Resource",
+      "_localized": {
+        "name": "Frameable Resource",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "A Frameable Resource is related to a number of vulnerabilities which result from a browser allowing pages to be rendered in a frame. An attacker who can frame a resource within another resource they control may be able to trick the user into acting out of context of the target application. This can be accomplished by hiding the desired UI elements by making them transparent and then using various techniques to induce the desired action from the victim user.\n\nYou should review any resources that are frameable for anything sensitive as they may potentially be vulnerable to a vast array of attacks, including Clickjacking and Cross Site Scripting. Moreover, an attacker can leverage frames to unfold timing and side channel attacks in order to obtain private user data.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)\n* [X-Frame-Options: All about Clickjacking?](https://frederik-braun.com/xfo-clickjacking.pdf)"
+          },
+          {
+            "key": "remediation",
+            "value": "It is advisable to simply block framing across the entire site if it is not needed. When a frameable resource is necessary, the ability should be restricted to the origin requiring the frameable resource.\n\nThere are two options to prevent a resource from being framed using HTTP response headers:\n\n    - The Content-Security-Policy header:\n      ```\n      Content-Security-Policy: frame-ancestors 'none'\n      Content-Security-Policy: frame-ancestors 'self'\n      Content-Security-Policy: frame-ancestors <source> <source>\n      ```\nThe frame-ancestors directive can be configured to disable framing completely using 'none', allow framing only on the same domain using 'self' or allow framing on specific sources. These sources are hosts that can be specified by name or IP address with with an optional scheme and optional port number. The address can include an optional leading wildcard and the port number can be set to a wildcard as well. Example: https://*.whitehatsec.com\n\n - The X-Frame-Options header:\n      ```\n      X-Frame-Options: DENY \n      X-Frame-Options: SAMEORIGIN\n      X-Frame-Options: ALLOW-FROM <origin>\n      ```\nThe X-Frame-Options header can be configured with the DENY directive to disable framing, the SAMEORIGIN directive to enable framing on domain and the ALLOW-FROM directive to allow framing from a single origin. The ALLOW-FROM directive is not supported across all major browsers.\n\nBlack Duck recommends to have both the Content-Security-Policy, and X-Frame-Options. While X-Frame-Options is considered to be deprecated, it can be helpful with browsers that do not support CSP, such was Internet Explorer 11.\n\nNote that Javascript is not a valid protection against framing. Frame busting code can be removed by methods such as disabling Javascript in the frame using the sandbox attribute or abusing an cross-site scripting (XSS) Filter and new bypasses are generally found over time.\n\n**References:**\n\n\n* [Mozilla: X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)\n* [Mozilla: CSP:frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)\n* [OWASP Cheat Sheet Series: Clickjacking Defense Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html)"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Body"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Body"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6918-803f-11677aaa5d4a/artifacts/4b4825b2-1beb-4275-a09d-c0a2955579f4?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6918-803f-11677aaa5d4a/artifacts/9c9da0e8-05ec-4d77-8125-baa9949a91ed?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          },
+          {
+            "label": "Attack",
+            "attack": {
+              "scope": "Application",
+              "segment": "Body"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6918-803f-11677aaa5d4a/artifacts/547cf243-c2f4-4f4c-b56b-304db2db34bf?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6918-803f-11677aaa5d4a/artifacts/f0d06c93-f169-425b-b2bd-5d4cbf2a9572?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6918-803f-11677aaa5d4a/artifacts/14c28330-4d43-4619-a0a6-a9e9f04ad58d?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "screenshot",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "medium"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 50
+      },
+      {
+        "key": "family-hash",
+        "value": -1608408253
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-1021"
+      },
+      {
+        "key": "overall-score",
+        "value": 4.3
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"4.30\",\"vector\":\"map[A:false AC:L AV:false C:false I:L PR:false S:U UI:R]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"2.5\",\"likelihood\":\"3.25\",\"severity\":\"Low\",\"technicalImpactFactors\":\"map[lossOfAccountability:7 lossOfAvailability:0 lossOfConfidentiality:5 lossOfIntegrity:1]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:6 easeOfDiscovery:9 easeOfExploit:5 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2024-12-26T12:17:42.190602Z"
+      },
+      {
+        "key": "owner",
+        "value": "d1bc02c0-7566-4470-bd26-522fc336926a",
+        "_links": [
+          {
+            "href": "https://eu.polaris.blackduck.com/api/auth/resources/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/users/d1bc02c0-7566-4470-bd26-522fc336926a",
+            "rel": "owner",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "key": "comment",
+        "value": "Issues konkret knyttet til Arbeidsflate"
+      }
+    ],
+    "_cursor": "AAAABw==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/166E7B8D3B8EBD2F841FC8F80B129E30?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/166E7B8D3B8EBD2F841FC8F80B129E30/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/166E7B8D3B8EBD2F841FC8F80B129E30/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6918-803f-11677aaa5d4a?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "C32C453DDE75CAFA58B3B4FDD2291B57",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-102",
+    "type": {
+      "id": "f9958595-6c75-ddc0-00c4-b7c51c1dd122",
+      "altName": "HTTP Strict Transport Security (HSTS)",
+      "_localized": {
+        "name": "HTTP Strict Transport Security (HSTS) Not Implemented",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The server does not implement the \"HTTP Strict Transport Security\" (HSTS) web security policy mechanism.\n\nWhen HSTS is enabled, the webserver sends the special HTTP response header called \"Strict-Transport-Security\" to the client. This header includes the max-age attribute, which specifies a duration of time in seconds. Optionally, the directive 'includeSubdomains' can be included to indicate that this policy should apply to all sub-domains as well. After a browser receives this header over a secure HTTPS connection (without any certificate errors), the browser makes new requests to the application over secure HTTPS connections for the duration of time specified in the header. Any links to the server over insecure HTTP connections are automatically rewritten to HTTPS before the request is made. HSTS prevents a user from ignoring certificate errors, as it prevents the user from connecting to a website with an invalid certificate.\r\n\r\nApplications that do not utilize the \"HTTP Strict-Transport-Security\" policy are more susceptible to man-in-the-middle (MITM) attacks via \"SSL stripping\", which occurs when an attacker transparently downgrades a victim's communication with the server from HTTPS to HTTP. Once this is accomplished, the attacker gains the ability to view and potentially modify the victim's traffic, exposing sensitive information, and gaining access to unauthorized functionality.\n\n**References:**\n\n\n* [HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)"
+          },
+          {
+            "key": "remediation",
+            "value": "The application server should send the \"Strict-Transport-Security\" HTTP header in HTTP responses to instruct the browser that future requests to the domain must only use HTTPS. As a best practice, it is recommended to include this HTTP header in each response to keep the max-age expiration time updated with each interaction.\n\nThe following is a basic example of the HSTS HTTP header, setting a max-age of one year:\n\n```\nStrict-Transport-Security: max-age=31536000\n```\n\nSubdomains should also be configured in this manner, by including the \"includeSubDomains\" flag:\n\n```\nStrict-Transport-Security: max-age=31536000; includeSubDomains;\n```\n\nPlease note that before implementing this header, it is important that all server resources are accessible over HTTPS and that the server is configured with a valid server certificate, with a process in place to update and replace this certificate before it expires. Otherwise, users who have previously visited the site will no longer be able to access it until the HSTS enforcement expires. It is recommended to start the deployment of HSTS with a shorter max-age (e.g., 5 minutes) to identify any potential issues before a longer max-age is deployed. Increase the max-age in stages (week, month, year) and monitor site metrics for at least as long as the max-age was set to detect any anomalies and ensure that everything is working before moving to the next stage. \n\nHSTS can also be preloaded in most major browsers to enforce HTTPS even before a user has visited your site. Please see https://hstspreload.org/ for more information on this, but carefully consider the implications for your site and all its subdomains as removal from the list can be a slow process.\n\n**References:**\n\n\n* [HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)\n* [GlobalSign: What Is HSTS and How Do I Implement It?](https://www.globalsign.com/en/blog/what-is-hsts-and-how-do-i-use-it)\n* [HSTS Preload List Submission](https://hstspreload.org/)"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Header"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Header"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690d-803f-2ff6c18c4568/artifacts/17640101-87f5-45c7-bf67-6062e6b7ceed?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690d-803f-2ff6c18c4568/artifacts/1384d177-dc3a-4f81-81eb-ee5124ec781d?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": -1903422251
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-311"
+      },
+      {
+        "key": "overall-score",
+        "value": 3.7
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.70\",\"vector\":\"map[A:false AC:H AV:false C:L I:false PR:false S:U UI:false]\",\"version\":\"3.1\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"4.75\",\"likelihood\":\"1.75\",\"severity\":\"Low\",\"technicalImpactFactors\":\"map[lossOfAccountability:1 lossOfAvailability:1 lossOfConfidentiality:4 lossOfIntegrity:1]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:4 easeOfDiscovery:9 easeOfExploit:3 intrusionDetection:3]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/authorize/selector"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-06-21T15:40:23.159345Z"
+      }
+    ],
+    "_cursor": "AAAACA==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/C32C453DDE75CAFA58B3B4FDD2291B57?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/C32C453DDE75CAFA58B3B4FDD2291B57/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/C32C453DDE75CAFA58B3B4FDD2291B57/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690d-803f-2ff6c18c4568?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "5C91C9BE986082C7F2736ED00046CDE9",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-0",
+    "type": {
+      "id": "dd598b11-bb5b-3beb-cee6-7d8b73e62f32",
+      "altName": "Missing Cache Control Header",
+      "_localized": {
+        "name": "Missing Cache Control Header",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The application is not utilizing Cache-Control header, which can lead to sensitive data being cached by the browser.\r\n\r\n"
+          },
+          {
+            "key": "remediation",
+            "value": "Implement cache control header in the application to ensure sensitive data is not stored in caches. \n    \n\t\tExample implementation:\n    Cache-Control: no-store, no-cache, must-revalidate\n    \n    Header will prevent browsers from caching data, reducing security risk.\n    \nFocus on implementing cache control header on pages handling sensitive information, including but not limit to:\n    \n    1. Login and Authentication: Prevent caching of credentials or session data\n    2. User Profile Pages: Avoid storing personally identifiable information (PII)\n    3. Payment and Transaction Pages: Protect financial data and transaction details\n    4. Logout Pages: Ensure session invalidation actions are not cached"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Header"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Header"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690e-803f-fb915e3fbde0/artifacts/01f84174-1abf-4bae-bb36-f8390f77b8e4?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690e-803f-fb915e3fbde0/artifacts/a88e67dd-c9d9-418c-9f09-86c087209d4a?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": 1760147613
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-525"
+      },
+      {
+        "key": "overall-score",
+        "value": 0
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"0.00\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"0\",\"likelihood\":\"0\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:0 lossOfIntegrity:0]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:0 easeOfExploit:0 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/authorize/selector"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-06-21T15:40:23.159345Z"
+      }
+    ],
+    "_cursor": "AAAACQ==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/5C91C9BE986082C7F2736ED00046CDE9?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/5C91C9BE986082C7F2736ED00046CDE9/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/5C91C9BE986082C7F2736ED00046CDE9/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690e-803f-fb915e3fbde0?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "B0D5B2D5B4976706E0A41E5283D84403",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-0",
+    "type": {
+      "id": "4e0cb5c5-f991-9bec-72b8-1f4358fc01ea",
+      "altName": "Smart Setting Changes",
+      "_localized": {
+        "name": "Smart Setting Changes",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "Smart setting changes were applied to the following:<br>**Setting:** forceVerify\t**Value:** true<br>**Reason:** force verify setting necessary for JS intensive sites"
+          },
+          {
+            "key": "remediation",
+            "value": "None"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Undefined"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Undefined"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690a-803f-07be982ebbd8/artifacts/e11d2e0b-7b5a-4853-8b52-067da5e38e60?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690a-803f-07be982ebbd8/artifacts/c7f6b65d-d0b1-4f6c-85e0-f40b00f589a8?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "informational"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 0
+      },
+      {
+        "key": "family-hash",
+        "value": -1637288001
+      },
+      {
+        "key": "overall-score",
+        "value": -1
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[]"
+      },
+      {
+        "key": "method",
+        "value": ""
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-04-08T08:23:33.846697Z"
+      }
+    ],
+    "_cursor": "AAAACg==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/B0D5B2D5B4976706E0A41E5283D84403?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/B0D5B2D5B4976706E0A41E5283D84403/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/B0D5B2D5B4976706E0A41E5283D84403/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690a-803f-07be982ebbd8?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "CEECBEAFC96BDD31E113AB9A203A73F7",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-1",
+    "type": {
+      "id": "2d7be52b-4f62-1b48-392b-772f7c38eaca",
+      "altName": "Non-HttpOnly Session Cookie",
+      "_localized": {
+        "name": "HttpOnly Cookie Attribute Not Set",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+          },
+          {
+            "key": "remediation",
+            "value": "Set the \"HttpOnly\" attribute for all cookies that don't need to be accessible by client-side scripts. This can be done either programmatically when sending Set-Cookie headers in responses or through deployment descriptors provided by various frameworks. Note that in many newer frameworks, the HttpOnly attribute is set by default for sensitive cookies such as session cookies.\n\nIn some cases, there is a legitimate need to allow client-side scripts to read a cookie's value, such as when using the default CSRF protection mechanism in frameworks like Angular. In such cases, it is acceptable to not set the HttpOnly flag on certain cookies, as doing so would otherwise break the intended functionality.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))"
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie ai_user is not HTTPOnly"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "ai_user"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6916-803f-9f7b826631d0/artifacts/3198482c-4c1f-49bf-adca-abe2c1f57f9d?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6916-803f-9f7b826631d0/artifacts/85c8f66b-6eb3-44ba-ae03-08f498307362?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": 966650670
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-1004"
+      },
+      {
+        "key": "overall-score",
+        "value": 3.4
+      },
+      {
+        "key": "attack-target",
+        "value": "ai_user"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.40\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/?loggedIn=true"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-01-26T13:19:04.721697Z"
+      }
+    ],
+    "_cursor": "AAAACw==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/CEECBEAFC96BDD31E113AB9A203A73F7?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/CEECBEAFC96BDD31E113AB9A203A73F7/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/CEECBEAFC96BDD31E113AB9A203A73F7/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6916-803f-9f7b826631d0?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "09D025DC4C6A1E6CF87EB529E56AACCB",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-1",
+    "type": {
+      "id": "d86e4ca0-0ef6-fe64-205e-ea0eaf0f16b8",
+      "altName": "Non-HttpOnly Session Cookie",
+      "_localized": {
+        "name": "HttpOnly Cookie Attribute Not Set",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+          },
+          {
+            "key": "remediation",
+            "value": "Set the \"HttpOnly\" attribute for all cookies that don't need to be accessible by client-side scripts. This can be done either programmatically when sending Set-Cookie headers in responses or through deployment descriptors provided by various frameworks. Note that in many newer frameworks, the HttpOnly attribute is set by default for sensitive cookies such as session cookies.\n\nIn some cases, there is a legitimate need to allow client-side scripts to read a cookie's value, such as when using the default CSRF protection mechanism in frameworks like Angular. In such cases, it is acceptable to not set the HttpOnly flag on certain cookies, as doing so would otherwise break the intended functionality.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))"
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie arbeidsflate is not HTTPOnly"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "arbeidsflate"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6919-803f-03fceba76480/artifacts/4098bde7-568b-46c8-a683-ded7b9931402?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6919-803f-03fceba76480/artifacts/436b3d20-741a-4bc4-a769-35f45fc665de?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": -1514541768
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-1004"
+      },
+      {
+        "key": "overall-score",
+        "value": 3.4
+      },
+      {
+        "key": "attack-target",
+        "value": "arbeidsflate"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.40\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "POST"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/api/graphql"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-08-05T12:38:35.885191Z"
+      }
+    ],
+    "_cursor": "AAAADA==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/09D025DC4C6A1E6CF87EB529E56AACCB?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/09D025DC4C6A1E6CF87EB529E56AACCB/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/09D025DC4C6A1E6CF87EB529E56AACCB/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6919-803f-03fceba76480?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "ED04FA8B1484CEBFE0303D4414BE902D",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-1",
+    "type": {
+      "id": "672dc80a-2f57-21f2-45d5-33b4645d10d0",
+      "altName": "Non-HttpOnly Session Cookie",
+      "_localized": {
+        "name": "HttpOnly Cookie Attribute Not Set",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+          },
+          {
+            "key": "remediation",
+            "value": "Set the \"HttpOnly\" attribute for all cookies that don't need to be accessible by client-side scripts. This can be done either programmatically when sending Set-Cookie headers in responses or through deployment descriptors provided by various frameworks. Note that in many newer frameworks, the HttpOnly attribute is set by default for sensitive cookies such as session cookies.\n\nIn some cases, there is a legitimate need to allow client-side scripts to read a cookie's value, such as when using the default CSRF protection mechanism in frameworks like Angular. In such cases, it is acceptable to not set the HttpOnly flag on certain cookies, as doing so would otherwise break the intended functionality.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))"
+          },
+          {
+            "key": "additional-information",
+            "value": "Cookie dtCookie is not HTTPOnly"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Cookie"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Cookie",
+              "target": "dtCookie"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6911-803f-e5d44f8c7b3d/artifacts/0e4bbb05-d87f-4f0f-8c20-b2868513e83d?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6911-803f-e5d44f8c7b3d/artifacts/7d962f6d-136e-4b78-87e7-feaf9f827eb9?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": 1028628740
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-1004"
+      },
+      {
+        "key": "overall-score",
+        "value": 3.4
+      },
+      {
+        "key": "attack-target",
+        "value": "dtCookie"
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"3.40\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"1.5\",\"likelihood\":\"1\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:3 lossOfIntegrity:3]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:5 easeOfExploit:3 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/api/login"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-02-04T12:45:52.505504Z"
+      }
+    ],
+    "_cursor": "AAAADQ==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/ED04FA8B1484CEBFE0303D4414BE902D?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/ED04FA8B1484CEBFE0303D4414BE902D/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/ED04FA8B1484CEBFE0303D4414BE902D/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-6911-803f-e5d44f8c7b3d?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "BDEEA30F8E8BBA0CFC6BE611C914B9CC",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-0",
+    "type": {
+      "id": "65a2313b-41fd-a807-430e-b4d37be7b9da",
+      "altName": "Scan Metadata",
+      "_localized": {
+        "name": "Scan Metadata",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "<style> table { border-collapse: separate; border-spacing: 10px; } </style>\n\t<h3>Scan Report</h3><br><h4>Attack</h4>\n| Metric | Value |\n| --- | --- |\n| Average Attack Exchange Time | 35 ms |\n| Average Attack Response Size | 510 B |\n| Average Attack Module Exec Time | 69 ms |\n| Attacks Deferred | 5 |\n| Attacks Stateless Deferred | 47 |\n| Attacks Executed | 54 |\n| Attack Runs Completed | 18797 |\n| Attacks Rejected | 4 |\n| Total Attack Network Exchanges | 3427 |\n<br><br>| Attack Module Breakdown | Time |\n| --- | --- |\n| SQL Injection | 46 sec, 809 ms |\n| OS Command Injection | 25 sec, 542 ms |\n| Heartbleed | 10 sec |\n| PHP Code Injection | 9 sec, 448 ms |\n| Arbitrary Method Allowed | 6 sec, 671 ms |\n| NoSQL Injection | 4 sec, 972 ms |\n| Server Side Request Forgery | 4 sec, 584 ms |\n| HTTP Response Splitting | 2 sec, 542 ms |\n| Cross Site Scripting | 2 sec, 395 ms |\n| URL Redirector Abuse | 2 sec, 320 ms |\n| Insufficient CORs Policy | 1 sec, 952 ms |\n| Content Spoofing | 1 sec, 243 ms |\n| Shellshock | 1 sec, 47 ms |\n| ASP.NET Debug Enabled | 885 ms |\n| Spring4Shell | 211 ms |\n| Null Byte Injection | 177 ms |\n| Apache Struts - S2-045 | 31 ms |\n| Log4Shell (CVE-2021-44228) | 30 ms |\n| Accepts JWT 'none' Algorithm | 2 ms |\n| Direct Request | 1 ms |\n| Local File Inclusion | 1 ms |\n| Frameable Resource | 1 ms |\n| Insecure Deserialization | 1 ms |\n| Unrestricted File Upload | 139 \u03bcs |\n| XML External Entity | 115 \u03bcs |\n| Directory Search | 102 \u03bcs |\n| API Broken Object Level Authorization | 82 \u03bcs |\n| Backup File Disclosure | 52 \u03bcs |\n| Tomcat JSP Disclosure | 51 \u03bcs |\n| Cross Origin Web Socket Hijacking | 29 \u03bcs |\n| API Rate Limiting | 13 \u03bcs |\n\n\n<h4>Crawl</h4>\n| Metric | Value |\n| --- | --- |\n| Total Crawl Exchanges | 62 |\n| Total Rendered Exchanges | 49 |\n| Average Crawl Exchange Time | 1 sec, 19 ms |\n| Average Render Exchange Time | 1 sec, 769 ms |\n| Average Crawl Response Size | 2.3 kB |\n| Total Crawl Filtered Exchanges | 965 |\n| Duration | 11 min, 17 sec |\n\n\n<h4>Dedupe</h4>\n| Metric | Value |\n| --- | --- |\n| Deduplicated Pages Count | 10 |\n| Total dedup time | 60 ms |\n\n\n<h4>Parser</h4>\n| Metric | Value |\n| --- | --- |\n| Total Parser Links Found | 1550 |\n\n\n| Parser | Link Findings | Links Filtered | Delta | Unique Links | Parser Overlap | Parser Runs | Average Parser Time | Total Parser Time |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Platform | 0 | 0 | 0 | 0 | 0% | 50 | 409 \u03bcs | 20 ms |\n| JavaScript | 0 | 0 | 0 | 0 | 0% | 50 | 68 ms | 3 sec, 447 ms |\n| Robots | 0 | 0 | 0 | 0 | 0% | 50 | 1 \u03bcs | 93 \u03bcs |\n| PathTruncation | 84 | 8 | 76 | 8 | 7% | 50 | 16 \u03bcs | 815 \u03bcs |\n| Redirect | 0 | 0 | 0 | 0 | 0% | 50 | 750 ns | 37 \u03bcs |\n| Form | 0 | 0 | 0 | 0 | 0% | 50 | 547 \u03bcs | 27 ms |\n| Link | 701 | 120 | 581 | 120 | 12% | 50 | 724 \u03bcs | 36 ms |\n| Sitemap | 0 | 0 | 0 | 0 | 0% | 49 | 35 \u03bcs | 1 ms |\n| SPAParser | 765 | 174 | 591 | 174 | 12% | 48 | 7 sec, 645 ms | 6 min, 6 sec, 974 ms |\n\n\n<h4>Target</h4>\n| Metric | Value |\n| --- | --- |\n| Technologies Detected |  |\n| Detected Login Attempts | 1 |\n| Detected Login Successes | 1 |\n| Detected Logouts | 0 |\n| Reaquire state occurrences | 0 |\n\n\n<h4>Scan</h4>\n| Metric | Value |\n| --- | --- |\n| Scan Duration | 13 min, 3 sec |\n| Disabled Payloads | 0 |\n\n\n<h4>SPA</h4>\n| Metric | Value |\n| --- | --- |\n| SPA Count | 183 |\n\n| Event Type | Number of Events | Average Event Duration | Total Event Duration | Average Number of links found | Total Number of links found | Utility score |\n| --- | --- | --- | --- | --- | --- | --- |\n| click | 171 | 508 ms | 1 min, 26 sec, 879 ms | 1.584795 | 271 | 3.119255 |\n| input | 4 | 411 ms | 1 sec, 646 ms | 0.000000 | 0 | 0.000000 |\n| change | 3 | 2 sec, 21 ms | 6 sec, 64 ms | 0.000000 | 0 | 0.000000 |\n| invalid | 3 | 243 ms | 729 ms | 0.000000 | 0 | 0.000000 |\n| keydown | 1 | 351 ms | 351 ms | 0.000000 | 0 | 0.000000 |\n| cancel | 1 | 307 ms | 307 ms | 0.000000 | 0 | 0.000000 |\n\n| Event Depth | Number of Events | Average Event Duration | Total Event Duration | Average Number of links found | Total Number of links found | Utility score |\n| --- | --- | --- | --- | --- | --- | --- |\n| 1 | 183 | 524 ms | 1 min, 35 sec, 978 ms | 1.480874 | 271 | 0 |\n\n\n"
+          },
+          {
+            "key": "remediation",
+            "value": ""
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Undefined"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Undefined"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-691b-803f-e9bce3a85415/artifacts/36d1ea89-3ffd-4f19-8505-8060ba33522f?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-691b-803f-e9bce3a85415/artifacts/3f52e622-34a2-4f43-8dec-37391212b447?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "informational"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 0
+      },
+      {
+        "key": "family-hash",
+        "value": -1637288001
+      },
+      {
+        "key": "overall-score",
+        "value": -1
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[]"
+      },
+      {
+        "key": "method",
+        "value": ""
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-07-31T08:54:33.078417Z"
+      }
+    ],
+    "_cursor": "AAAADg==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/BDEEA30F8E8BBA0CFC6BE611C914B9CC?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/BDEEA30F8E8BBA0CFC6BE611C914B9CC/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/BDEEA30F8E8BBA0CFC6BE611C914B9CC/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-691b-803f-e9bce3a85415?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "2B12D103AA5D4D079B2967C98B9A8276",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-0",
+    "type": {
+      "id": "05c4069b-d07e-0bc4-cb93-3964ad66d7e2",
+      "altName": "Fingerprinting",
+      "_localized": {
+        "name": "Fingerprinting",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "The most common methodology for attackers is to begin by getting the target's web presence \"footprint\" and enumerating as much information as possible -- e.g. the target's platform, web application software technology, backend database version, configurations and possibly even their network architecture/topology. With this information, the attacker may develop an accurate attack scenario, which will effectively exploit a vulnerability in the software type/version being utilized by the target host.\n\nThe goal of Fingerprinting is to determine what technologies are being utilized or exposed via the application, and specifically what version of software is available to the attacker. Once the technology and version are determined the attacker can review known vulnerabilities based on that data. Therefore, it is critical to limit the exposure of information as to what software version is being utilized and, when possible, what software/technology. Be aware that some configuration changes would require a restart of the server for the implementation to take effect.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: WSTG - Information Gathering](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)\n* [WASC](http://projects.webappsec.org/w/page/13246925/Fingerprinting)\n* [CAPEC-170: Web Application Fingerprinting](https://capec.mitre.org/data/definitions/170.html)"
+          },
+          {
+            "key": "remediation",
+            "value": "The goal of Fingerprinting is to determine what technologies are being utilized or exposed via the application, and specifically what version of software is available to the attacker. Once the technology and version are determined the attacker can review known vulnerabilities based on that data. Therefore, it is critical to limit the exposure of information as to what software version is being utilized and, when possible, what software/technology. Be aware that some configuration changes would require a restart of the server for the implementation to take effect.\n\n**References:**\n\n\n* [OWASP: WSTG - Information Gathering](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)\n* [WASC](http://projects.webappsec.org/w/page/13246925/Fingerprinting)\n* [CAPEC-170: Web Application Fingerprinting](https://capec.mitre.org/data/definitions/170.html)"
+          },
+          {
+            "key": "additional-information",
+            "value": "<!-- Fingerprinting -->\n**Server Header:** 1.25.5\n"
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Header"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Header"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690f-803f-3b7408a73eac/artifacts/ca5d5a29-2de9-4e57-b09c-3c0acf88cceb?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690f-803f-3b7408a73eac/artifacts/377e1ccb-ba8a-4953-8dea-b5cd7b320719?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "low"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 20
+      },
+      {
+        "key": "family-hash",
+        "value": 1171425315
+      },
+      {
+        "key": "cwe",
+        "value": "CWE-497"
+      },
+      {
+        "key": "overall-score",
+        "value": 0
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[{\"label\":\"Common Vulnerability Scoring System\",\"abbreviation\":\"CVSS\",\"versions\":[null,{\"score\":\"0.00\",\"vector\":\"map[A:false AC:L AV:false C:false I:false PR:false S:U UI:false]\",\"version\":\"3.0\"}]},{\"label\":\"OWASP Risk Rating Methodology\",\"abbreviation\":\"OWASP\",\"versions\":[null,{\"impact\":\"0\",\"likelihood\":\"0\",\"severity\":\"Informational\",\"technicalImpactFactors\":\"map[lossOfAccountability:0 lossOfAvailability:0 lossOfConfidentiality:0 lossOfIntegrity:0]\",\"version\":\"1.0\",\"vulnerabilityFactors\":\"map[awareness:0 easeOfDiscovery:0 easeOfExploit:0 intrusionDetection:0]\"}]}]"
+      },
+      {
+        "key": "method",
+        "value": "GET"
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/authorize/selector"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-06-21T15:40:23.159345Z"
+      }
+    ],
+    "_cursor": "AAAADw==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/2B12D103AA5D4D079B2967C98B9A8276?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/2B12D103AA5D4D079B2967C98B9A8276/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/2B12D103AA5D4D079B2967C98B9A8276/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-690f-803f-3b7408a73eac?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  },
+  {
+    "id": "E58C4DDEA0BC9BC1C9FB10055B56743C",
+    "context": {
+      "toolType": "dast",
+      "toolId": "fast-dast",
+      "date": "2025-07-18T09:04:24.374Z",
+      "tenantId": "362d264b-0a2b-43a5-93df-872cb4ddb610",
+      "_links": [
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13",
+          "rel": "application",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/applications/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213",
+          "rel": "project",
+          "method": "GET"
+        },
+        {
+          "href": "https://eu.polaris.blackduck.com/api/tests/831a7bc1-cca2-4826-9061-9697882430e9",
+          "rel": "test",
+          "method": "GET"
+        }
+      ]
+    },
+    "weaknessId": "w-0",
+    "type": {
+      "id": "8203fde7-99c0-72c8-6701-d1aa6b50f0fe",
+      "altName": "Crawl Report",
+      "_localized": {
+        "name": "Crawl Report",
+        "otherDetails": [
+          {
+            "key": "description",
+            "value": "Found URLs: <br>`https://af.at.altinn.cloud/`<br>`https://af.at.altinn.cloud/?loggedIn=true`<br>`https://af.at.altinn.cloud/?search=skatt&sender=Digitaliseringsdirektoratet&status=ARCHIVE`<br>`https://af.at.altinn.cloud/?search=skatt&sender=Digitaliseringsdirektoratet&status=DRAFT`<br>`https://af.at.altinn.cloud/?search=skatt&status=DRAFT`<br>`https://af.at.altinn.cloud/?search=test`<br>`https://af.at.altinn.cloud/api/cb?code=L1LFK7HQlseDKDDTX9SuQA.ryXKuNSPHrETCkPWzua3hQ&iss=https%3A%2F%2Ftest.idporten.no&state=6d0970628059fccc16bf05bad6b8649b`<br>`https://af.at.altinn.cloud/api/graphql`<br>`https://af.at.altinn.cloud/api/isAuthenticated`<br>`https://af.at.altinn.cloud/api/login`<br>`https://af.at.altinn.cloud/archive?party=urn%253Aaltinn%253Aorganization%253Aidentifier-no%253A212475912`<br>`https://af.at.altinn.cloud/authorize/`<br>`https://af.at.altinn.cloud/authorize/selector`<br>`https://af.at.altinn.cloud/bin?party=urn%253Aaltinn%253Aorganization%253Aidentifier-no%253A212475912`<br>`https://af.at.altinn.cloud/inbox/`<br>`https://af.at.altinn.cloud/inbox/0192291f-63be-718e-9c4b-3457d417288a/?search=test`<br>`https://af.at.altinn.cloud/inbox/0192291f-63be-718e-9c4b-3457d417288a?search=skatt&sender=Digitaliseringsdirektoratet&status=DRAFT`<br>`https://af.at.altinn.cloud/inbox/0192291f-63be-718e-9c4b-3457d417288a?search=skatt&status=DRAFT`<br>`https://af.at.altinn.cloud/inbox/0192291f-63be-718e-9c4b-3457d417288a?sender=Digitaliseringsdirektoratet&status=DRAFT`<br>`https://af.at.altinn.cloud/inbox/01922923-5481-7646-a721-2b537e683a4b/?search=test`<br>`https://af.at.altinn.cloud/inbox/01922923-5481-7646-a721-2b537e683a4b?search=skatt&sender=Digitaliseringsdirektoratet&status=DRAFT`<br>`https://af.at.altinn.cloud/inbox/01922923-5481-7646-a721-2b537e683a4b?search=skatt&status=DRAFT`<br>`https://af.at.altinn.cloud/inbox/0192292d-157a-779d-a4e8-b777525c8323/`<br>`https://af.at.altinn.cloud/inbox/01936e2c-8510-7166-915c-fc310a438dad/?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e2d-3a7b-720b-8257-8b07f0a2e65c/?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e30-ac82-70f3-96ba-eb3ccd31586a/`<br>`https://af.at.altinn.cloud/inbox/01936e30-ac82-70f3-96ba-eb3ccd31586a/?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e3f-3c34-7677-98ab-6dffc113f9df/`<br>`https://af.at.altinn.cloud/inbox/01936e3f-3c34-7677-98ab-6dffc113f9df/?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e44-a2a4-77ab-a0cd-c2e7022ca798/`<br>`https://af.at.altinn.cloud/inbox/01936e44-a2a4-77ab-a0cd-c2e7022ca798/?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e44-a2a4-77ab-a0cd-c2e7022ca798?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e4b-2bd6-7304-a98f-147e066fbd59/?search=test`<br>`https://af.at.altinn.cloud/inbox/01936e4b-2bd6-7304-a98f-147e066fbd59?search=test`<br>`https://af.at.altinn.cloud/inbox/01937736-47bd-7259-a774-74902fb1fd8c/?search=test`<br>`https://af.at.altinn.cloud/inbox/01937766-ff24-7305-9361-d14743d2db30/?search=test`<br>`https://af.at.altinn.cloud/inbox/0197e3cf-000c-72d7-a2b8-9a51923cc259/`<br>`https://af.at.altinn.cloud/inbox/0197e3cf-000c-72d7-a2b8-9a51923cc259/?search=test`<br>`https://af.at.altinn.cloud/inbox/f57d9101-e17a-8b76-94ba-c6d63f56b96f/`<br>`https://af.at.altinn.cloud/inbox/f67d9101-5149-6377-95db-6146e6b2e196/`<br>`https://af.at.altinn.cloud/saved-searches`<br>`https://af.at.altinn.cloud/saved-searches?party=urn%253Aaltinn%253Aorganization%253Aidentifier-no%253A212475912`<br>`https://af.at.altinn.cloud/sitemap.xml`<br>"
+          },
+          {
+            "key": "remediation",
+            "value": "None"
+          },
+          {
+            "key": "additional-information",
+            "value": ""
+          }
+        ]
+      }
+    },
+    "occurrenceProperties": [
+      {
+        "key": "attack-segment",
+        "value": "Undefined"
+      },
+      {
+        "key": "evidence",
+        "value": [
+          {
+            "label": "Original Request",
+            "attack": {
+              "scope": "Application",
+              "segment": "Undefined"
+            },
+            "_links": [
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-691a-803f-37e1481b3216/artifacts/1b4f2cc0-328e-4235-a2c1-54152d9b6a64?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "request",
+                "method": "GET"
+              },
+              {
+                "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-691a-803f-37e1481b3216/artifacts/a12478e9-8188-4e07-a851-ac5cbc120c07?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+                "rel": "response",
+                "method": "GET"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "matched-strings",
+        "value": "null"
+      },
+      {
+        "key": "severity",
+        "value": "informational"
+      },
+      {
+        "key": "version",
+        "value": 1
+      },
+      {
+        "key": "attack-scope",
+        "value": "Application"
+      },
+      {
+        "key": "base-risk-score",
+        "value": 0
+      },
+      {
+        "key": "family-hash",
+        "value": -1637288001
+      },
+      {
+        "key": "overall-score",
+        "value": -1
+      },
+      {
+        "key": "attack-target",
+        "value": ""
+      },
+      {
+        "key": "scores",
+        "value": "[]"
+      },
+      {
+        "key": "method",
+        "value": ""
+      },
+      {
+        "key": "location",
+        "value": "https://af.at.altinn.cloud/"
+      }
+    ],
+    "triageProperties": [
+      {
+        "key": "status",
+        "value": "not-dismissed"
+      },
+      {
+        "key": "dismissal-reason",
+        "value": "unset"
+      },
+      {
+        "key": "is-dismissed",
+        "value": false
+      },
+      {
+        "key": "fix-by",
+        "value": "2025-02-24T12:17:42.190602Z"
+      }
+    ],
+    "_cursor": "AAAAEA==",
+    "_links": [
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/E58C4DDEA0BC9BC1C9FB10055B56743C?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213&_includeType=true&_includeOccurrenceProperties=true&_includeTriageProperties=true&_includeContext=true",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/E58C4DDEA0BC9BC1C9FB10055B56743C/triage-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "triage-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/issues/E58C4DDEA0BC9BC1C9FB10055B56743C/detection-history?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "detection-history",
+        "method": "GET"
+      },
+      {
+        "href": "https://eu.polaris.blackduck.com/api/findings/occurrences/1f063b63-3892-691a-803f-37e1481b3216?projectId=9ec25e6c-5480-45f8-9352-4327ec1c0213",
+        "rel": "occurrence",
+        "method": "GET"
+      }
+    ],
+    "_type": "issues"
+  }
+]

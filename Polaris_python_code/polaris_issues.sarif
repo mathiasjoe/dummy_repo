@@ -1,0 +1,532 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DAST-Scanner",
+          "rules": [
+            {
+              "id": "FE898C4108F072ADD7440139DFCD9780",
+              "name": "Unsecured Session Cookie (CWE-614)",
+              "shortDescription": {
+                "text": "Unsecured Session Cookie (CWE-614)"
+              },
+              "fullDescription": {
+                "text": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/FE898C4108F072ADD7440139DFCD9780?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/FE898C4108F072ADD7440139DFCD9780?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+              },
+              "properties": {
+                "security-severity": "4.8"
+              }
+            },
+            {
+              "id": "88E45A3A80C8CFA849DE5F97DAE12554",
+              "name": "Unsecured Session Cookie (CWE-614)",
+              "shortDescription": {
+                "text": "Unsecured Session Cookie (CWE-614)"
+              },
+              "fullDescription": {
+                "text": "The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/88E45A3A80C8CFA849DE5F97DAE12554?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/88E45A3A80C8CFA849DE5F97DAE12554?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The application fails to set the 'Secure' attribute on one or more cookies, which exposes them to attacks on insecure network communication. If the 'Secure' attribute is set on a cookie, the browser sends the cookie over encrypted HTTPS connections, and not over HTTP. The 'Secure' attribute helps prevent cookies from being stolen by attackers on the same network as victims; cookies without this attribute can be stolen.\n\nIf this attribute is not set, the browser sends the cookie to the vulnerable site along with all HTTP requests to that site. An attacker that can sniff traffic between the victim and the server can steal the sensitive cookies.\n\nThe 'Secure' attribute needs to be set even if the vulnerable site only serves content over HTTPS and does not listen for HTTP traffic. An attacker on the same LAN as the victim can inject arbitrary content into any page from another site that is served over plain-text HTTP. For example, an attacker can inject content such as the following into any plain-text HTTP response:\n\n```\n<img src=\"http://vulnerable.example.com/\">\n```\n\nThe victim's browser sends a plain-text HTTP request for http://vulnerable.example.com/, including the victim's cookie, which can be compromised by a man-in-the-middle attacker as the data is sent unencrypted.\r\n\r\nIf the 'Secure' attribute is not set on a cookie, the cookie may be sent over unencrypted connections and can be stolen by an attacker with access to the network path. If the cookie contains the victim's session identifier, then the attacker can steal the victim's session.\n\n**References:**\n\n\n* [Secure Cookie Attribute](https://owasp.org/www-community/controls/SecureCookieAttribute)"
+              },
+              "properties": {
+                "security-severity": "4.8"
+              }
+            },
+            {
+              "id": "DC79D901A99C3A990F67AD4C0520D1BB",
+              "name": "Missing X-Content-Type-Options Header (CWE-693)",
+              "shortDescription": {
+                "text": "Missing X-Content-Type-Options Header (CWE-693)"
+              },
+              "fullDescription": {
+                "text": "The application server does not set the \"X-Content-Type-Options\" header in HTTP responses. The X-Content-Type-Options header mechanism prevents a web browser from overriding the MIME type indicated in the application's Content-Type response header.\n\nMost modern browsers can inspect application responses through \"MIME sniffing\" and determine if the correct Content-Type is specified by the application server. When the X-Content-Type-Options header is specified by an application, browsers will not perform MIME sniffing and will trust the Content-Type specified by the application.\n\nApplications that do not set the X-Content-Type-Options header \"nosniff\" directive explicitly in the application response are more susceptible to MIME Confusion attacks. A MIME confusion attack occurs when an application resource does not provide sufficient metadata to the web browser about the response's content type. In a normal scenario where MIME sniffing is allowed, the web browser sniffs the content of a response to determine which MIME type should be used. Once the web browser has completed its analysis of the response, it compares what is found against the server provided content type header (if present). If the browser detects a mismatched content type, the browser uses the MIME type that it determined on its own.\n\nFor example, consider an application that allows users to upload JPG image files to the server. In this scenario, an attacker may be able to upload a malicious image file where the content of the file is valid HTML or JavaScript. When the uploaded file is returned in the application response, the browser may sniff the content of the malicious file and determine its MIME type to be HTML or JavaScript. When the malicious image file is rendered by the browser, instead of displaying an image, the attacker's malicious HTML or JavaScript is executed.\r\n\r\nEnabled content sniffing makes MIME Confusion attacks possible which, in their turn, lead to cross-site scripting (XSS). Using an XSS, an attacker can arbitrarily alter page content displayed to the victim and can execute application functions using the victim's application identity if the victim is authenticated to the application."
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/DC79D901A99C3A990F67AD4C0520D1BB?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/DC79D901A99C3A990F67AD4C0520D1BB?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The application server does not set the \"X-Content-Type-Options\" header in HTTP responses. The X-Content-Type-Options header mechanism prevents a web browser from overriding the MIME type indicated in the application's Content-Type response header.\n\nMost modern browsers can inspect application responses through \"MIME sniffing\" and determine if the correct Content-Type is specified by the application server. When the X-Content-Type-Options header is specified by an application, browsers will not perform MIME sniffing and will trust the Content-Type specified by the application.\n\nApplications that do not set the X-Content-Type-Options header \"nosniff\" directive explicitly in the application response are more susceptible to MIME Confusion attacks. A MIME confusion attack occurs when an application resource does not provide sufficient metadata to the web browser about the response's content type. In a normal scenario where MIME sniffing is allowed, the web browser sniffs the content of a response to determine which MIME type should be used. Once the web browser has completed its analysis of the response, it compares what is found against the server provided content type header (if present). If the browser detects a mismatched content type, the browser uses the MIME type that it determined on its own.\n\nFor example, consider an application that allows users to upload JPG image files to the server. In this scenario, an attacker may be able to upload a malicious image file where the content of the file is valid HTML or JavaScript. When the uploaded file is returned in the application response, the browser may sniff the content of the malicious file and determine its MIME type to be HTML or JavaScript. When the malicious image file is rendered by the browser, instead of displaying an image, the attacker's malicious HTML or JavaScript is executed.\r\n\r\nEnabled content sniffing makes MIME Confusion attacks possible which, in their turn, lead to cross-site scripting (XSS). Using an XSS, an attacker can arbitrarily alter page content displayed to the victim and can execute application functions using the victim's application identity if the victim is authenticated to the application."
+              },
+              "properties": {
+                "security-severity": "3.1"
+              }
+            },
+            {
+              "id": "1D643B30F94A3DBEADEAAFF91C746990",
+              "name": "Missing CSP (CWE-693)",
+              "shortDescription": {
+                "text": "Missing CSP (CWE-693)"
+              },
+              "fullDescription": {
+                "text": "The application server does not set the Content-Security-Policy (CSP) header in HTTP responses, and therefore does not benefit from the additional protection against potential cross-site scripting issues and other browser-based vulnerabilities that a properly configured CSP may provide. \n\nThe CSP instructs the browser to only load and render trusted resources  specified in the header. A compliant browser will deny loading any resources (such as scripts, images, or objects) not listed in the policy.\n\nCSP has evolved over time and has introduced new security controls. Each introduced control provides improved protection capabilities, here are the fundamental details:\n\n* Level 1 - Initial version, mainly based around allow-list, but proven to be difficult to use securely in practice\n* Level 2 - Introduced  the ability to designate trusted third-party and inline-scripts with a nonce value, rejecting other scripts without the valid nonce\n* Level 3 - Introduced 'strict-dynamic' which enabled easier deployments by dynamically propagating trust from specific root scripts (designated with a nonce or a hash) to any additional scripts loaded by these trusted scripts\n\nCSP allows browsers to differentiate between trusted and untrusted content requested by the page. By default, it also prohibits inline script execution, as well as dynamic script evaluation. A CSP adds an additional line of defense and reduces the overall security risk.\r\n\r\nA missing Content-Security-Policy means that the application will not benefit from the extra protection that it could provide, thereby making the application more vulnerable to exploitation of any existing security issues.\n\n**References:**\n\n\n* [Content Security Policy](https://owasp.org/www-community/controls/Content_Security_Policy)\n* [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/)\n* [Content Security Policy \\(CSP\\)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/1D643B30F94A3DBEADEAAFF91C746990?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/1D643B30F94A3DBEADEAAFF91C746990?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The application server does not set the Content-Security-Policy (CSP) header in HTTP responses, and therefore does not benefit from the additional protection against potential cross-site scripting issues and other browser-based vulnerabilities that a properly configured CSP may provide. \n\nThe CSP instructs the browser to only load and render trusted resources  specified in the header. A compliant browser will deny loading any resources (such as scripts, images, or objects) not listed in the policy.\n\nCSP has evolved over time and has introduced new security controls. Each introduced control provides improved protection capabilities, here are the fundamental details:\n\n* Level 1 - Initial version, mainly based around allow-list, but proven to be difficult to use securely in practice\n* Level 2 - Introduced  the ability to designate trusted third-party and inline-scripts with a nonce value, rejecting other scripts without the valid nonce\n* Level 3 - Introduced 'strict-dynamic' which enabled easier deployments by dynamically propagating trust from specific root scripts (designated with a nonce or a hash) to any additional scripts loaded by these trusted scripts\n\nCSP allows browsers to differentiate between trusted and untrusted content requested by the page. By default, it also prohibits inline script execution, as well as dynamic script evaluation. A CSP adds an additional line of defense and reduces the overall security risk.\r\n\r\nA missing Content-Security-Policy means that the application will not benefit from the extra protection that it could provide, thereby making the application more vulnerable to exploitation of any existing security issues.\n\n**References:**\n\n\n* [Content Security Policy](https://owasp.org/www-community/controls/Content_Security_Policy)\n* [Content Security Policy Level 2](https://www.w3.org/TR/CSP2/)\n* [Content Security Policy \\(CSP\\)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)"
+              },
+              "properties": {
+                "security-severity": "3.7"
+              }
+            },
+            {
+              "id": "0091E86C5EE1E7B7441EFE89D4C7FE4B",
+              "name": "Cookie with Improper SameSite Attribute",
+              "shortDescription": {
+                "text": "Cookie with Improper SameSite Attribute"
+              },
+              "fullDescription": {
+                "text": "The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/0091E86C5EE1E7B7441EFE89D4C7FE4B?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/0091E86C5EE1E7B7441EFE89D4C7FE4B?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
+              },
+              "properties": {
+                "security-severity": "3.1"
+              }
+            },
+            {
+              "id": "6022613DFA196D356425944414EA7185",
+              "name": "Cookie with Improper SameSite Attribute",
+              "shortDescription": {
+                "text": "Cookie with Improper SameSite Attribute"
+              },
+              "fullDescription": {
+                "text": "The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/6022613DFA196D356425944414EA7185?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/6022613DFA196D356425944414EA7185?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The \"SameSite\" attribute is not set, or an insecure value is used, on cookies containing sensitive information. This attribute can be set as part of a Set-Cookie header to prevent the browser from sending this cookie along with cross-site requests. The primary purpose of this control is to reduce the possibility of cross-site request forgery (CSRF) attacks, although it should be seen as a complementary defense in depth mechanism rather than the primary defense against CSRF attacks.\n\nThe \"SameSite\" cookie attribute supports three different values:\n\n* None - cookies for the site are always sent with requests. This is the default behavior in older browsers and provides no protection against CSRF. Note that cookies without the \"Secure\" attribute will be blocked from setting \"SameSite=None\" by browsers.\n* Lax - cookies for the site will normally not be sent on cross-site requests, but will be included for top-level navigation (e.g., when a user clicks on a link from a different site). This is the default behavior in recent versions of some modern browsers, such as Chrome and Edge, and provides limited protection against some CSRF attacks.\n* Strict -  cookies for the site will only be included with same-site requests, and never included with cross-site requests. This is the most secure setting of the three but may have some negative impact on user experience, e.g., cross-site navigation to a site where the user has already logged in will still appear to the user as if they were not authenticated.\r\n\r\nIf the \"SameSite\" attribute is not set on a cookie, or the value is set to \"None\", the cookie may be sent by the browser in any cross-site requests and could therefore cause a victim's browser to submit the cookie with requests that execute sensitive actions without the user's knowledge in the event of cross-site request forgery attacks on the application.\n\n**References:**\n\n\n* [SameSite](https://owasp.org/www-community/SameSite)"
+              },
+              "properties": {
+                "security-severity": "3.1"
+              }
+            },
+            {
+              "id": "166E7B8D3B8EBD2F841FC8F80B129E30",
+              "name": "Frameable Resource (CWE-1021)",
+              "shortDescription": {
+                "text": "Frameable Resource (CWE-1021)"
+              },
+              "fullDescription": {
+                "text": "A Frameable Resource is related to a number of vulnerabilities which result from a browser allowing pages to be rendered in a frame. An attacker who can frame a resource within another resource they control may be able to trick the user into acting out of context of the target application. This can be accomplished by hiding the desired UI elements by making them transparent and then using various techniques to induce the desired action from the victim user.\n\nYou should review any resources that are frameable for anything sensitive as they may potentially be vulnerable to a vast array of attacks, including Clickjacking and Cross Site Scripting. Moreover, an attacker can leverage frames to unfold timing and side channel attacks in order to obtain private user data.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)\n* [X-Frame-Options: All about Clickjacking?](https://frederik-braun.com/xfo-clickjacking.pdf)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/166E7B8D3B8EBD2F841FC8F80B129E30?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/166E7B8D3B8EBD2F841FC8F80B129E30?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n A Frameable Resource is related to a number of vulnerabilities which result from a browser allowing pages to be rendered in a frame. An attacker who can frame a resource within another resource they control may be able to trick the user into acting out of context of the target application. This can be accomplished by hiding the desired UI elements by making them transparent and then using various techniques to induce the desired action from the victim user.\n\nYou should review any resources that are frameable for anything sensitive as they may potentially be vulnerable to a vast array of attacks, including Clickjacking and Cross Site Scripting. Moreover, an attacker can leverage frames to unfold timing and side channel attacks in order to obtain private user data.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: Clickjacking](https://owasp.org/www-community/attacks/Clickjacking)\n* [X-Frame-Options: All about Clickjacking?](https://frederik-braun.com/xfo-clickjacking.pdf)"
+              },
+              "properties": {
+                "security-severity": "4.3"
+              }
+            },
+            {
+              "id": "C32C453DDE75CAFA58B3B4FDD2291B57",
+              "name": "HTTP Strict Transport Security (HSTS) (CWE-311)",
+              "shortDescription": {
+                "text": "HTTP Strict Transport Security (HSTS) (CWE-311)"
+              },
+              "fullDescription": {
+                "text": "The server does not implement the \"HTTP Strict Transport Security\" (HSTS) web security policy mechanism.\n\nWhen HSTS is enabled, the webserver sends the special HTTP response header called \"Strict-Transport-Security\" to the client. This header includes the max-age attribute, which specifies a duration of time in seconds. Optionally, the directive 'includeSubdomains' can be included to indicate that this policy should apply to all sub-domains as well. After a browser receives this header over a secure HTTPS connection (without any certificate errors), the browser makes new requests to the application over secure HTTPS connections for the duration of time specified in the header. Any links to the server over insecure HTTP connections are automatically rewritten to HTTPS before the request is made. HSTS prevents a user from ignoring certificate errors, as it prevents the user from connecting to a website with an invalid certificate.\r\n\r\nApplications that do not utilize the \"HTTP Strict-Transport-Security\" policy are more susceptible to man-in-the-middle (MITM) attacks via \"SSL stripping\", which occurs when an attacker transparently downgrades a victim's communication with the server from HTTPS to HTTP. Once this is accomplished, the attacker gains the ability to view and potentially modify the victim's traffic, exposing sensitive information, and gaining access to unauthorized functionality.\n\n**References:**\n\n\n* [HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/C32C453DDE75CAFA58B3B4FDD2291B57?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/C32C453DDE75CAFA58B3B4FDD2291B57?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The server does not implement the \"HTTP Strict Transport Security\" (HSTS) web security policy mechanism.\n\nWhen HSTS is enabled, the webserver sends the special HTTP response header called \"Strict-Transport-Security\" to the client. This header includes the max-age attribute, which specifies a duration of time in seconds. Optionally, the directive 'includeSubdomains' can be included to indicate that this policy should apply to all sub-domains as well. After a browser receives this header over a secure HTTPS connection (without any certificate errors), the browser makes new requests to the application over secure HTTPS connections for the duration of time specified in the header. Any links to the server over insecure HTTP connections are automatically rewritten to HTTPS before the request is made. HSTS prevents a user from ignoring certificate errors, as it prevents the user from connecting to a website with an invalid certificate.\r\n\r\nApplications that do not utilize the \"HTTP Strict-Transport-Security\" policy are more susceptible to man-in-the-middle (MITM) attacks via \"SSL stripping\", which occurs when an attacker transparently downgrades a victim's communication with the server from HTTPS to HTTP. Once this is accomplished, the attacker gains the ability to view and potentially modify the victim's traffic, exposing sensitive information, and gaining access to unauthorized functionality.\n\n**References:**\n\n\n* [HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)"
+              },
+              "properties": {
+                "security-severity": "3.7"
+              }
+            },
+            {
+              "id": "5C91C9BE986082C7F2736ED00046CDE9",
+              "name": "Missing Cache Control Header (CWE-525)",
+              "shortDescription": {
+                "text": "Missing Cache Control Header (CWE-525)"
+              },
+              "fullDescription": {
+                "text": "The application is not utilizing Cache-Control header, which can lead to sensitive data being cached by the browser.\r\n\r\n"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/5C91C9BE986082C7F2736ED00046CDE9?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/5C91C9BE986082C7F2736ED00046CDE9?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The application is not utilizing Cache-Control header, which can lead to sensitive data being cached by the browser.\r\n\r\n"
+              },
+              "properties": {
+                "security-severity": "0"
+              }
+            },
+            {
+              "id": "CEECBEAFC96BDD31E113AB9A203A73F7",
+              "name": "Non-HttpOnly Session Cookie (CWE-1004)",
+              "shortDescription": {
+                "text": "Non-HttpOnly Session Cookie (CWE-1004)"
+              },
+              "fullDescription": {
+                "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/CEECBEAFC96BDD31E113AB9A203A73F7?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/CEECBEAFC96BDD31E113AB9A203A73F7?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+              },
+              "properties": {
+                "security-severity": "3.4"
+              }
+            },
+            {
+              "id": "09D025DC4C6A1E6CF87EB529E56AACCB",
+              "name": "Non-HttpOnly Session Cookie (CWE-1004)",
+              "shortDescription": {
+                "text": "Non-HttpOnly Session Cookie (CWE-1004)"
+              },
+              "fullDescription": {
+                "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/09D025DC4C6A1E6CF87EB529E56AACCB?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/09D025DC4C6A1E6CF87EB529E56AACCB?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+              },
+              "properties": {
+                "security-severity": "3.4"
+              }
+            },
+            {
+              "id": "ED04FA8B1484CEBFE0303D4414BE902D",
+              "name": "Non-HttpOnly Session Cookie (CWE-1004)",
+              "shortDescription": {
+                "text": "Non-HttpOnly Session Cookie (CWE-1004)"
+              },
+              "fullDescription": {
+                "text": "The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/ED04FA8B1484CEBFE0303D4414BE902D?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/ED04FA8B1484CEBFE0303D4414BE902D?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The \"HttpOnly\" flag is not set on cookies containing sensitive information. The HttpOnly flag is an attribute set as part of a Set-Cookie header to prevent the cookie's value from being read or set by client-side JavaScript in browsers. Without the HttpOnly attribute, the cookie's value can be accessed by client-side scripts like JavaScript.\r\n\r\nFailing to set the HttpOnly flag on a cookie containing sensitive information will leave it exposed to client-side scripts and could therefore lead to its compromise in the event of a cross-site scripting attack on the application. If a session cookie is missing this flag, it can also make a session compromise easier to perform during a cross-site scripting attack since the attacker can obtain a copy of the session cookie. \n\nNote that the HttpOnly flag is not a protection against session hijacking or cross-site scripting attacks in general, it will only prevent specific attacks that rely on the ability to read cookie values from client-side scripts.\n\n**References:**\n\n\n* [Mitigating Cross-site Scripting With HTTP-only Cookies](https://docs.microsoft.com/en-us/previous-versions//ms533046\\(v=vs.85\\))\n* [HttpOnly](https://owasp.org/www-community/HttpOnly)"
+              },
+              "properties": {
+                "security-severity": "3.4"
+              }
+            },
+            {
+              "id": "2B12D103AA5D4D079B2967C98B9A8276",
+              "name": "Fingerprinting (CWE-497)",
+              "shortDescription": {
+                "text": "Fingerprinting (CWE-497)"
+              },
+              "fullDescription": {
+                "text": "The most common methodology for attackers is to begin by getting the target's web presence \"footprint\" and enumerating as much information as possible -- e.g. the target's platform, web application software technology, backend database version, configurations and possibly even their network architecture/topology. With this information, the attacker may develop an accurate attack scenario, which will effectively exploit a vulnerability in the software type/version being utilized by the target host.\n\nThe goal of Fingerprinting is to determine what technologies are being utilized or exposed via the application, and specifically what version of software is available to the attacker. Once the technology and version are determined the attacker can review known vulnerabilities based on that data. Therefore, it is critical to limit the exposure of information as to what software version is being utilized and, when possible, what software/technology. Be aware that some configuration changes would require a restart of the server for the implementation to take effect.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: WSTG - Information Gathering](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)\n* [WASC](http://projects.webappsec.org/w/page/13246925/Fingerprinting)\n* [CAPEC-170: Web Application Fingerprinting](https://capec.mitre.org/data/definitions/170.html)"
+              },
+              "helpUri": "https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/2B12D103AA5D4D079B2967C98B9A8276?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed",
+              "help": {
+                "text": "Detailed explanation of the issue.",
+                "markdown": "[View issue details in Polaris](https://eu.polaris.blackduck.com/portfolio/portfolios/074b4f38-ece1-4091-aa9e-637925491dbc/portfolio-items/2c76039d-7b8b-4f0b-a835-ac4697890a13/projects/9ec25e6c-5480-45f8-9352-4327ec1c0213/issues/2B12D103AA5D4D079B2967C98B9A8276?filter=triage%3Astatus%3Dnot-dismissed%2Cto-be-fixed) \n The most common methodology for attackers is to begin by getting the target's web presence \"footprint\" and enumerating as much information as possible -- e.g. the target's platform, web application software technology, backend database version, configurations and possibly even their network architecture/topology. With this information, the attacker may develop an accurate attack scenario, which will effectively exploit a vulnerability in the software type/version being utilized by the target host.\n\nThe goal of Fingerprinting is to determine what technologies are being utilized or exposed via the application, and specifically what version of software is available to the attacker. Once the technology and version are determined the attacker can review known vulnerabilities based on that data. Therefore, it is critical to limit the exposure of information as to what software version is being utilized and, when possible, what software/technology. Be aware that some configuration changes would require a restart of the server for the implementation to take effect.\r\n\r\n\n\n**References:**\n\n\n* [OWASP: WSTG - Information Gathering](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/)\n* [WASC](http://projects.webappsec.org/w/page/13246925/Fingerprinting)\n* [CAPEC-170: Web Application Fingerprinting](https://capec.mitre.org/data/definitions/170.html)"
+              },
+              "properties": {
+                "security-severity": "0"
+              }
+            }
+          ]
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "POLARIS",
+            "uriBaseId": "SRCROOT"
+          },
+          "sourceLanguage": "python"
+        }
+      ],
+      "results": [
+        {
+          "ruleId": "FE898C4108F072ADD7440139DFCD9780",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unsecured Session Cookie (CWE-614)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "88E45A3A80C8CFA849DE5F97DAE12554",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Unsecured Session Cookie (CWE-614)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DC79D901A99C3A990F67AD4C0520D1BB",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Missing X-Content-Type-Options Header (CWE-693)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "1D643B30F94A3DBEADEAAFF91C746990",
+          "ruleIndex": 3,
+          "message": {
+            "text": "Missing CSP (CWE-693)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "0091E86C5EE1E7B7441EFE89D4C7FE4B",
+          "ruleIndex": 4,
+          "message": {
+            "text": "Cookie with Improper SameSite Attribute"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "6022613DFA196D356425944414EA7185",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Cookie with Improper SameSite Attribute"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "166E7B8D3B8EBD2F841FC8F80B129E30",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Frameable Resource (CWE-1021)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "C32C453DDE75CAFA58B3B4FDD2291B57",
+          "ruleIndex": 7,
+          "message": {
+            "text": "HTTP Strict Transport Security (HSTS) (CWE-311)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "5C91C9BE986082C7F2736ED00046CDE9",
+          "ruleIndex": 8,
+          "message": {
+            "text": "Missing Cache Control Header (CWE-525)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CEECBEAFC96BDD31E113AB9A203A73F7",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Non-HttpOnly Session Cookie (CWE-1004)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "09D025DC4C6A1E6CF87EB529E56AACCB",
+          "ruleIndex": 10,
+          "message": {
+            "text": "Non-HttpOnly Session Cookie (CWE-1004)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "ED04FA8B1484CEBFE0303D4414BE902D",
+          "ruleIndex": 11,
+          "message": {
+            "text": "Non-HttpOnly Session Cookie (CWE-1004)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "2B12D103AA5D4D079B2967C98B9A8276",
+          "ruleIndex": 12,
+          "message": {
+            "text": "Fingerprinting (CWE-497)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "POLARIS",
+                  "uriBaseId": "SRCROOT",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
