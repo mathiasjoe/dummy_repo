@@ -6,13 +6,22 @@ permissions:
   security-events: write
 
 on:
-  # schedule:
-  #   - cron: '0 13 * * 1'  # Runs every Monday at 13:00 (example schedule, adjust as needed)
+   #   - cron: '0 13 * * 1'  # Runs every Monday at 13:00
   workflow_dispatch:
 
 jobs:
   extract-findings:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      # Kjør sekvensielt ved behov: max-parallel: 1
+      matrix:
+        include:
+          - name: projectA
+            secret: POLARIS_PROJECT_ID_1   # <- navn på secret
+          - name: projectB
+            secret: POLARIS_PROJECT_ID_2   # <- navn på secret
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,18 +35,19 @@ jobs:
         run: pip install requests
 
       - name: Run extract_findings.py
+        working-directory: Polaris_python_code
         env:
           POLARIS_URL: ${{ secrets.POLARIS_URL }}
           POLARIS_TOKEN: ${{ secrets.POLARIS_TOKEN }}
           POLARIS_PORTFOLIO_ID: ${{ secrets.POLARIS_PORTFOLIO_ID }}
-          POLARIS_PROJECT_ID: ${{ secrets.POLARIS_PROJECT_ID }}
-
-        #Update the run command to match your appplication
+          POLARIS_PROJECT_ID: ${{ secrets[matrix.secret] }}
         run: |
-          cd "Polaris python code"
           python extract_findings.py "$POLARIS_URL" "$POLARIS_TOKEN" "$POLARIS_PORTFOLIO_ID" "$POLARIS_PROJECT_ID"
+          mv polaris_issues.sarif "polaris_issues_${{ matrix.name }}.sarif"
 
       - name: Upload SARIF to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: "Polaris python code/polaris_issues.sarif" # Update the path
+          sarif_file: "Polaris_python_code/polaris_issues_${{ matrix.name }}.sarif"
+          category: "polaris-${{ matrix.name }}"
+
