@@ -6,7 +6,8 @@ permissions:
   security-events: write
 
 on:
-   #   - cron: '0 13 * * 1'  # Runs every Monday at 13:00
+  schedule:
+    - cron: '0 13 * * 1'  # Runs every Monday at 13:00
   workflow_dispatch:
 
 jobs:
@@ -14,13 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # Kjør sekvensielt ved behov: max-parallel: 1
       matrix:
         include:
           - name: projectA
-            secret: POLARIS_PROJECT_ID_1   # <- navn på secret
+            secret: POLARIS_PROJECT_ID_1   # Legg til prosjekt 1
           - name: projectB
-            secret: POLARIS_PROJECT_ID_2   # <- navn på secret
+            secret: POLARIS_PROJECT_ID_2   # Legg til prosjekt 2
 
     steps:
       - name: Checkout code
